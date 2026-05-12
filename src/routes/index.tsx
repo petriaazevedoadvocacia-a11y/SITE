@@ -293,8 +293,7 @@ function Hero() {
               width={1280}
               height={1280}
               decoding="async"
-              // @ts-expect-error fetchpriority valid HTML attr
-              fetchpriority="high"
+              fetchPriority="high"
               className="h-full w-full object-cover"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--color-bordeaux-deep)]/40 via-transparent to-transparent" />
