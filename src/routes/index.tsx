@@ -186,13 +186,7 @@ export const Route = createFileRoute("/")({
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap",
       },
-      {
-        rel: "preload",
-        as: "image",
-        href: heroImg,
-        // @ts-expect-error fetchpriority is valid HTML attr not yet typed
-        fetchpriority: "high",
-      },
+      { rel: "preload", as: "image", href: heroImg },
     ],
     scripts: [
       {
