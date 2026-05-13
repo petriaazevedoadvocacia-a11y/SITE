@@ -33,16 +33,26 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
-  --color-ivory: var(--ivory);
+  /* ──────── Paleta Editorial Bordô ──────── */
+  --color-cream: var(--cream);
   --color-bone: var(--bone);
-  --color-navy: var(--navy);
-  --color-navy-deep: var(--navy-deep);
-  --color-navy-ink: var(--navy-ink);
-  --color-gold: var(--gold);
-  --color-gold-deep: var(--gold-deep);
+  --color-blush: var(--blush);
+  --color-blush-soft: var(--blush-soft);
+  --color-wine: var(--wine);
+  --color-wine-deep: var(--wine-deep);
+  --color-wine-ink: var(--wine-ink);
+  --color-champagne: var(--champagne);
+  --color-champagne-deep: var(--champagne-deep);
+  --color-ink: var(--ink);
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-deep: var(--whatsapp-deep);
-  --color-ink: var(--ink);
+  /* legacy aliases para WhatsappButton e qualquer ref antiga */
+  --color-navy: var(--wine);
+  --color-navy-deep: var(--wine-deep);
+  --color-navy-ink: var(--wine-ink);
+  --color-gold: var(--champagne);
+  --color-gold-deep: var(--champagne-deep);
+  --color-ivory: var(--cream);
 
   --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -52,62 +62,54 @@
 :root {
   --radius: 0.5rem;
 
-  /* Palette: Navy advocatício + dourado champanhe + ivory editorial */
-  --ivory: oklch(0.985 0.005 85);
-  --bone: oklch(0.955 0.008 80);
-  --navy: oklch(0.30 0.055 255);
-  --navy-deep: oklch(0.20 0.045 258);
-  --navy-ink: oklch(0.14 0.035 260);
-  --gold: oklch(0.74 0.10 82);
-  --gold-deep: oklch(0.62 0.11 78);
-  --ink: oklch(0.18 0.02 260);
-  --whatsapp: oklch(0.71 0.17 152);
-  --whatsapp-deep: oklch(0.62 0.18 152);
+  /* Oxblood Editorial — autoridade premium quente, sem clichê */
+  --cream:           oklch(0.958 0.024 78);   /* pergaminho quente */
+  --bone:            oklch(0.918 0.030 72);   /* linho */
+  --blush:           oklch(0.855 0.045 50);   /* nude pêssego (não rosa) */
+  --blush-soft:      oklch(0.918 0.030 55);   /* areia rosada leve */
+  --wine:            oklch(0.235 0.085 18);   /* oxblood profundo */
+  --wine-deep:       oklch(0.165 0.065 18);   /* oxblood quase preto */
+  --wine-ink:        oklch(0.105 0.040 18);   /* tinta-vinho */
+  --champagne:       oklch(0.700 0.095 70);   /* ouro antigo / bronze morno */
+  --champagne-deep:  oklch(0.575 0.098 65);   /* bronze queimado */
+  --ink:             oklch(0.175 0.030 25);   /* tinta marrom-preta quente */
+  --whatsapp:        oklch(0.710 0.170 152);
+  --whatsapp-deep:   oklch(0.620 0.180 152);
 
-  --background: var(--ivory);
+  --background: var(--cream);
   --foreground: var(--ink);
   --card: oklch(1 0 0);
   --card-foreground: var(--ink);
   --popover: oklch(1 0 0);
   --popover-foreground: var(--ink);
-  --primary: var(--navy);
-  --primary-foreground: var(--ivory);
+  --primary: var(--wine);
+  --primary-foreground: var(--cream);
   --secondary: var(--bone);
-  --secondary-foreground: var(--navy-deep);
-  --muted: oklch(0.95 0.006 80);
-  --muted-foreground: oklch(0.46 0.018 260);
-  --accent: var(--gold);
-  --accent-foreground: var(--navy-deep);
+  --secondary-foreground: var(--wine-deep);
+  --muted: oklch(0.94 0.014 72);
+  --muted-foreground: oklch(0.46 0.02 22);
+  --accent: var(--champagne);
+  --accent-foreground: var(--wine-deep);
   --destructive: oklch(0.55 0.2 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.90 0.008 80);
-  --input: oklch(0.90 0.008 80);
-  --ring: var(--navy);
+  --border: oklch(0.88 0.018 60);
+  --input: oklch(0.88 0.018 60);
+  --ring: var(--wine);
 
-  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -12px color-mix(in oklab, var(--navy-ink) 18%, transparent);
-  --shadow-warm: 0 2px 4px rgb(0 0 0 / 0.04), 0 24px 48px -20px color-mix(in oklab, var(--navy-ink) 30%, transparent);
-  --gradient-light: linear-gradient(180deg, var(--ivory) 0%, var(--bone) 100%);
-  --gradient-dark: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy-ink) 100%);
-}
+  /* Sombras quentes, sem cinza azulado */
+  --shadow-soft:
+    0 1px 2px color-mix(in oklab, var(--wine-ink) 8%, transparent),
+    0 12px 28px -14px color-mix(in oklab, var(--wine-ink) 22%, transparent);
+  --shadow-warm:
+    0 2px 6px color-mix(in oklab, var(--wine-ink) 8%, transparent),
+    0 30px 56px -22px color-mix(in oklab, var(--wine-ink) 36%, transparent);
+  --shadow-press:
+    0 1px 0 color-mix(in oklab, var(--wine-ink) 10%, transparent),
+    0 22px 40px -18px color-mix(in oklab, var(--wine-ink) 30%, transparent);
 
-.dark {
-  --background: var(--navy-ink);
-  --foreground: var(--ivory);
-  --card: oklch(0.22 0.04 258);
-  --card-foreground: var(--ivory);
-  --popover: oklch(0.22 0.04 258);
-  --popover-foreground: var(--ivory);
-  --primary: var(--gold);
-  --primary-foreground: var(--navy-ink);
-  --secondary: oklch(0.26 0.04 258);
-  --secondary-foreground: var(--ivory);
-  --muted: oklch(0.24 0.035 258);
-  --muted-foreground: oklch(0.78 0.012 80);
-  --accent: var(--gold);
-  --accent-foreground: var(--navy-ink);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: var(--gold);
+  --gradient-cream: linear-gradient(180deg, var(--cream) 0%, var(--bone) 100%);
+  --gradient-wine:  linear-gradient(155deg, var(--wine) 0%, var(--wine-ink) 100%);
+  --gradient-blush: linear-gradient(180deg, var(--cream) 0%, var(--blush-soft) 100%);
 }
 
 @layer base {
@@ -121,40 +123,145 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv11";
   }
+
+  /* Fraunces opsz + leve aperto editorial */
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.022em;
-    font-weight: 500;
-    line-height: 1.08;
+    letter-spacing: -0.025em;
+    font-weight: 450;
+    line-height: 1.04;
     font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 30, "WONK" 0;
   }
+  h1 { font-variation-settings: "SOFT" 50, "WONK" 0; }
+
   .font-serif-italic {
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.012em;
+    font-variation-settings: "SOFT" 80, "WONK" 1;
   }
+
   .eyebrow {
     font-family: var(--font-body);
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 600;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
   }
+
+  .chapter-numeral {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 300;
+    font-variation-settings: "SOFT" 100, "WONK" 1;
+    line-height: 0.85;
+  }
+
+  /* Drop cap editorial */
+  .dropcap::first-letter {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "SOFT" 100;
+    float: left;
+    font-size: 3.4em;
+    line-height: 0.86;
+    padding: 0.08em 0.12em 0 0;
+    color: var(--color-wine);
+  }
+  @media (min-width: 640px) {
+    .dropcap::first-letter { font-size: 4.2em; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
   }
 }
 
 @layer utilities {
-  .bg-gradient-dark { background: var(--gradient-dark); }
-  .bg-gradient-light { background: var(--gradient-light); }
-  .shadow-soft { box-shadow: var(--shadow-soft); }
-  .shadow-warm { box-shadow: var(--shadow-warm); }
+  .bg-cream    { background-color: var(--color-cream); }
+  .bg-bone     { background-color: var(--color-bone); }
+  .bg-blush    { background-color: var(--color-blush); }
+  .bg-wine     { background-color: var(--color-wine); }
+  .bg-wine-deep{ background-color: var(--color-wine-deep); }
+  .bg-wine-ink { background-color: var(--color-wine-ink); }
+  .text-wine   { color: var(--color-wine); }
+  .text-wine-deep{ color: var(--color-wine-deep); }
+  .text-champagne { color: var(--color-champagne); }
+  .text-champagne-deep { color: var(--color-champagne-deep); }
+
+  .bg-gradient-wine  { background: var(--gradient-wine); }
+  .bg-gradient-cream { background: var(--gradient-cream); }
+  .bg-gradient-blush { background: var(--gradient-blush); }
+
+  .shadow-soft  { box-shadow: var(--shadow-soft); }
+  .shadow-warm  { box-shadow: var(--shadow-warm); }
+  .shadow-press { box-shadow: var(--shadow-press); }
+
   .text-balance { text-wrap: balance; }
-  .text-pretty { text-wrap: pretty; }
+  .text-pretty  { text-wrap: pretty; }
+
   .divider-gold {
-    background: linear-gradient(90deg, transparent, var(--color-gold) 50%, transparent);
+    background: linear-gradient(90deg, transparent, var(--color-champagne) 50%, transparent);
+  }
+
+  /* Grão de papel sutil — SVG noise */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .grain-light::before { opacity: 0.06; mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95  0 0 0 0 0.90  0 0 0 0 0.85  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+
+  /* Vinheta editorial nas extremidades de seção escura */
+  .vignette {
+    box-shadow: inset 0 0 140px 0 color-mix(in oklab, var(--wine-ink) 50%, transparent);
+  }
+
+  /* Underline desenhado tipo grifo de caneta */
+  .ink-underline {
+    background-image: linear-gradient(transparent 62%, color-mix(in oklab, var(--champagne) 70%, transparent) 62%, color-mix(in oklab, var(--champagne) 70%, transparent) 88%, transparent 88%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 0 0.06em;
+  }
+
+  /* Filete duplo (rule editorial) */
+  .rule-double {
+    border-top: 1px solid color-mix(in oklab, var(--wine) 25%, transparent);
+    border-bottom: 1px solid color-mix(in oklab, var(--wine) 25%, transparent);
+    height: 6px;
+  }
+
+  /* Animações */
+  @keyframes fade-rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .anim-rise { animation: fade-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .anim-marquee { animation: marquee 38s linear infinite; }
+
+  /* Scrollbar discreta */
+  .scrollbar-thin::-webkit-scrollbar { height: 6px; width: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--wine) 30%, transparent);
+    border-radius: 999px;
   }
 }
