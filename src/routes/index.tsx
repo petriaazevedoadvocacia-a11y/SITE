@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { WhatsappButton, WhatsappIcon, StickyMobileCTA } from "@/components/whatsapp-button";
+import { WhatsappButton, StickyMobileCTA } from "@/components/whatsapp-button";
 import { clickWhatsapp } from "@/lib/whatsapp";
 import heroImg from "@/assets/hero-gestante.jpg";
 import storyImg from "@/assets/story-gestante.jpg";
@@ -24,6 +24,8 @@ import {
   Coins,
   Star,
   AlertTriangle,
+  BadgeCheck,
+  Phone,
 } from "lucide-react";
 
 const FAQ_ITEMS: { q: string; a: string }[] = [
@@ -112,7 +114,12 @@ const faqJsonLd = {
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Início", item: "https://www.barphoff.com/" },
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Início",
+          item: "https://www.barphoff.com/",
+        },
         {
           "@type": "ListItem",
           position: 2,
@@ -137,37 +144,64 @@ export const Route = createFileRoute("/")({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Demitida Grávida? Direitos da Gestante | Barp.Hoff Advogadas" },
+      {
+        title:
+          "Demitida Grávida? Direitos da Gestante | Barp.Hoff Advogadas",
+      },
       {
         name: "description",
         content:
           "A demissão de gestante geralmente é ilegal, mesmo se a gravidez foi descoberta depois ou houve pedido de demissão. Análise jurídica pelo WhatsApp.",
       },
-      { name: "theme-color", content: "#2C0F18" },
+      { name: "theme-color", content: "#3b1018" },
       { name: "robots", content: "index, follow" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Demitida Grávida? Saiba os Seus Direitos | Barp.Hoff Advogadas" },
-      { property: "og:description", content: "A lei protege a gestante demitida. Análise jurídica do seu caso pelo WhatsApp." },
-      { property: "og:url", content: "https://www.barphoff.com/gestante-demitida" },
+      {
+        property: "og:title",
+        content:
+          "Demitida Grávida? Saiba os Seus Direitos | Barp.Hoff Advogadas",
+      },
+      {
+        property: "og:description",
+        content:
+          "A lei protege a gestante demitida. Análise jurídica do seu caso pelo WhatsApp.",
+      },
+      {
+        property: "og:url",
+        content: "https://www.barphoff.com/gestante-demitida",
+      },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.barphoff.com/gestante-demitida" },
+      {
+        rel: "canonical",
+        href: "https://www.barphoff.com/gestante-demitida",
+      },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap",
       },
       { rel: "preload", as: "image", href: heroImg },
     ],
     scripts: [
-      { async: true, src: "https://www.googletagmanager.com/gtag/js?id=G-V1HCE19K22" },
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-V1HCE19K22",
+      },
       {
         children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-V1HCE19K22');`,
       },
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd) },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(faqJsonLd),
+      },
     ],
   }),
   component: GestantePage,
@@ -178,7 +212,6 @@ function GestantePage() {
     <main className="min-h-screen bg-background text-foreground">
       <TopBar />
       <Hero />
-      <LegalMarquee />
       <Bridge />
       <IdentifyCards />
       <HowItWorks />
@@ -193,471 +226,401 @@ function GestantePage() {
   );
 }
 
-/* ═══════════════════════════════ ORNAMENTOS ═══════════════════════════════ */
+/* ----------------------------- TOP BAR ----------------------------- */
 
-function Fleuron({ className }: { className?: string }) {
+function TopBar() {
   return (
-    <svg viewBox="0 0 80 24" className={className} fill="none" aria-hidden="true">
-      <path d="M0 12 H26" stroke="currentColor" strokeWidth="0.75" />
-      <path d="M54 12 H80" stroke="currentColor" strokeWidth="0.75" />
-      <path
-        d="M40 4 C44 8 46 10 46 12 C46 14 44 16 40 20 C36 16 34 14 34 12 C34 10 36 8 40 4 Z"
-        stroke="currentColor"
-        strokeWidth="0.85"
-        fill="none"
-      />
-      <circle cx="40" cy="12" r="1.2" fill="currentColor" />
-      <circle cx="28.5" cy="12" r="0.9" fill="currentColor" />
-      <circle cx="51.5" cy="12" r="0.9" fill="currentColor" />
-    </svg>
-  );
-}
-
-function Asterism({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 60 28" className={className} fill="currentColor" aria-hidden="true">
-      <g>
-        <path d="M30 2 L31.2 7.5 L36.8 8 L32.2 11 L33.8 16.5 L30 13.2 L26.2 16.5 L27.8 11 L23.2 8 L28.8 7.5 Z" />
-        <path
-          transform="translate(-18 10) scale(0.78)"
-          d="M30 2 L31.2 7.5 L36.8 8 L32.2 11 L33.8 16.5 L30 13.2 L26.2 16.5 L27.8 11 L23.2 8 L28.8 7.5 Z"
-        />
-        <path
-          transform="translate(18 10) scale(0.78)"
-          d="M30 2 L31.2 7.5 L36.8 8 L32.2 11 L33.8 16.5 L30 13.2 L26.2 16.5 L27.8 11 L23.2 8 L28.8 7.5 Z"
-        />
-      </g>
-    </svg>
-  );
-}
-
-function Seal({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 160 160" className={className} aria-hidden="true">
-      <defs>
-        <path id="sealcurve" d="M 80 80 m -64 0 a 64 64 0 1 1 128 0 a 64 64 0 1 1 -128 0" />
-      </defs>
-      <circle cx="80" cy="80" r="76" fill="none" stroke="currentColor" strokeWidth="0.6" />
-      <circle cx="80" cy="80" r="64" fill="none" stroke="currentColor" strokeWidth="0.6" />
-      <circle cx="80" cy="80" r="48" fill="none" stroke="currentColor" strokeWidth="0.4" opacity="0.55" />
-      <text fill="currentColor" style={{ fontFamily: "Fraunces, serif", fontSize: 9, letterSpacing: 4 }}>
-        <textPath href="#sealcurve" startOffset="0">
-          · BARP · HOFF · ADVOGADAS · DIREITO TRABALHISTA ·
-        </textPath>
-      </text>
-      <text
-        x="80"
-        y="78"
-        textAnchor="middle"
-        fill="currentColor"
-        style={{ fontFamily: "Fraunces, serif", fontSize: 13, letterSpacing: 3, fontWeight: 500 }}
-      >
-        EST.
-      </text>
-      <text
-        x="80"
-        y="100"
-        textAnchor="middle"
-        fill="currentColor"
-        style={{ fontFamily: "Fraunces, serif", fontStyle: "italic", fontSize: 26, fontWeight: 400 }}
-      >
-        2008
-      </text>
-      <line x1="55" y1="86" x2="105" y2="86" stroke="currentColor" strokeWidth="0.4" />
-    </svg>
-  );
-}
-
-function Wordmark({ className, tone = "wine" }: { className?: string; tone?: "wine" | "cream" }) {
-  const main = tone === "wine" ? "text-[var(--color-wine-deep)]" : "text-[var(--color-cream)]";
-  const sub = tone === "wine" ? "text-[var(--color-champagne-deep)]" : "text-[var(--color-champagne)]";
-  return (
-    <a href="/" className={`inline-flex items-baseline gap-2 ${className ?? ""}`} aria-label="Barp.Hoff Advogadas">
-      <span className={`font-display text-xl font-medium tracking-tight sm:text-2xl ${main}`}>
-        Barp<span className={sub}>.</span>Hoff
-      </span>
-      <span className={`hidden text-[10px] font-medium uppercase tracking-[0.32em] sm:inline ${main} opacity-65`}>
-        Advogadas
-      </span>
-    </a>
-  );
-}
-
-function ChapterHeader({
-  numeral,
-  eyebrow,
-  className = "",
-}: {
-  numeral: string;
-  eyebrow: string;
-  className?: string;
-}) {
-  return (
-    <div className={`flex items-center gap-4 ${className}`}>
-      <span className="chapter-numeral text-3xl text-[var(--color-champagne-deep)]">{numeral}</span>
-      <span className="h-px flex-1 max-w-[3rem] bg-[var(--color-champagne)]/60" />
-      <span className="eyebrow text-[var(--color-wine-deep)]/70">{eyebrow}</span>
+    <div className="hidden md:block border-b border-[var(--color-bordeaux)]/10 bg-[var(--color-cream)]">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-3 text-xs">
+        <div className="flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]">
+          <span className="inline-flex size-7 items-center justify-center rounded-full bg-[var(--color-bordeaux)] text-[var(--color-cream)] font-serif-italic text-sm">B</span>
+          Barp<span className="text-[var(--color-champagne)]">.</span>Hoff
+          <span className="ml-1 hidden font-normal normal-case tracking-normal text-[var(--color-bordeaux-deep)]/60 lg:inline">Advogadas · OAB/PR</span>
+        </div>
+        <div className="flex items-center gap-6 text-[var(--color-bordeaux-deep)]/70">
+          <span className="inline-flex items-center gap-1.5"><ShieldCheck className="size-3.5 text-[var(--color-bordeaux)]" /> Sigilo absoluto</span>
+          <span className="inline-flex items-center gap-1.5"><Globe2 className="size-3.5 text-[var(--color-bordeaux)]" /> Atendimento nacional</span>
+          <span className="inline-flex items-center gap-1.5 font-semibold text-[var(--color-bordeaux-deep)]"><Phone className="size-3.5 text-[var(--color-bordeaux)]" /> +55 45 3027-3100</span>
+        </div>
+      </div>
     </div>
   );
 }
 
-/* ═══════════════════════════════ TOPBAR ═══════════════════════════════ */
+/* ----------------------------- HERO ----------------------------- */
 
-function TopBar() {
+function Hero() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--color-wine)]/10 bg-[var(--color-cream)]/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Wordmark />
-
-        <nav className="hidden items-center gap-9 md:flex">
-          {[
-            ["#atuacao", "Atuação"],
-            ["#como-funciona", "Processo"],
-            ["#escritorio", "Escritório"],
-            ["#faq", "Perguntas"],
-          ].map(([h, l]) => (
-            <a
-              key={h}
-              href={h}
-              className="text-[13px] font-medium tracking-tight text-[var(--color-wine-deep)]/80 transition hover:text-[var(--color-wine)]"
-            >
-              {l}
-            </a>
-          ))}
-        </nav>
-
-        <button
-          type="button"
-          data-wa-cta
-          onClick={() => clickWhatsapp("topbar")}
-          aria-label="Conversar com Advogada no WhatsApp"
-          className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-[var(--color-wine-deep)] bg-[var(--color-wine-deep)] px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-cream)] transition hover:bg-[var(--color-wine-ink)] sm:px-5"
-        >
-          <WhatsappIcon className="size-4 text-[var(--color-whatsapp)] sm:hidden" />
-          <span className="hidden sm:inline">Falar com advogada</span>
-          <span className="sm:hidden">WhatsApp</span>
-          <ChevronRight className="hidden size-3.5 sm:inline" aria-hidden="true" />
-        </button>
-      </div>
-    </header>
+    <>
+      <MobileHero />
+      <DesktopHero />
+    </>
   );
 }
 
-/* ═══════════════════════════════ HERO ═══════════════════════════════ */
-
-function Hero() {
-  const badges = [
-    "Demissão sem justa causa",
-    "Estabilidade da gestante",
-    "Pedido de demissão",
-    "Contrato de experiência",
-    "Sem registro",
-    "Indenização integral",
-  ];
-
+/* --- MOBILE HERO (independente do desktop) --- */
+function MobileHero() {
   return (
-    <section className="relative isolate overflow-hidden bg-[var(--color-wine-ink)] text-[var(--color-cream)]">
-      {/* Camadas atmosféricas */}
-      <div className="pointer-events-none absolute inset-0 opacity-90 [background-image:radial-gradient(ellipse_at_18%_10%,color-mix(in_oklab,var(--color-wine)_80%,transparent),transparent_55%),radial-gradient(ellipse_at_90%_90%,color-mix(in_oklab,var(--color-champagne)_18%,transparent),transparent_60%)]" />
-      <div className="grain pointer-events-none absolute inset-0" />
-      {/* Filete duplo de moldura */}
-      <div className="pointer-events-none absolute inset-x-5 top-3 hidden border-t border-[var(--color-champagne)]/25 lg:block" />
-      <div className="pointer-events-none absolute inset-x-5 top-[19px] hidden border-t border-[var(--color-champagne)]/15 lg:block" />
-      <div className="pointer-events-none absolute inset-x-5 bottom-3 hidden border-t border-[var(--color-champagne)]/25 lg:block" />
-      <div className="pointer-events-none absolute inset-x-5 bottom-[19px] hidden border-t border-[var(--color-champagne)]/15 lg:block" />
+    <section className="relative lg:hidden">
+      {/* TOP: imagem como fundo dramático com overlay bordô */}
+      <div className="relative overflow-hidden bg-[var(--color-bordeaux-deep)] text-[var(--color-cream)]">
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[var(--color-bordeaux)] via-[var(--color-champagne)] to-[var(--color-bordeaux)] z-10" />
+        <img
+          src={heroImg}
+          alt="Mãos sobre documento jurídico, atmosfera acolhedora"
+          width={900}
+          height={1200}
+          decoding="async"
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover opacity-55"
+        />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-[var(--color-bordeaux-deep)]/55 via-[var(--color-bordeaux-deep)]/75 to-[var(--color-bordeaux-deep)]" />
 
-      {/* Texto vertical à esquerda */}
-      <div className="pointer-events-none absolute left-5 top-1/2 hidden -translate-y-1/2 lg:block">
-        <span
-          className="eyebrow block text-[var(--color-champagne)]/70"
-          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-        >
-          Estabelecida · 2008 · Curitiba · Brasil
-        </span>
-      </div>
+        <div className="relative px-5 pb-10 pt-8">
+          {/* mini brand */}
+          <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-cream)]/85">
+            <span className="inline-flex items-center gap-2">
+              <span className="grid size-6 place-items-center rounded-full bg-[var(--color-champagne)] font-serif-italic text-[11px] text-[var(--color-bordeaux-deep)]">B</span>
+              Barp<span className="text-[var(--color-champagne)]">.</span>Hoff
+            </span>
+            <a href="tel:+554530273100" className="inline-flex items-center gap-1.5 text-[var(--color-cream)]/80">
+              <Phone className="size-3" /> 45 3027-3100
+            </a>
+          </div>
 
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-12 sm:px-8 sm:pt-16 lg:grid-cols-[1.18fr_0.95fr] lg:gap-16 lg:px-16 lg:pb-28 lg:pt-24">
-        {/* Coluna esquerda */}
-        <div className="relative flex flex-col justify-center">
-          {/* Capítulo I */}
-          <div className="mb-6 flex items-center gap-3 sm:gap-4">
-            <span className="chapter-numeral text-3xl text-[var(--color-champagne)] sm:text-4xl">I.</span>
-            <span className="h-px w-10 bg-[var(--color-champagne)]/55 sm:w-16" />
-            <span className="eyebrow text-[10px] text-[var(--color-champagne)] sm:text-[10.5px]">
-              Advocacia Trabalhista · Gestante
+          {/* badge */}
+          <div className="mt-7 inline-flex items-center gap-2 rounded-full border border-[var(--color-champagne)]/40 bg-[var(--color-champagne)]/10 px-3 py-1 backdrop-blur">
+            <span className="relative flex size-1.5">
+              <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-champagne)]/70" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-[var(--color-champagne)]" />
+            </span>
+            <span className="text-[9.5px] font-semibold uppercase tracking-[0.22em] text-[var(--color-champagne)]">
+              Direitos da gestante
             </span>
           </div>
 
-          <h1 className="text-balance text-[2.35rem] leading-[1.02] font-medium sm:text-[3.4rem] lg:text-[4.4rem]">
-            Fui demitida grávida.
-            <span className="block font-serif-italic font-light text-[var(--color-champagne)]">
-              E agora, quais os meus direitos?
+          {/* H1 */}
+          <h1 className="mt-5 text-balance text-[2.15rem] leading-[1.05]">
+            Demitida grávida?
+            <span className="mt-1 block font-serif-italic text-[var(--color-champagne)]">
+              A lei está
+            </span>
+            <span className="relative inline-block">
+              do seu lado.
+              <svg aria-hidden viewBox="0 0 200 12" className="absolute -bottom-1.5 left-0 h-2.5 w-full text-[var(--color-champagne)]" preserveAspectRatio="none">
+                <path d="M2 8 C 60 2, 140 12, 198 5" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
+              </svg>
             </span>
           </h1>
 
-          {/* Ornamento abaixo do H1 */}
-          <Fleuron className="mt-7 h-4 w-28 text-[var(--color-champagne)]/70 sm:mt-8 sm:h-5 sm:w-32" />
-
-          <p className="mt-6 max-w-xl text-pretty text-[15px] leading-[1.65] text-[var(--color-cream)]/82 sm:mt-7 sm:text-[1.075rem] sm:leading-[1.7]">
-            A lei brasileira protege a gestante mesmo quando a gravidez foi
-            descoberta depois da demissão, quando houve pedido de demissão sem
-            assistência sindical, ou quando o contrato era de experiência.
+          <p className="mt-6 text-pretty text-[15px] leading-relaxed text-[var(--color-cream)]/85">
+            Você tem estabilidade <strong className="text-[var(--color-cream)]">mesmo se descobriu a gravidez depois</strong>, em contrato de experiência, sem registro ou após pedido de demissão sem sindicato.
           </p>
 
-          {/* Badges editorial — itens com numeral serif */}
-          <ul className="mt-8 grid grid-cols-1 gap-x-6 gap-y-2.5 xs:grid-cols-2 sm:grid-cols-2 sm:max-w-lg">
-            {badges.map((b, i) => (
-              <li
-                key={b}
-                className="flex items-baseline gap-2.5 text-[13.5px] text-[var(--color-cream)]/85"
-              >
-                <span className="chapter-numeral text-[13px] text-[var(--color-champagne)]/85">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
+          {/* CTA */}
+          <div className="mt-7">
+            <WhatsappButton origin="hero-mobile" size="lg" fullWidth label="Falar com advogada agora" />
+            <p className="mt-3 inline-flex items-center gap-2 text-[12px] text-[var(--color-cream)]/65">
+              <Lock className="size-3.5" />
+              Atendimento sigiloso · 100% online · Brasil todo
+            </p>
+          </div>
 
-          <div className="mt-10 flex flex-col items-stretch gap-4 sm:mt-11 sm:flex-row sm:items-center sm:gap-5">
-            <WhatsappButton origin="hero" size="xl" />
-            <p className="flex items-center justify-center gap-2.5 text-xs text-[var(--color-cream)]/68 sm:justify-start sm:text-sm">
-              <Lock className="size-4 text-[var(--color-champagne)]" aria-hidden="true" />
-              Sigiloso · Online · Todo o Brasil
+          {/* social proof inline */}
+          <div className="mt-6 flex items-center gap-3 rounded-2xl border border-[var(--color-champagne)]/15 bg-[var(--color-cream)]/[0.06] p-3">
+            <div className="flex -space-x-2">
+              <span className="size-8 rounded-full border-2 border-[var(--color-bordeaux-deep)] bg-[var(--color-nude)] grid place-items-center text-[10px] font-semibold text-[var(--color-bordeaux-deep)]">M</span>
+              <span className="size-8 rounded-full border-2 border-[var(--color-bordeaux-deep)] bg-[var(--color-champagne)] grid place-items-center text-[10px] font-semibold text-[var(--color-bordeaux-deep)]">A</span>
+              <span className="size-8 rounded-full border-2 border-[var(--color-bordeaux-deep)] bg-[var(--color-bordeaux)] grid place-items-center text-[10px] font-semibold text-[var(--color-cream)]">L</span>
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-1 text-[var(--color-champagne)]">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="size-3 fill-current" />
+                ))}
+              </div>
+              <p className="text-[11px] font-medium leading-tight text-[var(--color-cream)]/85">
+                Centenas de mães amparadas
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* BOTTOM: pilares de autoridade em creme */}
+      <div className="bg-[var(--color-cream)] px-5 py-7">
+        <ul className="grid grid-cols-3 gap-3 text-center">
+          <li className="rounded-xl border border-[var(--color-bordeaux)]/10 bg-white p-3 shadow-soft">
+            <p className="font-serif-italic text-2xl text-[var(--color-bordeaux)]">17</p>
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-bordeaux-deep)]/70 leading-tight">Anos<br/>de causa</p>
+          </li>
+          <li className="rounded-xl border border-[var(--color-bordeaux)]/10 bg-white p-3 shadow-soft">
+            <p className="font-serif-italic text-2xl text-[var(--color-bordeaux)]">100%</p>
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-bordeaux-deep)]/70 leading-tight">Direito<br/>da Mulher</p>
+          </li>
+          <li className="rounded-xl border border-[var(--color-bordeaux)]/10 bg-white p-3 shadow-soft">
+            <p className="font-serif-italic text-2xl text-[var(--color-bordeaux)]">24h</p>
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-bordeaux-deep)]/70 leading-tight">Resposta<br/>WhatsApp</p>
+          </li>
+        </ul>
+
+        <div className="mt-5 flex items-start gap-3 rounded-2xl border border-[var(--color-bordeaux)]/10 bg-white p-4 shadow-soft">
+          <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-[var(--color-nude)] text-[var(--color-bordeaux-deep)]">
+            <BadgeCheck className="size-5" aria-hidden />
+          </span>
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux)]">Amparo legal</p>
+            <p className="mt-0.5 text-[13px] font-medium leading-snug text-[var(--color-bordeaux-deep)]">
+              Súmula 244 TST · Tema 497 STF · Art. 10 do ADCT
             </p>
           </div>
         </div>
 
-        {/* Coluna direita — moldura editorial com selo */}
-        <div className="relative">
-          {/* Selo flutuante */}
-          <div className="absolute -left-6 -top-6 z-20 hidden h-28 w-28 rounded-full bg-[var(--color-cream)] text-[var(--color-wine-deep)] shadow-warm md:block lg:-left-10 lg:-top-10 lg:h-36 lg:w-36">
-            <Seal className="h-full w-full" />
-          </div>
-
-          {/* Cantos decorativos */}
-          <span className="pointer-events-none absolute -left-3 -top-3 hidden h-16 w-16 border-l border-t border-[var(--color-champagne)]/60 lg:block" />
-          <span className="pointer-events-none absolute -bottom-3 -right-3 hidden h-16 w-16 border-b border-r border-[var(--color-champagne)]/60 lg:block" />
-
-          <figure className="relative overflow-hidden rounded-[2px] shadow-warm aspect-[4/5] sm:aspect-[5/6] lg:aspect-auto lg:h-full">
-            <img
-              src={heroImg}
-              alt="Mãos sobre documento jurídico em mesa de escritório, atmosfera acolhedora"
-              width={1280}
-              height={1280}
-              decoding="async"
-              fetchPriority="high"
-              className="h-full w-full object-cover"
-              style={{ filter: "saturate(0.85) contrast(1.02)" }}
-            />
-            {/* Duotone bordô sutil */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--color-wine-ink)]/60 via-[var(--color-wine)]/15 to-transparent mix-blend-multiply" />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--color-wine-deep)]/30 via-transparent to-[var(--color-champagne)]/10" />
-
-            {/* Card flutuante de autoridade */}
-            <figcaption className="absolute bottom-4 left-4 right-4 rounded-[2px] border border-[var(--color-champagne)]/30 bg-[var(--color-wine-ink)]/85 px-5 py-4 backdrop-blur sm:bottom-6 sm:left-6 sm:right-auto sm:w-[19rem]">
-              <div className="flex items-center gap-4">
-                <div className="flex flex-col items-center border-r border-[var(--color-champagne)]/30 pr-4">
-                  <span className="font-display text-3xl font-medium leading-none text-[var(--color-champagne)]">
-                    17
-                  </span>
-                  <span className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[var(--color-cream)]/70">
-                    anos
-                  </span>
-                </div>
-                <div className="text-xs leading-tight text-[var(--color-cream)]/85">
-                  <p className="font-medium">Atuação especializada em</p>
-                  <p className="font-serif-italic text-sm text-[var(--color-champagne)]">
-                    Direito Trabalhista da Mulher
-                  </p>
-                </div>
-              </div>
-            </figcaption>
-          </figure>
+        <div className="mt-4 grid grid-cols-2 gap-2 text-[9.5px] font-semibold uppercase tracking-[0.16em] text-[var(--color-bordeaux-deep)]/70">
+          <span className="inline-flex items-center gap-1.5"><ShieldCheck className="size-3 text-[var(--color-bordeaux)]" /> OAB/PR Ativa</span>
+          <span className="inline-flex items-center gap-1.5"><Scale className="size-3 text-[var(--color-bordeaux)]" /> TST · STF · TRTs</span>
+          <span className="inline-flex items-center gap-1.5"><Globe2 className="size-3 text-[var(--color-bordeaux)]" /> 100% Online</span>
+          <span className="inline-flex items-center gap-1.5"><Lock className="size-3 text-[var(--color-bordeaux)]" /> Sigilo absoluto</span>
         </div>
       </div>
+    </section>
+  );
+}
 
-      {/* Trust strip embutida na base do hero */}
-      <div className="relative border-t border-[var(--color-champagne)]/15">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-5 px-5 py-6 sm:px-8 md:grid-cols-4 md:py-5 lg:px-16">
-          {[
-            { Icon: Clock, k: "17+", v: "anos de advocacia" },
-            { Icon: ShieldCheck, k: "5.000+", v: "casos analisados" },
-            { Icon: Globe2, k: "100%", v: "online no Brasil" },
-            { Icon: Scale, k: "OAB/PR", v: "registro profissional" },
-          ].map(({ Icon, k, v }) => (
-            <div key={v} className="flex items-center gap-3">
-              <Icon className="size-4 text-[var(--color-champagne)]" aria-hidden="true" />
-              <div className="leading-tight">
-                <div className="font-display text-base font-medium text-[var(--color-cream)]">{k}</div>
-                <div className="text-[11px] uppercase tracking-[0.14em] text-[var(--color-cream)]/55">
-                  {v}
+/* --- DESKTOP HERO --- */
+function DesktopHero() {
+  return (
+    <section className="relative hidden overflow-hidden bg-[var(--color-cream)] text-[var(--color-bordeaux-deep)] lg:block">
+      <div aria-hidden className="pointer-events-none absolute -top-40 -right-32 size-[34rem] rounded-full bg-[var(--color-nude)] opacity-50 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-44 -left-24 size-[28rem] rounded-full bg-[var(--color-champagne)]/40 opacity-60 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[var(--color-bordeaux)] via-[var(--color-champagne)] to-[var(--color-bordeaux)]" />
+
+      <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-8 py-28 lg:grid-cols-12">
+        <div className="lg:col-span-7">
+          <div className="inline-flex items-center gap-2.5 rounded-full border border-[var(--color-champagne)] bg-white/70 px-4 py-1.5 shadow-soft backdrop-blur">
+            <span className="relative flex size-2">
+              <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-bordeaux)]/50" />
+              <span className="relative inline-flex size-2 rounded-full bg-[var(--color-bordeaux)]" />
+            </span>
+            <span className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[var(--color-bordeaux-deep)]">
+              Especialistas em Direitos da Gestante
+            </span>
+          </div>
+
+          <h1 className="mt-7 text-balance text-[3.4rem] leading-[1.02] lg:text-[4rem]">
+            Demitida grávida?{" "}
+            <span className="block font-serif-italic text-[var(--color-bordeaux)]">
+              A lei está
+            </span>
+            <span className="relative inline-block">
+              do seu lado.
+              <svg aria-hidden viewBox="0 0 300 14" className="absolute -bottom-2 left-0 h-3 w-full text-[var(--color-champagne)]" preserveAspectRatio="none">
+                <path d="M2 9 C 80 2, 180 14, 298 6" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
+              </svg>
+            </span>
+          </h1>
+
+          <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-[var(--color-bordeaux-deep)]/75">
+            Você tem estabilidade <strong className="text-[var(--color-bordeaux-deep)]">mesmo se descobriu a gravidez depois</strong>, se foi contrato de experiência, sem registro, ou se houve pedido de demissão sem assistência sindical. Receba uma análise jurídica do seu caso pelo WhatsApp.
+          </p>
+
+          <div className="mt-9 flex flex-row items-center gap-5">
+            <WhatsappButton origin="hero" size="xl" label="Falar com advogada agora" />
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2">
+                <span className="size-9 rounded-full border-2 border-[var(--color-cream)] bg-[var(--color-nude)] grid place-items-center text-[11px] font-semibold text-[var(--color-bordeaux-deep)]">M</span>
+                <span className="size-9 rounded-full border-2 border-[var(--color-cream)] bg-[var(--color-champagne)] grid place-items-center text-[11px] font-semibold text-[var(--color-bordeaux-deep)]">A</span>
+                <span className="size-9 rounded-full border-2 border-[var(--color-cream)] bg-[var(--color-bordeaux)] grid place-items-center text-[11px] font-semibold text-[var(--color-cream)]">L</span>
+              </div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">
+                Centenas de mães<br />amparadas
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-5 inline-flex items-center gap-2 text-sm text-[var(--color-bordeaux-deep)]/60">
+            <Lock className="size-4" aria-hidden="true" />
+            Atendimento sigiloso, online e em todo o Brasil.
+          </p>
+
+          <ul className="mt-10 grid grid-cols-3 gap-6 border-t border-[var(--color-bordeaux)]/15 pt-7">
+            <li>
+              <p className="font-serif-italic text-4xl text-[var(--color-bordeaux)]">17</p>
+              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">Anos em Direito Trabalhista</p>
+            </li>
+            <li>
+              <p className="font-serif-italic text-4xl text-[var(--color-bordeaux)]">100%</p>
+              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">Foco no Direito da Mulher</p>
+            </li>
+            <li>
+              <p className="font-serif-italic text-4xl text-[var(--color-bordeaux)]">24h</p>
+              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">Resposta no WhatsApp</p>
+            </li>
+          </ul>
+        </div>
+
+        <div className="relative lg:col-span-5">
+          <div aria-hidden className="absolute inset-0 translate-x-5 translate-y-5 rounded-[2rem] border-2 border-[var(--color-champagne)]/60" />
+
+          <div className="relative overflow-hidden rounded-[2rem] bg-[var(--color-bordeaux-deep)] shadow-warm ring-1 ring-[var(--color-bordeaux)]/10">
+            <div className="relative aspect-[4/5]">
+              <img
+                src={heroImg}
+                alt="Mãos sobre documento jurídico em mesa de escritório, atmosfera acolhedora"
+                width={1200}
+                height={1500}
+                decoding="async"
+                className="absolute inset-0 size-full object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--color-bordeaux-deep)]/55 via-transparent to-transparent" />
+
+              <div className="absolute right-5 top-5 grid size-20 place-items-center rounded-full border border-[var(--color-champagne)]/70 bg-[var(--color-bordeaux-deep)]/55 text-center backdrop-blur-md">
+                <div>
+                  <p className="font-serif-italic text-base leading-none text-[var(--color-champagne)]">+17</p>
+                  <p className="mt-1 text-[8.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-cream)]/85">anos<br/>de causa</p>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          <div className="absolute -bottom-8 -left-10 z-20 max-w-[260px] rounded-2xl border border-[var(--color-bordeaux)]/10 bg-white p-5 shadow-warm">
+            <div className="flex items-start gap-3">
+              <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-[var(--color-nude)] text-[var(--color-bordeaux-deep)]">
+                <BadgeCheck className="size-5" aria-hidden />
+              </span>
+              <div>
+                <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux)]">Amparo legal</p>
+                <p className="mt-1 text-sm font-medium leading-snug text-[var(--color-bordeaux-deep)]">
+                  Súmula 244 TST · Tema 497 STF · Art. 10 do ADCT
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute -top-6 -right-2 max-w-[220px] rounded-2xl border-l-4 border-[var(--color-bordeaux)] bg-white p-4 shadow-soft">
+            <div className="mb-1 flex gap-0.5 text-[var(--color-champagne)]">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="size-3.5 fill-current" />
+              ))}
+            </div>
+            <p className="font-serif-italic text-[13px] leading-snug text-[var(--color-bordeaux-deep)]">
+              "Senti segurança desde a primeira conversa."
+            </p>
+            <p className="mt-2 text-[9.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/55">Mariana S.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative border-y border-[var(--color-bordeaux)]/10 bg-white/50 backdrop-blur">
+        <div className="mx-auto grid max-w-7xl grid-cols-4 gap-y-3 px-8 py-4 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">
+          <span className="inline-flex items-center gap-2"><ShieldCheck className="size-3.5 text-[var(--color-bordeaux)]" /> OAB/PR Ativa</span>
+          <span className="inline-flex items-center gap-2"><Scale className="size-3.5 text-[var(--color-bordeaux)]" /> TST · STF · TRTs</span>
+          <span className="inline-flex items-center gap-2"><Globe2 className="size-3.5 text-[var(--color-bordeaux)]" /> 100% Online</span>
+          <span className="inline-flex items-center gap-2"><Lock className="size-3.5 text-[var(--color-bordeaux)]" /> Sigilo absoluto</span>
         </div>
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════════════ MARQUEE ═══════════════════════════════ */
-
-function LegalMarquee() {
-  const items = [
-    "Súmula 244 do TST",
-    "Tema 497 do STF",
-    "Art. 10, II, b do ADCT",
-    "Art. 500 da CLT",
-    "Temas 55 e 134 do TST",
-    "Justiça em Números 2025 · CNJ",
-  ];
-  const row = [...items, ...items];
-  return (
-    <div className="relative overflow-hidden border-b border-[var(--color-wine)]/12 bg-[var(--color-bone)]">
-      <div className="anim-marquee flex w-max items-center gap-12 py-4">
-        {row.map((t, i) => (
-          <span key={i} className="flex items-center gap-12 text-[12px]">
-            <span className="chapter-numeral text-base text-[var(--color-champagne-deep)]">§</span>
-            <span className="font-medium uppercase tracking-[0.22em] text-[var(--color-wine-deep)]/80">
-              {t}
-            </span>
-            <span className="chapter-numeral text-xl text-[var(--color-champagne)]/55">⁂</span>
-          </span>
-        ))}
-      </div>
-      <span className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[var(--color-bone)] to-transparent" />
-      <span className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[var(--color-bone)] to-transparent" />
-    </div>
-  );
-}
-
-/* ═══════════════════════════════ BRIDGE ═══════════════════════════════ */
+/* ----------------------------- BRIDGE ----------------------------- */
 
 function Bridge() {
   return (
-    <section className="relative bg-[var(--color-cream)] py-20 sm:py-28">
-      <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <div className="flex justify-center">
-          <Fleuron className="h-5 w-20 text-[var(--color-champagne-deep)]" />
-        </div>
-
-        <p className="dropcap mt-8 text-pretty text-left text-[1.075rem] leading-[1.7] text-foreground/82 sm:mt-10 sm:text-center sm:text-[1.4rem]">
-          Quando uma gestante é demitida sem justa causa, mesmo que a gravidez
-          tenha sido descoberta depois, a lei brasileira protege. O escritório{" "}
-          <span className="font-serif-italic text-[var(--color-wine-deep)]">
-            Barp.Hoff Advogadas
-          </span>{" "}
-          atua há mais de 17 anos em Direito Trabalhista da Gestante, com base
-          na <span className="ink-underline">Súmula 244 do TST</span>, no{" "}
-          <span className="ink-underline">Tema 497 do STF</span> e no{" "}
-          <span className="ink-underline">Art. 10, II, b do ADCT</span>.
-        </p>
-
-        <div className="mt-12 flex justify-center">
-          <Asterism className="h-5 w-12 text-[var(--color-champagne-deep)]" />
-        </div>
+    <section className="bg-background py-16 sm:py-20">
+      <div className="mx-auto max-w-[820px] px-5 text-pretty text-center text-base leading-[1.75] text-foreground/80 sm:px-8 sm:text-lg">
+        Quando uma gestante é demitida sem justa causa, mesmo que a gravidez
+        tenha sido descoberta depois, a lei brasileira protege. O escritório{" "}
+        <strong className="text-foreground">Barp.Hoff Advogadas</strong> atua há
+        mais de 17 anos em <strong>Direito Trabalhista da Gestante</strong>, com
+        base na <strong>Súmula 244 do TST</strong>, no{" "}
+        <strong>Tema 497 do STF</strong> e no{" "}
+        <strong>Art. 10, II, b do ADCT</strong>, ingressando com ações para
+        reverter demissões nulas, pedidos de demissão feitos sem assistência
+        sindical e contratos de experiência encerrados de forma obstativa.
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════════════ IDENTIFY ═══════════════════════════════ */
+/* ----------------------------- IDENTIFY CARDS ----------------------------- */
 
 function IdentifyCards() {
   const cards = [
     {
-      Icon: Scale,
+      icon: Scale,
       title: "Fui demitida sem justa causa durante a gestação",
       sub: "A estabilidade da gestante é prevista no Art. 10, II, b do ADCT. A demissão pode ser revertida.",
       origin: "card-sem-justa-causa",
     },
     {
-      Icon: HeartHandshake,
+      icon: HeartHandshake,
       title: "Descobri que estava grávida depois da demissão",
-      sub: "A Súmula 244 do TST e o Tema 497 do STF garantem proteção independente do conhecimento prévio.",
+      sub: "A jurisprudência do TST (Súmula 244) e o Tema 497 do STF garantem a proteção independente do conhecimento prévio. Você ainda tem direito.",
       origin: "card-descobriu-depois",
     },
     {
-      Icon: FileSignature,
+      icon: FileSignature,
       title: "Pedi demissão sem saber que estava grávida",
-      sub: "Sem assistência sindical, o pedido de demissão de gestante é nulo (Art. 500 CLT, Tema 55 TST).",
+      sub: "Sem assistência sindical, o pedido de demissão de gestante é nulo (Art. 500 CLT, Tema 55 TST). É possível reverter.",
       origin: "card-pedi-demissao",
     },
     {
-      Icon: Briefcase,
-      title: "Fui demitida em contrato de experiência",
-      sub: "A Súmula 244, III, do TST garante estabilidade mesmo em contratos por prazo determinado.",
+      icon: Briefcase,
+      title: "Fui demitida no contrato de experiência durante a gravidez",
+      sub: "A Súmula 244, III, do TST garante estabilidade mesmo em contratos de experiência. O encerramento pode ser obstativo.",
       origin: "card-contrato-experiencia",
     },
     {
-      Icon: ClipboardList,
-      title: "Trabalhava sem carteira assinada",
-      sub: "Mesmo sem registro, é possível reconhecer o vínculo e garantir os direitos da gestante.",
+      icon: ClipboardList,
+      title: "Trabalhava sem carteira assinada quando engravidei",
+      sub: "Mesmo sem registro formal, é possível reconhecer o vínculo de emprego e garantir os direitos da gestante.",
       origin: "card-sem-registro",
     },
     {
-      Icon: Coins,
+      icon: Coins,
       title: "Recebi salários sem o adicional da estabilidade",
-      sub: "A indenização inclui salários do período de proteção, FGTS, multa de 40%, férias e 13º.",
+      sub: "A indenização da estabilidade inclui salários do período de proteção, FGTS, multa de 40%, férias e 13º.",
       origin: "card-indenizacao",
     },
   ];
 
   return (
-    <section id="atuacao" className="relative scroll-mt-20 bg-gradient-blush py-20 sm:py-28">
+    <section className="bg-[color-mix(in_oklab,var(--color-nude)_22%,var(--color-cream))] py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mx-auto max-w-3xl">
-          <ChapterHeader numeral="II." eyebrow="Áreas de atuação" className="justify-center" />
-          <h2 className="mt-6 text-balance text-center text-[2.1rem] font-medium leading-[1.05] sm:text-[2.85rem] lg:text-5xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-balance text-3xl sm:text-4xl lg:text-[2.6rem]">
             Você se identifica com{" "}
-            <span className="font-serif-italic font-light text-[var(--color-wine)]">
+            <span className="font-serif-italic text-[var(--color-bordeaux)]">
               alguma dessas situações?
             </span>
           </h2>
-          <p className="mt-5 text-center text-[15px] leading-relaxed text-foreground/65 sm:text-base">
-            Cada cenário tem amparo jurídico específico. Toque no que mais se
-            aproxima da sua situação para conversar com uma advogada.
+          <p className="mt-4 text-foreground/70">
+            Cada cenário abaixo tem amparo jurídico específico. Toque no que
+            mais se aproxima da sua situação para conversar com uma advogada.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map(({ Icon, title, sub, origin }, i) => (
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {cards.map(({ icon: Icon, title, sub, origin }) => (
             <button
               key={origin}
               type="button"
               data-wa-cta
               onClick={() => clickWhatsapp(origin)}
               aria-label={`${title}. Conversar com advogada no WhatsApp.`}
-              className="group relative flex h-full flex-col rounded-[3px] border border-[var(--color-wine)]/12 bg-[var(--color-cream)]/85 p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-card hover:shadow-warm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-wine)] active:scale-[0.99] sm:p-8"
+              className="group flex h-full flex-col rounded-2xl border border-[var(--color-bordeaux)]/10 bg-card p-6 text-left shadow-soft transition-all duration-200 hover:-translate-y-1 hover:border-[var(--color-bordeaux)]/35 hover:shadow-warm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-bordeaux)]"
             >
-              {/* Filete superior animado */}
-              <span className="absolute inset-x-6 top-0 h-px bg-[var(--color-champagne)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:inset-x-8" />
-
-              <div className="flex items-baseline justify-between">
-                <span className="chapter-numeral text-2xl text-[var(--color-champagne-deep)]/75">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <Icon
-                  className="size-5 text-[var(--color-wine)]/55 transition-colors group-hover:text-[var(--color-wine)]"
-                  aria-hidden="true"
-                />
-              </div>
-
-              <div className="mt-4 h-px w-10 bg-[var(--color-wine)]/20 transition-all duration-300 group-hover:w-20 group-hover:bg-[var(--color-champagne)] sm:mt-5" />
-
-              <h3 className="mt-5 font-display text-[1.2rem] font-medium leading-[1.2] text-foreground sm:mt-6 sm:text-[1.35rem] sm:leading-[1.18]">
-                {title}
-              </h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-foreground/70 sm:text-sm">{sub}</p>
-
-              <span className="mt-6 inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.16em] text-[var(--color-wine-deep)] sm:mt-7 sm:text-[13px]">
+              <span className="mb-4 inline-flex size-11 items-center justify-center rounded-xl bg-[var(--color-bordeaux)]/8 text-[var(--color-bordeaux)] transition-colors group-hover:bg-[var(--color-bordeaux)] group-hover:text-[var(--color-cream)]">
+                <Icon className="size-5" aria-hidden="true" />
+              </span>
+              <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/70">
+                {sub}
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-bordeaux)]">
                 Falar sobre isso
-                <ChevronRight
-                  className="size-3.5 transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
+                <ChevronRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </span>
             </button>
           ))}
@@ -667,150 +630,109 @@ function IdentifyCards() {
   );
 }
 
-/* ═══════════════════════════════ HOW IT WORKS ═══════════════════════════════ */
+/* ----------------------------- HOW IT WORKS ----------------------------- */
 
 function HowItWorks() {
   const steps = [
     {
-      n: "01",
+      n: "1",
       title: "Você envia a sua situação",
       desc: "Pelo WhatsApp, você manda o que tem (carteira de trabalho, comprovante de gravidez, aviso de demissão). Se não tiver tudo, manda o que tem.",
     },
     {
-      n: "02",
+      n: "2",
       title: "Avaliação jurídica individual",
       desc: "Nossas advogadas verificam a sua situação à luz da Súmula 244 do TST, do Art. 500 da CLT e do Tema 497 do STF.",
     },
     {
-      n: "03",
+      n: "3",
       title: "Você recebe a orientação completa",
       desc: "Explicamos o cenário do seu caso, os direitos aplicáveis e os próximos passos possíveis. Sem compromisso de prosseguir.",
     },
   ];
 
   return (
-    <section id="como-funciona" className="relative scroll-mt-20 bg-[var(--color-cream)] py-20 sm:py-28">
+    <section className="bg-background py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="mx-auto max-w-3xl">
-          <ChapterHeader numeral="III." eyebrow="Processo" className="justify-center" />
-          <h2 className="mt-6 text-center text-[2.1rem] font-medium leading-[1.05] sm:text-[2.85rem] lg:text-5xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl sm:text-4xl">
             Como funciona a{" "}
-            <span className="font-serif-italic font-light text-[var(--color-wine)]">
+            <span className="font-serif-italic text-[var(--color-bordeaux)]">
               análise do seu caso
             </span>
           </h2>
         </div>
 
-        <ol className="mt-14 grid gap-10 sm:mt-20 sm:gap-12 lg:grid-cols-3 lg:gap-10">
-          {steps.map((s, i) => (
-            <li key={s.n} className="group relative">
-              {/* Numeral gigante de fundo */}
-              <span
-                aria-hidden="true"
-                className="chapter-numeral pointer-events-none absolute -top-8 -left-2 select-none text-[6.5rem] text-[var(--color-wine)]/[0.07] sm:-top-10 sm:text-[8rem] lg:text-[10rem]"
-              >
+        <ol className="mt-12 grid gap-6 lg:grid-cols-3">
+          {steps.map((s) => (
+            <li
+              key={s.n}
+              className="relative rounded-2xl border border-border bg-card p-7 shadow-soft"
+            >
+              <span className="font-display text-6xl leading-none font-semibold text-[var(--color-champagne)]">
                 {s.n}
               </span>
-
-              <div className="relative">
-                <div className="flex items-center gap-3">
-                  <span className="font-display text-[13px] font-medium tracking-[0.2em] text-[var(--color-champagne-deep)] sm:text-base">
-                    PASSO {s.n}
-                  </span>
-                  <span className="h-px w-12 bg-[var(--color-champagne)]" />
-                </div>
-                <h3 className="mt-4 font-display text-[1.5rem] font-medium leading-[1.15] sm:mt-5 sm:text-[1.75rem] sm:leading-[1.12]">
-                  {s.title}
-                </h3>
-                <p className="mt-3 text-pretty text-[15px] leading-[1.65] text-foreground/72 sm:mt-4 sm:text-base sm:leading-[1.7]">
-                  {s.desc}
-                </p>
-              </div>
-
-              {/* Conector entre steps */}
-              {i < steps.length - 1 && (
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute right-0 top-1/2 hidden h-px w-8 -translate-y-1/2 translate-x-1/2 bg-[var(--color-wine)]/15 lg:block"
-                />
-              )}
+              <h3 className="mt-4 text-xl font-semibold">{s.title}</h3>
+              <p className="mt-3 text-foreground/75">{s.desc}</p>
             </li>
           ))}
         </ol>
 
-        <div className="mt-14 flex flex-col items-center gap-3 sm:mt-16">
-          <WhatsappButton origin="how-it-works" label="Falar com Advogada agora" />
-          <p className="text-xs text-foreground/55">
-            Resposta direta de uma advogada · Sem robôs
-          </p>
+        <div className="mt-10 flex justify-center">
+          <WhatsappButton origin="how-it-works" />
         </div>
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════════════ STORYTELLING ═══════════════════════════════ */
+/* ----------------------------- STORYTELLING ----------------------------- */
 
 function Storytelling() {
   return (
-    <section className="relative overflow-hidden bg-[var(--color-bone)] py-20 sm:py-28">
-      <div className="mx-auto grid max-w-6xl items-start gap-12 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-        <div className="order-2 lg:order-1">
-          <ChapterHeader numeral="IV." eyebrow="Contexto" />
-          <h2 className="mt-6 text-balance text-[2.1rem] font-medium leading-[1.05] sm:text-[2.85rem] lg:text-5xl">
+    <section className="bg-[color-mix(in_oklab,var(--color-nude)_22%,var(--color-cream))] py-20 sm:py-24">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_0.9fr]">
+        <div>
+          <h2 className="text-balance text-3xl sm:text-4xl">
             Por que muitas gestantes{" "}
-            <span className="font-serif-italic font-light text-[var(--color-wine)]">
+            <span className="font-serif-italic text-[var(--color-bordeaux)]">
               não buscam justiça
             </span>
           </h2>
-
-          <p className="dropcap mt-7 text-pretty text-[15.5px] leading-[1.72] text-foreground/82 sm:mt-8 sm:text-[1.05rem] sm:leading-[1.78]">
-            Muitas gestantes deixam de buscar os seus direitos por medo, vergonha
-            ou desinformação. Acreditam que processar a empresa é demorado, que
-            precisam de muitas provas, ou que perderam o direito porque pediram
-            demissão ou porque descobriram a gravidez depois.
-          </p>
-
-          {/* Pullquote */}
-          <blockquote className="relative my-9 pl-6 sm:my-10 sm:pl-7">
-            <span className="absolute left-0 top-1 font-serif-italic text-6xl leading-none text-[var(--color-champagne)]/70 sm:text-7xl">
-              “
-            </span>
-            <p className="font-serif-italic text-[1.2rem] leading-[1.3] text-[var(--color-wine-deep)] sm:text-[1.45rem] sm:leading-[1.25]">
-              A Justiça do Trabalho hoje resolve casos de gestante em média em{" "}
-              <span className="not-italic font-medium">6 meses e 17 dias.</span>
+          <div className="mt-6 space-y-5 text-pretty text-foreground/80">
+            <p>
+              Muitas gestantes deixam de buscar os seus direitos por medo,
+              vergonha ou desinformação. Acreditam que processar a empresa é
+              demorado, que precisam de muitas provas, ou que perderam o direito
+              porque pediram demissão ou porque descobriram a gravidez depois.
             </p>
-            <cite className="mt-3 block text-[11px] uppercase not-italic tracking-[0.22em] text-foreground/55 sm:mt-4">
-              — Justiça em Números 2025, CNJ
-            </cite>
-          </blockquote>
+            <p>
+              A maioria está enganada. A Justiça do Trabalho hoje resolve casos
+              de gestante em média em{" "}
+              <strong className="text-foreground">6 meses e 17 dias</strong>{" "}
+              (Justiça em Números 2025, CNJ). E a jurisprudência brasileira
+              protege a gestante mesmo nas situações mais difíceis.
+            </p>
+          </div>
 
-          <p className="text-pretty text-[15.5px] leading-[1.72] text-foreground/82 sm:text-[1.05rem] sm:leading-[1.78]">
-            A maioria está enganada. A jurisprudência brasileira protege a
-            gestante mesmo nas situações mais difíceis.
-          </p>
-
-          <div className="mt-9 rounded-[3px] border border-[var(--color-wine)]/15 bg-[var(--color-cream)] p-6 shadow-soft sm:mt-10 sm:p-7">
-            <div className="flex items-start gap-3.5">
-              <AlertTriangle
-                className="mt-0.5 size-5 shrink-0 text-[var(--color-champagne-deep)]"
-                aria-hidden="true"
-              />
-              <div className="flex-1">
-                <h3 className="font-display text-[1.05rem] font-medium tracking-tight sm:text-[1.1rem]">
+          <div className="mt-8 rounded-2xl border border-[var(--color-bordeaux)]/15 bg-card p-6 shadow-soft">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-bordeaux)]/10 text-[var(--color-bordeaux)]">
+                <AlertTriangle className="size-4" aria-hidden="true" />
+              </span>
+              <div>
+                <h3 className="text-lg font-semibold">
                   Erros mais comuns após a demissão
                 </h3>
-                <ul className="mt-4 space-y-3 text-[14.5px] sm:mt-5 sm:text-[15px]">
+                <ul className="mt-3 space-y-2 text-foreground/80">
                   {[
                     "Aceitar a situação sem questionar.",
                     "Assinar pedido de demissão sob pressão sem assistência sindical.",
                     "Esperar muito tempo (existe prazo prescricional).",
                     "Pagar advogado errado por desespero.",
-                  ].map((t, i) => (
-                    <li key={t} className="flex items-baseline gap-3 text-foreground/82">
-                      <span className="chapter-numeral text-sm text-[var(--color-champagne-deep)]">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+                  ].map((t) => (
+                    <li key={t} className="flex items-start gap-2 text-sm sm:text-base">
+                      <span className="mt-2 inline-block size-1.5 shrink-0 rounded-full bg-[var(--color-bordeaux)]" />
                       <span>{t}</span>
                     </li>
                   ))}
@@ -820,32 +742,23 @@ function Storytelling() {
           </div>
         </div>
 
-        <div className="relative order-1 lg:order-2 lg:sticky lg:top-24">
-          <span className="pointer-events-none absolute -left-3 -top-3 hidden h-14 w-14 border-l border-t border-[var(--color-champagne)]/70 lg:block" />
-          <span className="pointer-events-none absolute -bottom-3 -right-3 hidden h-14 w-14 border-b border-r border-[var(--color-champagne)]/70 lg:block" />
-          <figure className="overflow-hidden rounded-[3px] shadow-warm aspect-[5/4] sm:aspect-[4/3] lg:aspect-square">
-            <img
-              src={storyImg}
-              alt="Mulher serena em poltrona aveludada segurando caderno"
-              width={1024}
-              height={1024}
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover"
-              style={{ filter: "saturate(0.86) contrast(1.02)" }}
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--color-wine-deep)]/35 via-transparent to-[var(--color-champagne)]/8 mix-blend-multiply" />
-          </figure>
-          <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-foreground/55 sm:mt-5">
-            Atendimento online · Brasil
-          </p>
+        <div className="order-first overflow-hidden rounded-3xl shadow-warm ring-1 ring-[var(--color-bordeaux)]/10 lg:order-last">
+          <img
+            src={storyImg}
+            alt="Mulher serena em poltrona aveludada segurando caderno"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
         </div>
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════════════ AUTHORITY ═══════════════════════════════ */
+/* ----------------------------- AUTHORITY ----------------------------- */
 
 function Authority() {
   const bullets = [
@@ -856,138 +769,91 @@ function Authority() {
   ];
 
   return (
-    <section
-      id="escritorio"
-      className="relative isolate scroll-mt-20 overflow-hidden bg-[var(--color-wine-ink)] py-20 text-[var(--color-cream)] sm:py-28"
-    >
-      <div className="pointer-events-none absolute inset-0 [background-image:radial-gradient(ellipse_at_75%_30%,color-mix(in_oklab,var(--color-wine)_90%,transparent),transparent_55%),radial-gradient(ellipse_at_10%_90%,color-mix(in_oklab,var(--color-champagne)_15%,transparent),transparent_55%)]" />
-      <div className="grain pointer-events-none absolute inset-0" />
-
+    <section className="relative overflow-hidden bg-[var(--color-bordeaux-deep)] py-20 text-[var(--color-cream)] sm:py-24">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_70%_30%,var(--color-champagne),transparent_50%)]" />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
-            <div className="flex items-center gap-3 sm:gap-4">
-              <span className="chapter-numeral text-3xl text-[var(--color-champagne)]">V.</span>
-              <span className="h-px w-10 bg-[var(--color-champagne)]/55 sm:w-12" />
-              <span className="eyebrow text-[10px] text-[var(--color-champagne)] sm:text-[10.5px]">O escritório</span>
-            </div>
-
-            <h2 className="mt-6 text-balance text-[2.1rem] font-medium leading-[1.05] sm:text-[2.85rem] lg:text-5xl">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-champagne)]">
+              Sobre o escritório
+            </span>
+            <h2 className="mt-3 text-balance text-3xl sm:text-4xl lg:text-[2.6rem]">
               Sobre{" "}
-              <span className="font-serif-italic font-light text-[var(--color-champagne)]">
+              <span className="font-serif-italic text-[var(--color-champagne)]">
                 Barp.Hoff Advogadas
               </span>
             </h2>
-
-            <p className="mt-6 text-pretty text-[15.5px] text-[var(--color-cream)]/78 leading-[1.7] sm:mt-7 sm:text-[1.075rem] sm:leading-[1.75]">
+            <p className="mt-5 text-[var(--color-cream)]/75">
               Um escritório formado por advogadas, dedicado a representar
               mulheres trabalhadoras e gestantes em todo o Brasil. Atendimento
               individualizado, com base em jurisprudência consolidada.
             </p>
-
-            <div className="mt-9 space-y-5 border-l border-[var(--color-champagne)]/45 pl-5 sm:mt-10 sm:pl-6">
-              <div>
-                <div className="font-display text-[17px] font-medium text-[var(--color-cream)] sm:text-lg">
-                  Dra. Alexandra Barp Salgado
-                </div>
-                <div className="mt-1 text-[10.5px] uppercase tracking-[0.22em] text-[var(--color-champagne)]/85 sm:text-[11px]">
-                  OAB/PR 56.903-N
-                </div>
-              </div>
-              <div>
-                <div className="font-display text-[17px] font-medium text-[var(--color-cream)] sm:text-lg">
-                  Dra. Jessica Cristina Hoff Bueno Garcia
-                </div>
-                <div className="mt-1 text-[10.5px] uppercase tracking-[0.22em] text-[var(--color-champagne)]/85 sm:text-[11px]">
-                  OAB/PR 99.905
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-9 sm:mt-10">
-              <WhatsappButton origin="authority" label="Falar com Advogada agora" />
-            </div>
           </div>
 
-          <ul className="grid content-start gap-4 sm:gap-5 lg:pt-2">
-            {bullets.map((b, i) => (
-              <li
-                key={b}
-                className="group flex items-start gap-4 border-t border-[var(--color-cream)]/12 pt-4 first:border-t-0 first:pt-0 sm:gap-5 sm:pt-5"
-              >
-                <span className="chapter-numeral pt-1 text-xl text-[var(--color-champagne)]/70 sm:text-2xl">
-                  {String(i + 1).padStart(2, "0")}
+          <ul className="grid gap-4 self-center">
+            {bullets.map((b) => (
+              <li key={b} className="flex items-start gap-3">
+                <span className="mt-0.5 inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-champagne)]/15 text-[var(--color-champagne)] ring-1 ring-[var(--color-champagne)]/30">
+                  <Check className="size-3.5" aria-hidden="true" />
                 </span>
-                <span className="text-[15px] text-[var(--color-cream)]/90 leading-[1.55] sm:text-base sm:leading-[1.6]">{b}</span>
+                <span className="text-[var(--color-cream)]/90">{b}</span>
               </li>
             ))}
           </ul>
         </div>
-      </div>
 
-      {/* Linha inferior decorativa */}
-      <div className="relative mx-auto mt-16 flex max-w-6xl items-center gap-5 px-5 sm:mt-20 sm:px-8">
-        <span className="h-px flex-1 bg-[var(--color-champagne)]/25" />
-        <Asterism className="h-4 w-12 text-[var(--color-champagne)]/70" />
-        <span className="h-px flex-1 bg-[var(--color-champagne)]/25" />
+        <div className="mt-14">
+          <WhatsappButton origin="authority" />
+        </div>
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════════════ FAQ ═══════════════════════════════ */
+/* ----------------------------- FAQ ----------------------------- */
 
 function Faq() {
   return (
-    <section id="faq" className="scroll-mt-20 bg-[var(--color-cream)] py-20 sm:py-28">
+    <section className="bg-background py-20 sm:py-24">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <div className="text-center">
-          <ChapterHeader numeral="VI." eyebrow="Perguntas frequentes" className="justify-center" />
-          <h2 className="mt-6 text-[2.1rem] font-medium leading-[1.05] sm:text-[2.85rem] lg:text-5xl">
-            Dúvidas mais{" "}
-            <span className="font-serif-italic font-light text-[var(--color-wine)]">
-              comuns
+          <h2 className="text-3xl sm:text-4xl">
+            Perguntas{" "}
+            <span className="font-serif-italic text-[var(--color-bordeaux)]">
+              frequentes
             </span>
           </h2>
-          <p className="mt-4 text-[15px] text-foreground/65 sm:mt-5 sm:text-base">
+          <p className="mt-3 text-foreground/70">
             Respostas baseadas em jurisprudência atualizada do TST e do STF.
           </p>
         </div>
 
-        <Accordion
-          type="single"
-          collapsible
-          className="mt-10 divide-y divide-[var(--color-wine)]/12 border-y border-[var(--color-wine)]/15 sm:mt-14"
-        >
+        <Accordion type="single" collapsible className="mt-10 space-y-3">
           {FAQ_ITEMS.map((item, i) => (
-            <AccordionItem key={i} value={`item-${i}`} className="border-0">
-              <AccordionTrigger className="group gap-4 py-5 text-left hover:no-underline [&>svg]:text-[var(--color-champagne-deep)] [&>svg]:transition-transform sm:gap-5 sm:py-6">
-                <span className="flex items-baseline gap-3 sm:gap-4">
-                  <span className="chapter-numeral shrink-0 text-base text-[var(--color-champagne-deep)] sm:text-lg">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-display text-[1rem] font-medium leading-[1.32] sm:text-[1.15rem] sm:leading-[1.35]">
-                    {item.q}
-                  </span>
-                </span>
+            <AccordionItem
+              key={i}
+              value={`item-${i}`}
+              className="rounded-2xl border border-border bg-card px-5 shadow-soft"
+            >
+              <AccordionTrigger className="text-left text-base font-semibold hover:no-underline sm:text-lg">
+                {item.q}
               </AccordionTrigger>
-              <AccordionContent className="pb-5 pl-8 text-[14.5px] text-foreground/78 leading-[1.7] sm:pb-6 sm:pl-10 sm:text-base">
+              <AccordionContent className="text-foreground/75">
                 {item.a}
               </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
 
-        <div className="mt-12 flex flex-col items-center gap-4 sm:mt-14">
-          <Fleuron className="h-4 w-20 text-[var(--color-champagne-deep)]" />
-          <WhatsappButton origin="faq" label="Falar com Advogada agora" />
+        <div className="mt-10 flex justify-center">
+          <WhatsappButton origin="faq" />
         </div>
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════════════ REVIEWS ═══════════════════════════════ */
+/* ----------------------------- REVIEWS ----------------------------- */
 
 function Reviews() {
   const reviews = [
@@ -1010,56 +876,44 @@ function Reviews() {
   ];
 
   return (
-    <section className="relative bg-gradient-blush py-20 sm:py-28">
+    <section className="bg-[color-mix(in_oklab,var(--color-nude)_22%,var(--color-cream))] py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="flex flex-col items-center gap-5 text-center sm:gap-6">
-          <ChapterHeader numeral="VII." eyebrow="Avaliações" className="justify-center" />
-
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-[var(--color-wine)]/15 bg-card px-4 py-2 shadow-soft sm:gap-3 sm:px-5 sm:py-2.5">
-            <span className="font-display text-[13px] font-medium text-foreground sm:text-sm">Google</span>
+        <div className="flex flex-col items-center gap-4 text-center">
+          <div className="inline-flex items-center gap-3 rounded-full border border-[var(--color-bordeaux)]/15 bg-card px-5 py-2 shadow-soft">
+            <span className="font-semibold text-foreground">Google</span>
             <span className="h-4 w-px bg-border" />
-            <span className="flex items-center gap-0.5 text-[var(--color-champagne-deep)]">
+            <span className="flex items-center gap-1 text-[var(--color-champagne)]">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="size-3.5 fill-current sm:size-4" aria-hidden="true" />
+                <Star key={i} className="size-4 fill-current" aria-hidden="true" />
               ))}
             </span>
-            <span className="font-display text-[13px] font-semibold text-foreground sm:text-sm">4,9</span>
-            <span className="hidden text-xs text-foreground/60 sm:inline">Avaliações verificadas</span>
+            <span className="text-sm font-semibold text-foreground">4,9</span>
+            <span className="text-xs text-foreground/60">Avaliações verificadas</span>
           </div>
 
-          <h2 className="text-balance text-[2.1rem] font-medium leading-[1.05] sm:text-[2.85rem] lg:text-5xl">
+          <h2 className="text-3xl sm:text-4xl">
             O que clientes{" "}
-            <span className="font-serif-italic font-light text-[var(--color-wine)]">
+            <span className="font-serif-italic text-[var(--color-bordeaux)]">
               dizem do atendimento
             </span>
           </h2>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-5">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
           {reviews.map((r, i) => (
             <figure
               key={i}
-              className="relative overflow-hidden rounded-[3px] border border-[var(--color-wine)]/12 bg-[var(--color-cream)] p-6 shadow-soft transition-shadow hover:shadow-warm sm:p-8"
+              className="rounded-2xl border border-border bg-card p-6 shadow-soft"
             >
-              <span
-                aria-hidden="true"
-                className="chapter-numeral pointer-events-none absolute -bottom-4 right-2 select-none text-[6rem] text-[var(--color-champagne)]/15 sm:text-[7rem]"
-              >
-                “
-              </span>
-
-              <div className="flex items-center gap-1 text-[var(--color-champagne-deep)]">
+              <div className="flex gap-1 text-[var(--color-champagne)]">
                 {[...Array(5)].map((_, k) => (
                   <Star key={k} className="size-4 fill-current" aria-hidden="true" />
                 ))}
               </div>
-
-              <blockquote className="relative mt-4 font-display text-[1.05rem] leading-[1.45] text-foreground/88 sm:mt-5 sm:text-[1.15rem]">
-                {r.text}
+              <blockquote className="mt-3 text-foreground/85">
+                “{r.text}”
               </blockquote>
-
-              <figcaption className="mt-5 flex items-center gap-3 text-[10.5px] uppercase tracking-[0.22em] text-foreground/55 sm:mt-6 sm:text-[11px]">
-                <span className="h-px w-8 bg-[var(--color-champagne)]" />
+              <figcaption className="mt-4 text-sm text-foreground/60">
                 {r.author}
               </figcaption>
             </figure>
@@ -1070,42 +924,29 @@ function Reviews() {
   );
 }
 
-/* ═══════════════════════════════ FINAL CTA ═══════════════════════════════ */
+/* ----------------------------- FINAL CTA ----------------------------- */
 
 function FinalCTA() {
   return (
-    <section className="relative isolate overflow-hidden bg-[var(--color-wine-ink)] py-24 text-[var(--color-cream)] sm:py-32">
-      <div className="pointer-events-none absolute inset-0 [background-image:radial-gradient(ellipse_at_50%_40%,color-mix(in_oklab,var(--color-wine)_85%,transparent),transparent_60%),radial-gradient(ellipse_at_50%_120%,color-mix(in_oklab,var(--color-champagne)_18%,transparent),transparent_55%)]" />
-      <div className="grain pointer-events-none absolute inset-0" />
-
-      {/* Filete duplo de moldura */}
-      <div className="pointer-events-none absolute inset-x-4 top-3 border-t border-[var(--color-champagne)]/22 sm:inset-x-6 sm:top-4" />
-      <div className="pointer-events-none absolute inset-x-4 top-[17px] border-t border-[var(--color-champagne)]/12 sm:inset-x-6 sm:top-[22px]" />
-      <div className="pointer-events-none absolute inset-x-4 bottom-3 border-t border-[var(--color-champagne)]/22 sm:inset-x-6 sm:bottom-4" />
-      <div className="pointer-events-none absolute inset-x-4 bottom-[17px] border-t border-[var(--color-champagne)]/12 sm:inset-x-6 sm:bottom-[22px]" />
-
+    <section className="relative overflow-hidden bg-[var(--color-bordeaux-deep)] py-24 text-[var(--color-cream)] sm:py-28">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:radial-gradient(circle_at_50%_50%,var(--color-champagne),transparent_60%)]" />
       <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
-        <Fleuron className="mx-auto h-5 w-28 text-[var(--color-champagne)]/80 sm:h-6 sm:w-36" />
-
-        <p className="mt-7 eyebrow text-[10px] text-[var(--color-champagne)] sm:mt-8 sm:text-[10.5px]">Próximo passo</p>
-
-        <h2 className="mt-6 text-balance text-[2.5rem] font-medium leading-[1.04] sm:mt-7 sm:text-6xl lg:text-[4.2rem]">
-          Você não precisa
-          <span className="block font-serif-italic font-light text-[var(--color-champagne)]">
+        <h2 className="text-balance text-4xl sm:text-5xl">
+          Você não precisa{" "}
+          <span className="font-serif-italic text-[var(--color-champagne)]">
             passar por isso sozinha.
           </span>
         </h2>
-
-        <p className="mx-auto mt-6 max-w-xl text-pretty text-[15.5px] text-[var(--color-cream)]/82 sm:mt-7 sm:text-lg">
+        <p className="mx-auto mt-5 max-w-xl text-pretty text-[var(--color-cream)]/80 sm:text-lg">
           Mande sua situação para uma análise jurídica. Você decide se quer
           prosseguir depois.
         </p>
 
-        <div className="mt-10 flex justify-center sm:mt-11">
+        <div className="mt-9 flex justify-center">
           <WhatsappButton origin="final" size="xl" />
         </div>
 
-        <ul className="mt-8 flex flex-col items-center gap-2.5 text-[13.5px] text-[var(--color-cream)]/72 sm:mt-9 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-7 sm:gap-y-2.5 sm:text-sm">
+        <ul className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[var(--color-cream)]/70">
           {[
             "Atendimento direto com advogada",
             "Sigilo profissional",
@@ -1117,57 +958,40 @@ function FinalCTA() {
             </li>
           ))}
         </ul>
-
-        <div className="mt-10 flex justify-center sm:mt-12">
-          <Asterism className="h-4 w-12 text-[var(--color-champagne)]/65" />
-        </div>
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════════════ FOOTER ═══════════════════════════════ */
+/* ----------------------------- FOOTER ----------------------------- */
 
 function Footer() {
   return (
-    <footer className="bg-[oklch(0.10_0.045_18)] text-[var(--color-cream)]/72">
-      <div className="mx-auto max-w-6xl px-5 py-16 pb-28 sm:px-8 md:pb-16">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="bg-[oklch(0.16_0.05_18)] text-[var(--color-cream)]/80">
+      <div className="mx-auto max-w-6xl px-5 py-14 pb-24 sm:px-8 md:pb-14">
+        <div className="grid gap-10 sm:grid-cols-2">
           <div>
-            <Wordmark tone="cream" />
-            <p className="mt-5 max-w-sm text-sm leading-[1.7] text-[var(--color-cream)]/62">
-              Direito Trabalhista e Direitos da Mulher. Atendimento online em
-              todo o Brasil, com base em jurisprudência consolidada do TST e do
-              STF.
-            </p>
-            <Fleuron className="mt-7 h-4 w-20 text-[var(--color-champagne)]/60" />
-          </div>
-
-          <div>
-            <h3 className="eyebrow text-[var(--color-champagne)]">Atuação</h3>
-            <ul className="mt-5 space-y-2.5 text-sm">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-champagne)]">
+              Atuação
+            </h3>
+            <ul className="mt-3 space-y-1.5 text-sm">
               <li>Atendimento nacional</li>
               <li>100% online</li>
               <li>Sem deslocamento</li>
             </ul>
           </div>
-
           <div>
-            <h3 className="eyebrow text-[var(--color-champagne)]">Legal</h3>
-            <ul className="mt-5 space-y-2.5 text-sm">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-champagne)]">
+              Legal
+            </h3>
+            <ul className="mt-3 space-y-1.5 text-sm">
               <li>
-                <a
-                  href="/politica-de-privacidade"
-                  className="transition hover:text-[var(--color-champagne)]"
-                >
+                <a href="/politica-de-privacidade" className="hover:text-[var(--color-champagne)]">
                   Política de privacidade
                 </a>
               </li>
               <li>
-                <a
-                  href="/termos-de-uso"
-                  className="transition hover:text-[var(--color-champagne)]"
-                >
+                <a href="/termos-de-uso" className="hover:text-[var(--color-champagne)]">
                   Termos de uso
                 </a>
               </li>
@@ -1175,19 +999,22 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-[var(--color-cream)]/10 pt-8">
-          <p className="text-xs text-[var(--color-cream)]/55">
+        <div className="mt-12 border-t border-[var(--color-cream)]/10 pt-8 text-center">
+          <p className="font-display text-lg font-semibold text-[var(--color-cream)]">
+            Barp.Hoff Advogadas, Direito Trabalhista e Direitos da Mulher
+          </p>
+          <p className="mt-2 text-sm text-[var(--color-cream)]/65">
             Dra. Alexandra Barp Salgado, OAB/PR 56.903-N · Dra. Jessica Cristina
             Hoff Bueno Garcia, OAB/PR 99.905 · CNPJ 48.808.073/0001-30
           </p>
-          <p className="mt-5 max-w-3xl font-serif-italic text-xs leading-[1.7] text-[var(--color-cream)]/50">
+          <p className="mx-auto mt-5 max-w-3xl font-serif-italic text-xs leading-relaxed text-[var(--color-cream)]/55">
             Este conteúdo tem caráter exclusivamente informativo e não constitui
             aconselhamento jurídico. A análise de casos específicos requer
             consulta profissional individualizada. Nenhum resultado jurídico
             pode ser garantido previamente; cada caso é avaliado conforme
             contrato, documentos e jurisprudência aplicável.
           </p>
-          <p className="mt-6 text-xs text-[var(--color-cream)]/40">
+          <p className="mt-6 text-xs text-[var(--color-cream)]/45">
             © 2026 Barp.Hoff Advogadas. Todos os direitos reservados.
           </p>
         </div>
