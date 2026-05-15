@@ -223,7 +223,7 @@ export const Route = createFileRoute("/")({
   component: GestantePage,
 });
 
-function GestantePage() {
+export function GestantePage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <TopBar />
