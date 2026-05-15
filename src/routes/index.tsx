@@ -11,6 +11,8 @@ import { WhatsappButton, StickyMobileCTA } from "@/components/whatsapp-button";
 import { clickWhatsapp } from "@/lib/whatsapp";
 import heroImg from "@/assets/hero-gestante.jpg";
 import storyImg from "@/assets/story-gestante.jpg";
+import logoSymbol from "@/assets/azevedo-symbol.png";
+import logoFull from "@/assets/azevedo-logo.png";
 
 /* Fade-up suave on-scroll. Respeita prefers-reduced-motion. */
 function Reveal({
@@ -283,7 +285,7 @@ function TopBar() {
     <div className="hidden md:block border-b border-[var(--color-bordeaux)]/10 bg-[var(--color-cream)]">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-3 text-xs">
         <div className="flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]">
-          <span className="inline-flex size-7 items-center justify-center rounded-full bg-[var(--color-bordeaux)] text-[var(--color-cream)] font-serif-italic text-sm">P</span>
+          <img src={logoSymbol} alt="Azevedo Advocacia" width={28} height={28} className="size-7 shrink-0" />
           Pétria<span className="text-[var(--color-champagne)]">·</span>Azevedo
           <span className="ml-1 hidden font-normal normal-case tracking-normal text-[var(--color-bordeaux-deep)]/60 lg:inline">Advogada · OAB</span>
         </div>
@@ -331,7 +333,7 @@ function MobileHero() {
           {/* mini brand */}
           <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-cream)]/85">
             <span className="inline-flex items-center gap-2">
-              <span className="grid size-6 place-items-center rounded-full bg-[var(--color-champagne)] font-serif-italic text-[11px] text-[var(--color-bordeaux-deep)]">P</span>
+              <img src={logoSymbol} alt="Azevedo Advocacia" width={24} height={24} className="size-6 shrink-0" />
               Pétria<span className="text-[var(--color-champagne)]">·</span>Azevedo
             </span>
             <a href="tel:+552732082264" className="inline-flex items-center gap-1.5 text-[var(--color-cream)]/80">
@@ -991,8 +993,18 @@ function Authority() {
           </ul>
         </div>
 
-        <div className="mt-12 flex justify-center sm:mt-14 sm:justify-start">
+        <div className="mt-12 flex flex-col items-start gap-10 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
           <WhatsappButton origin="authority" label="Falar com a Dra. Pétria agora" />
+
+          {/* Wordmark da marca */}
+          <img
+            src={logoFull}
+            alt="Azevedo Advocacia"
+            width={180}
+            height={180}
+            loading="lazy"
+            className="size-32 shrink-0 opacity-90 sm:size-40"
+          />
         </div>
       </div>
     </section>
@@ -1230,7 +1242,7 @@ function Footer() {
         {/* Wordmark topo */}
         <div className="mb-12 flex flex-col items-start gap-3 border-b border-[var(--color-cream)]/10 pb-10 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-baseline gap-2.5">
-            <span className="grid size-9 place-items-center rounded-full bg-[var(--color-champagne)] font-serif-italic text-[15px] text-[var(--color-bordeaux-deep)]">P</span>
+            <img src={logoSymbol} alt="Azevedo Advocacia" width={36} height={36} className="size-9 shrink-0" />
             <span className="font-display text-xl font-semibold tracking-tight text-[var(--color-cream)]">
               Pétria<span className="text-[var(--color-champagne)]">·</span>Azevedo
             </span>
