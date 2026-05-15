@@ -64,14 +64,14 @@ const faqJsonLd = {
   "@graph": [
     {
       "@type": "LegalService",
-      "@id": "https://www.barphoff.com/gestante-demitida#service",
-      name: "Barp.Hoff Advogadas, Direitos da Gestante Demitida",
+      "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service",
+      name: "Dra. Pétria Azevedo, Direitos da Gestante Demitida",
       description:
         "Atuação especializada em demissão de gestante, estabilidade provisória, pedido de demissão nulo, contrato de experiência e dispensa discriminatória.",
-      url: "https://www.barphoff.com/gestante-demitida",
-      telephone: "+55-45-3027-3100",
+      url: "https://www.petriaazevedoadvocacia.com.br/gestante-demitida",
+      telephone: "+55-27-3208-2264",
       areaServed: "BR",
-      provider: { "@type": "LegalService", name: "Barp.Hoff Advogadas" },
+      provider: { "@type": "LegalService", name: "Dra. Pétria Azevedo" },
     },
     {
       "@type": "FAQPage",
@@ -115,7 +115,7 @@ export const Route = createFileRoute("/v2")({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Demitida Grávida? Direitos da Gestante | Barp.Hoff Advogadas" },
+      { title: "Fui Demitida Grávida: Quais São os Meus Direitos? | Dra. Pétria Azevedo" },
       {
         name: "description",
         content:
@@ -234,6 +234,35 @@ const SectionLabel = ({
   </div>
 );
 
+/* Line-art de ramo de eucalipto — textura de baixíssima opacidade */
+const Botanical = ({ className, color = C.forest, opacity = 0.06 }: { className?: string; color?: string; opacity?: number }) => {
+  const leaves = [28, 56, 86, 116, 146];
+  return (
+    <svg viewBox="0 0 150 200" className={className} fill="none" aria-hidden="true" style={{ color, opacity }}>
+      <path d="M75 4 C 70 48, 80 110, 74 198" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+      {leaves.map((y, i) =>
+        [-1, 1].map((side) => {
+          const r = 21 - i * 1.6;
+          const cx = 74 + side * (r * 0.9);
+          return (
+            <ellipse
+              key={`${y}-${side}`}
+              cx={cx}
+              cy={y}
+              rx={r}
+              ry={r * 0.42}
+              stroke="currentColor"
+              strokeWidth="1"
+              transform={`rotate(${side * 34} ${cx} ${y})`}
+            />
+          );
+        })
+      )}
+      <circle cx="75" cy="6" r="3" fill="currentColor" />
+    </svg>
+  );
+};
+
 /* ─────────── NAV ─────────── */
 
 function Nav() {
@@ -246,15 +275,15 @@ function Nav() {
       }}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="/v2" className="flex items-center gap-2.5" aria-label="Barp.Hoff Advogadas">
+        <a href="/v2" className="flex items-center gap-2.5" aria-label="Dra. Pétria Azevedo">
           <span
             className="grid h-8 w-8 place-items-center rounded-full text-[14px] font-bold"
             style={{ background: C.forest, color: C.bone, fontFamily: '"Instrument Serif", serif' }}
           >
-            B
+            P
           </span>
           <span className="font-semibold tracking-tight" style={{ color: C.ink, fontSize: 17 }}>
-            Barp<span style={{ color: C.clay }}>·</span>Hoff
+            Pétria<span style={{ color: C.clay }}>·</span>Azevedo
           </span>
           <span className="hidden text-[10px] font-semibold uppercase sm:inline" style={{ color: C.moss, letterSpacing: "0.22em" }}>
             Advogadas
@@ -301,6 +330,7 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative isolate overflow-hidden" style={{ background: C.bone }}>
+      <div aria-hidden className="texture-paper-layer pointer-events-none absolute inset-0" />
       <div className="relative mx-auto grid max-w-7xl gap-10 px-5 pt-10 pb-16 sm:px-8 sm:pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pb-24 lg:pt-20">
         {/* Coluna texto */}
         <div className="relative z-10 flex flex-col justify-center">
@@ -326,30 +356,25 @@ function Hero() {
             className="mt-6 text-[2.5rem] font-bold leading-[0.98] tracking-[-0.035em] sm:text-[3.5rem] lg:text-[4.6rem]"
             style={{ color: C.ink }}
           >
-            A lei{" "}
-            <SerifI color={C.forest}>protege</SerifI>{" "}
-            você,
+            Você foi demitida grávida?
             <br />
-            <span style={{ color: "rgba(27,26,23,0.78)" }}>mesmo se a empresa</span>
-            <br />
-            <span style={{ color: "rgba(27,26,23,0.78)" }}>
-              não <SerifI color={C.clay}>quis ver</SerifI>.
-            </span>
+            <SerifI color={C.forest}>A lei está</SerifI>{" "}
+            <span style={{ color: "rgba(27,26,23,0.78)" }}>do seu lado.</span>
           </h1>
 
           <p
             className="mt-7 max-w-lg text-pretty text-[15.5px] leading-[1.7] sm:text-[1.06rem]"
             style={{ color: "rgba(27,26,23,0.72)" }}
           >
-            Demissão durante a gravidez, descoberta depois da demissão, pedido
-            de demissão sob pressão, contrato de experiência, sem registro. A
-            Justiça do Trabalho protege a gestante em todas essas situações.
+            A lei protege você mesmo se descobriu a gravidez depois da demissão,
+            estava em contrato de experiência, trabalhava sem registro, ou pediu
+            demissão sem o sindicato.
           </p>
 
           {/* Stat row inline */}
           <div className="mt-9 grid grid-cols-3 gap-3 border-y py-5" style={{ borderColor: "rgba(27,26,23,0.10)" }}>
-            <Stat n="17" suf="anos" sub="advocacia especializada" />
-            <Stat n="5k+" sub="casos analisados" />
+            <Stat n="11" suf="anos" sub="advocacia especializada" />
+            <Stat n="2k+" sub="casos atendidos" />
             <Stat n="6m" sub="tempo médio TST/CNJ" />
           </div>
 
@@ -489,7 +514,7 @@ function Manifesto() {
         >
           Quando uma gestante é demitida sem justa causa,{" "}
           <SerifI color={C.clay}>mesmo que a gravidez tenha sido descoberta depois</SerifI>,
-          a lei brasileira protege. Atuamos há mais de 17 anos com base na{" "}
+          a lei brasileira protege. Atuo há mais de 11 anos com base na{" "}
           <span style={{ color: C.forest, fontWeight: 500 }}>Súmula 244 do TST</span>,
           no <span style={{ color: C.forest, fontWeight: 500 }}>Tema 497 do STF</span> e
           no <span style={{ color: C.forest, fontWeight: 500 }}>Art. 10, II, b do ADCT</span>.
@@ -672,6 +697,8 @@ function Process() {
             "radial-gradient(ellipse at 80% 10%, rgba(199,122,92,0.12), transparent 60%), radial-gradient(ellipse at 10% 90%, rgba(199,194,184,0.08), transparent 55%)",
         }}
       />
+      <Botanical color={C.claySoft} opacity={0.07} className="pointer-events-none absolute -left-8 -top-6 h-72 w-48 rotate-[16deg] sm:h-96 sm:w-64" />
+      <Botanical color={C.claySoft} opacity={0.06} className="pointer-events-none absolute -right-8 -bottom-8 h-72 w-48 -rotate-[162deg] sm:h-96 sm:w-64" />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <SectionLabel index="03" title="Como funciona" light />
@@ -839,43 +866,37 @@ function Office() {
             className="mt-5 text-[2.4rem] font-bold leading-[1.02] tracking-[-0.03em] sm:text-[3rem] lg:text-[3.6rem]"
             style={{ color: C.ink }}
           >
-            <SerifI color={C.forest}>Barp·Hoff</SerifI> Advogadas.
+            <SerifI color={C.forest}>Azevedo</SerifI> Advocacia.
           </h2>
           <p className="mt-5 text-[15.5px] leading-[1.7]" style={{ color: "rgba(27,26,23,0.7)" }}>
-            Escritório formado por advogadas, dedicado a representar mulheres
-            trabalhadoras e gestantes em todo o Brasil. Atendimento
-            individualizado, com base em jurisprudência consolidada.
+            Advocacia individual dedicada à defesa de mulheres trabalhadoras
+            e gestantes em todo o Brasil. Atendimento personalizado e direto,
+            com base em jurisprudência consolidada do TST e do STF.
           </p>
         </div>
 
         {/* Bentos */}
         <div className="mt-14 grid gap-3 sm:mt-16 sm:grid-cols-6 sm:gap-4">
-          {/* Bento principal: advogadas */}
+          {/* Bento principal: advogada */}
           <div
             className="sm:col-span-3 rounded-[24px] p-7"
             style={{ background: C.forest, color: C.bone }}
           >
             <p className="text-[11px] font-semibold uppercase" style={{ color: C.claySoft, letterSpacing: "0.22em" }}>
-              Sócias fundadoras
+              Advogada responsável
             </p>
-            <div className="mt-7 space-y-5">
-              <div>
-                <p className="text-[1.25rem] font-semibold leading-tight tracking-tight" style={{ color: C.bone }}>
-                  Dra. Alexandra Barp Salgado
-                </p>
-                <p className="mt-1 text-[12px] font-mono" style={{ color: "rgba(245,241,234,0.6)", letterSpacing: "0.16em" }}>
-                  OAB / PR 56.903-N
-                </p>
-              </div>
-              <div className="h-px" style={{ background: "rgba(245,241,234,0.18)" }} />
-              <div>
-                <p className="text-[1.25rem] font-semibold leading-tight tracking-tight" style={{ color: C.bone }}>
-                  Dra. Jessica Cristina Hoff Bueno Garcia
-                </p>
-                <p className="mt-1 text-[12px] font-mono" style={{ color: "rgba(245,241,234,0.6)", letterSpacing: "0.16em" }}>
-                  OAB / PR 99.905
-                </p>
-              </div>
+            <div className="mt-7">
+              <p className="text-[1.25rem] font-semibold leading-tight tracking-tight" style={{ color: C.bone }}>
+                Dra. Pétria de Azevedo Silva Schaeffer
+              </p>
+              <p className="mt-1 text-[12px] font-mono" style={{ color: "rgba(245,241,234,0.6)", letterSpacing: "0.16em" }}>
+                OAB / ES 23.648
+              </p>
+              <div className="mt-5 h-px" style={{ background: "rgba(245,241,234,0.18)" }} />
+              <p className="mt-5 text-[13px] leading-[1.65]" style={{ color: "rgba(245,241,234,0.78)" }}>
+                Atuação especializada em defesa de gestantes e mulheres
+                trabalhadoras em todo o Brasil.
+              </p>
             </div>
           </div>
 
@@ -884,8 +905,8 @@ function Office() {
             className="sm:col-span-3 grid grid-cols-2 gap-3 sm:grid-cols-2 sm:grid-rows-2"
           >
             {[
-              { n: "17", suf: "anos", lab: "Atuação especializada" },
-              { n: "5k+", lab: "Casos analisados" },
+              { n: "11", suf: "anos", lab: "Atuação especializada" },
+              { n: "2k+", lab: "Casos atendidos" },
               { n: "100%", lab: "Atendimento online" },
               { n: "BR", lab: "Cobertura nacional" },
             ].map((s) => (
@@ -1001,19 +1022,19 @@ function Faq() {
 function Voices() {
   const r = [
     {
-      t: "Atendimento muito profissional e atencioso. As advogadas explicaram tudo com clareza e me deixaram muito mais tranquila.",
+      t: "Honestamente não imaginava ser tão rápido e ter toda a rede de apoio que tive. Obrigada demais à Pétria e às outras funcionárias.",
       a: "Cliente verificada",
     },
     {
-      t: "Equipe maravilhosa. Conheci o escritório em um momento difícil e me senti acolhida do começo ao fim.",
+      t: "Obrigada por todo carinho, por toda paciência, por sempre me explicar tudo com calma. Vocês são maravilhosas, super recomendo.",
       a: "Cliente verificada",
     },
     {
-      t: "Atendimento online prático e sério, trataram meu caso com muito respeito.",
+      t: "Foi um ótimo atendimento, ela é bem caprichosa em cada detalhe. Muito obrigada por fazer parte desse momento comigo, eu amei.",
       a: "Cliente verificada",
     },
     {
-      t: "Profissionais sérias, comunicação rápida e clara. Me senti segura em cada etapa.",
+      t: "Maravilhoso! Iniciei meu processo em dezembro e em março já consegui um acordo com a empresa! Passei por muita coisa e finalmente sinto que houve justiça. Obrigada por tudo!",
       a: "Cliente verificada",
     },
   ];
@@ -1037,7 +1058,7 @@ function Voices() {
               ))}
             </span>
             <span className="text-[13px] font-semibold" style={{ color: C.ink }}>
-              4,9
+              5,0
             </span>
           </div>
           <h2
@@ -1091,6 +1112,14 @@ function CtaFinal() {
             "radial-gradient(ellipse at 50% 0%, rgba(199,122,92,0.18), transparent 60%), radial-gradient(ellipse at 50% 100%, rgba(199,194,184,0.12), transparent 55%)",
         }}
       />
+      {/* TODO: quando belly-gestante.jpg estiver em src/assets, descomentar import e este bloco
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${bellyImg})`, filter: "blur(40px) saturate(0.8)", opacity: 0.08, mixBlendMode: "soft-light" }}
+      /> */}
+      <Botanical color={C.claySoft} opacity={0.07} className="pointer-events-none absolute -left-10 -top-8 h-80 w-52 rotate-[14deg] sm:h-[26rem] sm:w-72" />
+      <Botanical color={C.claySoft} opacity={0.07} className="pointer-events-none absolute -right-10 -bottom-10 h-80 w-52 -rotate-[160deg] sm:h-[26rem] sm:w-72" />
       <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
         <SectionLabel index="08" title="Próximo passo" align="center" light />
 
@@ -1159,10 +1188,10 @@ function Foot() {
                 className="grid h-8 w-8 place-items-center rounded-full text-[14px] font-bold"
                 style={{ background: C.bone, color: C.forest, fontFamily: '"Instrument Serif", serif' }}
               >
-                B
+                P
               </span>
               <span className="font-semibold tracking-tight" style={{ color: C.bone, fontSize: 17 }}>
-                Barp<span style={{ color: C.clay }}>·</span>Hoff
+                Pétria<span style={{ color: C.clay }}>·</span>Azevedo
               </span>
             </a>
             <p className="mt-5 max-w-sm text-[14px] leading-[1.7]">
@@ -1201,21 +1230,20 @@ function Foot() {
 
         <div className="mt-14 border-t pt-8" style={{ borderColor: "rgba(245,241,234,0.1)" }}>
           <p className="text-[12px]" style={{ color: "rgba(245,241,234,0.5)" }}>
-            Dra. Alexandra Barp Salgado, OAB/PR 56.903-N · Dra. Jessica Cristina
-            Hoff Bueno Garcia, OAB/PR 99.905 · CNPJ 48.808.073/0001-30
+            Dra. Pétria Azevedo · OAB/ES 23.648 · CNPJ 60.441.824/0001-29
           </p>
           <p
             className="mt-5 max-w-3xl text-[12px] italic leading-[1.7]"
             style={{ color: "rgba(245,241,234,0.42)", fontFamily: '"Instrument Serif", serif' }}
           >
-            Este conteúdo tem caráter exclusivamente informativo e não constitui
-            aconselhamento jurídico. A análise de casos específicos requer
-            consulta profissional individualizada. Nenhum resultado jurídico
-            pode ser garantido previamente; cada caso é avaliado conforme
-            contrato, documentos e jurisprudência aplicável.
+            As informações contidas nesta página possuem caráter exclusivamente
+            informativo e não substituem a análise individual de cada caso. A
+            atuação jurídica depende das particularidades de cada situação
+            concreta. Este conteúdo observa as diretrizes do Código de Ética
+            e Disciplina da OAB.
           </p>
           <p className="mt-6 text-[12px]" style={{ color: "rgba(245,241,234,0.35)" }}>
-            © 2026 Barp.Hoff Advogadas. Todos os direitos reservados.
+            © 2026 Dra. Pétria Azevedo. Todos os direitos reservados.
           </p>
         </div>
       </div>

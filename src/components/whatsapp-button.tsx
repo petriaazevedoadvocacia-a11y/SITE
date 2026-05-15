@@ -25,7 +25,7 @@ function WhatsappIcon({ className }: { className?: string }) {
 
 export function WhatsappButton({
   origin,
-  label = "Conversar com Advogada no WhatsApp",
+  label = "Falar com a Dra. Pétria",
   className,
   size = "lg",
   fullWidth,
@@ -76,7 +76,7 @@ export function StickyMobileCTA() {
 
     const update = () => {
       ticking = false;
-      const scrolled = window.scrollY > 650;
+      const scrolled = window.scrollY > 200;
       if (!scrolled) {
         setVisible(false);
         return;
@@ -119,12 +119,12 @@ export function StickyMobileCTA() {
         type="button"
         data-wa-cta
         data-sticky
-        aria-label="Conversar com Advogada no WhatsApp"
+        aria-label="Falar com a Dra. Pétria no WhatsApp"
         onClick={() => clickWhatsapp("sticky-mobile")}
         className="flex w-full items-center justify-center gap-3 rounded-full bg-[var(--color-whatsapp)] px-6 py-4 text-base font-semibold text-white shadow-warm active:scale-[0.98] transition-transform"
       >
         <WhatsappIcon className="size-6" />
-        Falar com Advogada agora
+        Falar com a Dra. Pétria agora
       </button>
     </div>
   );

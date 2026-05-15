@@ -41,6 +41,11 @@
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-deep: var(--whatsapp-deep);
   --color-ink: var(--ink);
+  /* aliases semânticos */
+  --color-sage: var(--bordeaux);
+  --color-sage-deep: var(--bordeaux-deep);
+  --color-clay: var(--champagne);
+  --color-clay-soft: var(--nude);
 
   --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -50,14 +55,14 @@
 :root {
   --radius: 0.875rem;
 
-  /* Palette: Bordô feminino + nude rosado + creme + dourado champagne */
-  --cream: oklch(0.972 0.012 75);
-  --nude: oklch(0.88 0.035 28);
-  --bordeaux: oklch(0.36 0.115 18);
-  --bordeaux-deep: oklch(0.24 0.07 18);
-  --champagne: oklch(0.78 0.085 78);
-  --ink: oklch(0.22 0.04 25);
-  --whatsapp: oklch(0.71 0.17 152);
+  /* Azevedo Advocacia: bordô profundo + ouro */
+  --cream:         oklch(0.968 0.014 76);   /* creme quente */
+  --nude:          oklch(0.870 0.040 28);   /* nude rosado para fundos alternados */
+  --bordeaux:      oklch(0.320 0.130 17);   /* bordô primário (#5C111A ~) */
+  --bordeaux-deep: oklch(0.215 0.090 18);   /* bordô profundo */
+  --champagne:     oklch(0.745 0.130 78);   /* dourado (não champagne pálido) */
+  --ink:           oklch(0.205 0.045 22);   /* tinta quente */
+  --whatsapp:      oklch(0.71 0.17 152);
   --whatsapp-deep: oklch(0.62 0.18 152);
 
   --background: var(--cream);
@@ -142,4 +147,29 @@
   .shadow-warm { box-shadow: var(--shadow-warm); }
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
+
+  /* Textura de papel: grão fino + planos de luz diagonais (sensação de papel amassado).
+     Aplicar num <div absolute inset-0 pointer-events-none>; o conteúdo deve ficar acima. */
+  .texture-paper-layer {
+    background-image:
+      linear-gradient(
+        118deg,
+        rgba(255, 255, 255, 0.07) 0%,
+        transparent 22%,
+        rgba(0, 0, 0, 0.055) 50%,
+        transparent 74%,
+        rgba(255, 255, 255, 0.05) 100%
+      ),
+      radial-gradient(
+        ellipse at 78% 18%,
+        rgba(255, 255, 255, 0.05) 0%,
+        transparent 45%
+      ),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23p)' opacity='0.6'/></svg>");
+    background-size: 100% 100%, 100% 100%, 220px 220px;
+    mix-blend-mode: soft-light;
+    opacity: 0.65;
+  }
+  /* No fundo escuro o grão precisa ser um pouco mais discreto */
+  .texture-paper-layer.is-dark { opacity: 0.5; }
 }
