@@ -12,6 +12,9 @@ import appCss from "../styles.css?url";
 import azevedoSymbol from "../assets/azevedo-symbol.png";
 import azevedoLogo from "../assets/azevedo-logo.png";
 
+/** URL canônica do site — usada pra OG image absoluta. Atualize se mudar de domínio. */
+const SITE_URL = "https://petriaazevedoadvocacia.com.br";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -91,7 +94,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:site_name", content: "Azevedo Advocacia" },
-      { property: "og:image", content: azevedoLogo },
+      { property: "og:image", content: `${SITE_URL}${azevedoLogo}` },
+      { property: "og:image:width", content: "1640" },
+      { property: "og:image:height", content: "1640" },
+      { property: "og:url", content: SITE_URL },
       { property: "og:image:alt", content: "Azevedo Advocacia · Logo" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Dra. Pétria Azevedo · Advocacia Trabalhista da Mulher" },
@@ -100,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Defesa de gestantes e mulheres trabalhadoras em todo o Brasil. 5,0 no Google com 1.389 avaliações.",
       },
-      { name: "twitter:image", content: azevedoLogo },
+      { name: "twitter:image", content: `${SITE_URL}${azevedoLogo}` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

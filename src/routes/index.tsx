@@ -103,15 +103,15 @@ const faqJsonLd = {
   "@graph": [
     {
       "@type": "LegalService",
-      "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service",
+      "@id": "https://petriaazevedoadvocacia.com.br/#service",
       name: "Dra. Pétria Azevedo · Direitos da Gestante Demitida",
       description:
         "Atuação especializada em demissão de gestante, estabilidade provisória, pedido de demissão nulo, contrato de experiência e dispensa discriminatória.",
-      url: "https://www.petriaazevedoadvocacia.com.br/gestante-demitida",
+      url: "https://petriaazevedoadvocacia.com.br/",
       telephone: "+55-27-3208-2264",
       email: "contato@petriaazevedo.com.br",
       areaServed: { "@type": "Country", name: "Brasil" },
-      provider: { "@id": "https://www.petriaazevedoadvocacia.com.br/#attorney" },
+      provider: { "@id": "https://petriaazevedoadvocacia.com.br/#attorney" },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5.0",
@@ -122,10 +122,10 @@ const faqJsonLd = {
     },
     {
       "@type": "Attorney",
-      "@id": "https://www.petriaazevedoadvocacia.com.br/#attorney",
+      "@id": "https://petriaazevedoadvocacia.com.br/#attorney",
       name: "Dra. Pétria de Azevedo Silva Schaeffer",
       alternateName: "Dra. Pétria Azevedo",
-      url: "https://www.petriaazevedoadvocacia.com.br",
+      url: "https://petriaazevedoadvocacia.com.br",
       telephone: "+55-27-3208-2264",
       email: "contato@petriaazevedo.com.br",
       sameAs: ["https://instagram.com/petriaazevedo"],
@@ -148,12 +148,12 @@ const faqJsonLd = {
         "Reconhecimento de Vínculo Empregatício",
       ],
       knowsLanguage: ["pt-BR"],
-      worksFor: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      worksFor: { "@id": "https://petriaazevedoadvocacia.com.br/#service" },
     },
     {
       "@type": "AggregateRating",
-      "@id": "https://www.petriaazevedoadvocacia.com.br/#rating",
-      itemReviewed: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      "@id": "https://petriaazevedoadvocacia.com.br/#rating",
+      itemReviewed: { "@id": "https://petriaazevedoadvocacia.com.br/#service" },
       ratingValue: "5.0",
       reviewCount: "1389",
       bestRating: "5",
@@ -162,7 +162,7 @@ const faqJsonLd = {
     {
       "@type": "Review",
       author: { "@type": "Person", name: "M. S." },
-      itemReviewed: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      itemReviewed: { "@id": "https://petriaazevedoadvocacia.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
         "Honestamente não imaginava ser tão rápido e ter toda a rede de apoio que tive. Obrigada demais à Pétria e às outras funcionárias.",
@@ -170,7 +170,7 @@ const faqJsonLd = {
     {
       "@type": "Review",
       author: { "@type": "Person", name: "C. R." },
-      itemReviewed: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      itemReviewed: { "@id": "https://petriaazevedoadvocacia.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
         "Obrigada por todo carinho, por toda paciência, por sempre me explicar tudo com calma. Vocês são maravilhosas, super recomendo.",
@@ -178,7 +178,7 @@ const faqJsonLd = {
     {
       "@type": "Review",
       author: { "@type": "Person", name: "J. A." },
-      itemReviewed: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      itemReviewed: { "@id": "https://petriaazevedoadvocacia.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
         "Foi um ótimo atendimento, ela é bem caprichosa em cada detalhe. Muito obrigada por fazer parte desse momento comigo.",
@@ -186,7 +186,7 @@ const faqJsonLd = {
     {
       "@type": "Review",
       author: { "@type": "Person", name: "L. F." },
-      itemReviewed: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      itemReviewed: { "@id": "https://petriaazevedoadvocacia.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
         "Maravilhoso! Iniciei meu processo em dezembro e em março já consegui um acordo. Passei por muita coisa e finalmente sinto que houve justiça.",
@@ -198,13 +198,13 @@ const faqJsonLd = {
           "@type": "ListItem",
           position: 1,
           name: "Início",
-          item: "https://www.petriaazevedoadvocacia.com.br/",
+          item: "https://petriaazevedoadvocacia.com.br/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Direitos da Gestante Demitida",
-          item: "https://www.petriaazevedoadvocacia.com.br/gestante-demitida",
+          item: "https://petriaazevedoadvocacia.com.br/",
         },
       ],
     },
@@ -249,14 +249,14 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:url",
-        content: "https://www.petriaazevedoadvocacia.com.br/gestante-demitida",
+        content: "https://petriaazevedoadvocacia.com.br/",
       },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://www.petriaazevedoadvocacia.com.br/gestante-demitida",
+        href: "https://petriaazevedoadvocacia.com.br/",
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
