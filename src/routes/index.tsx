@@ -10,7 +10,6 @@ import {
 import { WhatsappButton, StickyMobileCTA } from "@/components/whatsapp-button";
 import { clickWhatsapp } from "@/lib/whatsapp";
 import heroImg from "@/assets/hero-gestante.jpg";
-import storyImg from "@/assets/story-gestante.jpg";
 import petriaPortrait from "@/assets/petria-portrait.jpg";
 import logoSymbol from "@/assets/azevedo-symbol.png";
 import logoFull from "@/assets/azevedo-logo.png";
@@ -105,28 +104,92 @@ const faqJsonLd = {
     {
       "@type": "LegalService",
       "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service",
-      name: "Dra. Pétria Azevedo, Direitos da Gestante Demitida",
+      name: "Dra. Pétria Azevedo · Direitos da Gestante Demitida",
       description:
         "Atuação especializada em demissão de gestante, estabilidade provisória, pedido de demissão nulo, contrato de experiência e dispensa discriminatória.",
       url: "https://www.petriaazevedoadvocacia.com.br/gestante-demitida",
       telephone: "+55-27-3208-2264",
-      areaServed: "BR",
-      provider: { "@type": "LegalService", name: "Dra. Pétria Azevedo" },
+      email: "contato@petriaazevedo.com.br",
+      areaServed: { "@type": "Country", name: "Brasil" },
+      provider: { "@id": "https://www.petriaazevedoadvocacia.com.br/#attorney" },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5.0",
+        reviewCount: "1389",
+        bestRating: "5",
+        worstRating: "1",
+      },
     },
     {
       "@type": "Attorney",
-      name: "Dra. Pétria Azevedo",
+      "@id": "https://www.petriaazevedoadvocacia.com.br/#attorney",
+      name: "Dra. Pétria de Azevedo Silva Schaeffer",
+      alternateName: "Dra. Pétria Azevedo",
+      url: "https://www.petriaazevedoadvocacia.com.br",
+      telephone: "+55-27-3208-2264",
+      email: "contato@petriaazevedo.com.br",
+      sameAs: ["https://instagram.com/petriaazevedo"],
       hasCredential: {
         "@type": "EducationalOccupationalCredential",
         credentialCategory: "professional license",
-        recognizedBy: { "@type": "Organization", name: "OAB/UF" },
-        identifier: "00.000",
+        recognizedBy: { "@type": "Organization", name: "Ordem dos Advogados do Brasil — Espírito Santo" },
+        identifier: "OAB/ES 23.648",
       },
       knowsAbout: [
-        "Direito Trabalhista",
-        "Estabilidade Gestante",
-        "Direitos da Mulher Trabalhadora",
+        "Direito Trabalhista da Mulher",
+        "Estabilidade da Gestante",
+        "Súmula 244 do TST",
+        "Tema 497 do STF",
+        "Art. 10, II, b do ADCT",
+        "Art. 500 da CLT",
+        "Pedido de Demissão Nulo",
+        "Contrato de Experiência da Gestante",
+        "Dispensa Discriminatória",
+        "Reconhecimento de Vínculo Empregatício",
       ],
+      knowsLanguage: ["pt-BR"],
+      worksFor: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+    },
+    {
+      "@type": "AggregateRating",
+      "@id": "https://www.petriaazevedoadvocacia.com.br/#rating",
+      itemReviewed: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      ratingValue: "5.0",
+      reviewCount: "1389",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "M. S." },
+      itemReviewed: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "Honestamente não imaginava ser tão rápido e ter toda a rede de apoio que tive. Obrigada demais à Pétria e às outras funcionárias.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "C. R." },
+      itemReviewed: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "Obrigada por todo carinho, por toda paciência, por sempre me explicar tudo com calma. Vocês são maravilhosas, super recomendo.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "J. A." },
+      itemReviewed: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "Foi um ótimo atendimento, ela é bem caprichosa em cada detalhe. Muito obrigada por fazer parte desse momento comigo.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "L. F." },
+      itemReviewed: { "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "Maravilhoso! Iniciei meu processo em dezembro e em março já consegui um acordo. Passei por muita coisa e finalmente sinto que houve justiça.",
     },
     {
       "@type": "BreadcrumbList",
@@ -739,6 +802,23 @@ function IdentifyCards() {
             Cada cenário abaixo tem amparo jurídico específico. Toque no que
             mais se aproxima da sua situação para conversar com uma advogada.
           </p>
+
+          {/* Bloco LLM-ready: definição factual para extração por motores generativos (GEO) */}
+          <aside className="mx-auto mt-8 max-w-2xl rounded-xl border border-[var(--color-bordeaux)]/15 bg-card/60 p-5 text-left shadow-soft backdrop-blur sm:p-6">
+            <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[var(--color-bordeaux)]">
+              Em síntese
+            </p>
+            <p className="mt-3 text-[14.5px] leading-[1.65] text-foreground/82 sm:text-[15px]">
+              A demissão de gestante sem justa causa é considerada nula pela{" "}
+              <strong>Súmula 244 do TST</strong> e pelo{" "}
+              <strong>Tema 497 do STF</strong>. A estabilidade provisória vale
+              da concepção até cinco meses após o parto, independentemente do
+              conhecimento prévio da empresa ou da própria trabalhadora sobre
+              a gravidez. A proteção alcança contratos por prazo determinado,
+              contratos de experiência e pedidos de demissão feitos sem
+              assistência sindical (<strong>Art. 500 da CLT</strong>).
+            </p>
+          </aside>
         </div>
 
         <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
@@ -914,17 +994,49 @@ function Storytelling() {
           </div>
         </div>
 
-        <div className="order-first overflow-hidden rounded-3xl shadow-warm ring-1 ring-[var(--color-bordeaux)]/10 lg:order-last">
-          <img
-            src={storyImg}
-            alt="Mulher serena em poltrona aveludada segurando caderno"
-            width={1024}
-            height={1024}
-            loading="lazy"
-            decoding="async"
-            className="h-full w-full object-cover"
-          />
-        </div>
+        {/* Data card — substitui foto stock (penalty Pilar 2 GEO) com peça factual */}
+        <aside className="order-first overflow-hidden rounded-3xl bg-[var(--color-bordeaux-deep)] p-8 text-[var(--color-cream)] shadow-warm lg:order-last lg:p-10">
+          <div className="flex items-center gap-3">
+            <span className="grid size-10 place-items-center rounded-full bg-[var(--color-champagne)]/15 text-[var(--color-champagne)] ring-1 ring-[var(--color-champagne)]/40">
+              <Clock className="size-5" aria-hidden="true" />
+            </span>
+            <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[var(--color-champagne)]">
+              Dado oficial CNJ
+            </p>
+          </div>
+
+          <p className="mt-7 font-serif-italic text-[3.2rem] leading-[0.95] text-[var(--color-champagne)] sm:text-[4rem] lg:text-[4.8rem]">
+            6 meses<br />
+            <span className="text-[2rem] not-italic sm:text-[2.5rem] lg:text-[2.8rem]">
+              e 17 dias
+            </span>
+          </p>
+          <p className="mt-5 text-[15px] leading-[1.6] text-[var(--color-cream)]/82 sm:text-base">
+            é o <strong className="text-[var(--color-cream)]">tempo médio</strong> que a Justiça do Trabalho leva para julgar um processo trabalhista no Brasil em 2025.
+          </p>
+          <p className="mt-3 text-[11px] uppercase tracking-[0.18em] text-[var(--color-cream)]/55">
+            Fonte: Justiça em Números 2025 · CNJ
+          </p>
+
+          <div className="mt-8 grid grid-cols-2 gap-4 border-t border-[var(--color-cream)]/15 pt-7">
+            <div>
+              <p className="font-serif-italic text-3xl text-[var(--color-champagne)] sm:text-4xl">
+                +2.000
+              </p>
+              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-cream)]/70">
+                mães amparadas
+              </p>
+            </div>
+            <div>
+              <p className="font-serif-italic text-3xl text-[var(--color-champagne)] sm:text-4xl">
+                11 anos
+              </p>
+              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-cream)]/70">
+                de atuação especializada
+              </p>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
   );
