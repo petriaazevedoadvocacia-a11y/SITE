@@ -951,20 +951,64 @@ function Storytelling() {
               não buscam justiça
             </span>
           </h2>
-          <div className="mt-6 space-y-5 text-pretty text-foreground/80">
-            <p>
-              Muitas gestantes deixam de buscar os seus direitos por medo,
-              vergonha ou desinformação. Acreditam que processar a empresa é
-              demorado, que precisam de muitas provas, ou que perderam o direito
-              porque pediram demissão ou porque descobriram a gravidez depois.
-            </p>
-            <p>
-              A maioria está enganada. A Justiça do Trabalho hoje resolve casos
-              de gestante em média em{" "}
-              <strong className="text-foreground">6 meses e 17 dias</strong>{" "}
-              (Justiça em Números 2025, CNJ). E a jurisprudência brasileira
-              protege a gestante mesmo nas situações mais difíceis.
-            </p>
+          <p className="mt-6 text-pretty leading-[1.72] text-foreground/82">
+            Muitas gestantes deixam de buscar os seus direitos por medo,
+            vergonha ou desinformação. Acreditam que processar a empresa é
+            demorado, que precisam de muitas provas, ou que perderam o direito
+            porque pediram demissão ou porque descobriram a gravidez depois.
+            <span className="mt-4 block font-serif-italic text-[var(--color-bordeaux)]">
+              Mas a realidade é diferente do que parece.
+            </span>
+          </p>
+
+          {/* Tabela comparativa Mito × Realidade — formato IA-friendly (Pilar 2 GEO) */}
+          <div className="mt-8 overflow-hidden rounded-2xl border border-[var(--color-bordeaux)]/15 bg-card shadow-soft">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="border-b border-[var(--color-bordeaux)]/12">
+                  <th className="w-1/2 px-5 py-3 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[var(--color-bordeaux-deep)]/55 sm:px-6">
+                    Mito
+                  </th>
+                  <th className="w-1/2 px-5 py-3 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[var(--color-bordeaux)] sm:px-6">
+                    Realidade
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="text-[13.5px] leading-[1.55] sm:text-[14.5px]">
+                {[
+                  {
+                    mito: "Preciso comprovar a gravidez antes da demissão",
+                    real: "A estabilidade independe do conhecimento prévio (Tema 497 STF)",
+                  },
+                  {
+                    mito: "Pedi demissão, então perdi todos os direitos",
+                    real: "Sem assistência sindical, o pedido pode ser nulo (Art. 500 CLT)",
+                  },
+                  {
+                    mito: "Contrato de experiência não tem proteção",
+                    real: "A estabilidade vale também em contratos de experiência (Súmula 244, III TST)",
+                  },
+                  {
+                    mito: "Processar empresa demora anos no Brasil",
+                    real: "Tempo médio é de 6 meses e 17 dias (Justiça em Números 2025, CNJ)",
+                  },
+                ].map((row, i, arr) => (
+                  <tr
+                    key={row.mito}
+                    className={i < arr.length - 1 ? "border-b border-[var(--color-bordeaux)]/10" : ""}
+                  >
+                    <td className="align-top px-5 py-4 text-foreground/68 sm:px-6">
+                      <span className="mr-2 select-none text-[var(--color-bordeaux)]/40">×</span>
+                      {row.mito}
+                    </td>
+                    <td className="align-top px-5 py-4 font-medium text-foreground sm:px-6">
+                      <span className="mr-2 select-none text-[var(--color-bordeaux)]">✓</span>
+                      {row.real}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
           <div className="mt-8 rounded-2xl border border-[var(--color-bordeaux)]/15 bg-card p-6 shadow-soft">
