@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import azevedoSymbol from "../assets/azevedo-symbol.png";
+import azevedoLogo from "../assets/azevedo-logo.png";
 
 function NotFoundComponent() {
   return (
@@ -72,24 +74,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Captures and displays exact screenshots for visual feedback and lead engagement." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Captures and displays exact screenshots for visual feedback and lead engagement." },
+      { title: "Dra. Pétria Azevedo · Advocacia Trabalhista da Mulher" },
+      {
+        name: "description",
+        content:
+          "Advocacia especializada em Direito Trabalhista da Mulher — defesa de gestantes demitidas, contrato de experiência, sem registro e pedido de demissão nulo. Atendimento online em todo o Brasil.",
+      },
+      { name: "author", content: "Dra. Pétria Azevedo · OAB/ES 23.648" },
+      { name: "theme-color", content: "#5C111A" },
+      { property: "og:title", content: "Dra. Pétria Azevedo · Advocacia Trabalhista da Mulher" },
+      {
+        property: "og:description",
+        content:
+          "Defesa de gestantes e mulheres trabalhadoras em todo o Brasil. 11 anos de atuação, +2.000 mães amparadas, 5,0 no Google.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Captures and displays exact screenshots for visual feedback and lead engagement." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0b2154ed-3d27-4fc3-910c-4350d6dc3c5c/id-preview-d29ac93d--d87dcb0a-7100-466d-b4d5-344c74b88a20.lovable.app-1778642867200.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0b2154ed-3d27-4fc3-910c-4350d6dc3c5c/id-preview-d29ac93d--d87dcb0a-7100-466d-b4d5-344c74b88a20.lovable.app-1778642867200.png" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:site_name", content: "Azevedo Advocacia" },
+      { property: "og:image", content: azevedoLogo },
+      { property: "og:image:alt", content: "Azevedo Advocacia · Logo" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Dra. Pétria Azevedo · Advocacia Trabalhista da Mulher" },
+      {
+        name: "twitter:description",
+        content:
+          "Defesa de gestantes e mulheres trabalhadoras em todo o Brasil. 5,0 no Google com 1.389 avaliações.",
+      },
+      { name: "twitter:image", content: azevedoLogo },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: azevedoSymbol },
+      { rel: "apple-touch-icon", href: azevedoSymbol },
+      { rel: "shortcut icon", href: azevedoSymbol },
     ],
   }),
   shellComponent: RootShell,
@@ -100,7 +117,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>

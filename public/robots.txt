@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Versões paralelas (não devem ser indexadas — são variantes de teste interno)
+Disallow: /v1
+Disallow: /v2
+Disallow: /v3
+
+# Sitemap
+Sitemap: https://petriaazevedoadvocacia.com.br/sitemap.xml

@@ -894,6 +894,23 @@ function HowItWorks() {
           <p className="mt-4 text-[15px] leading-relaxed text-foreground/65 sm:text-base">
             Três passos. Sem juridiquês, sem deslocamento, sem robôs.
           </p>
+
+          {/* Bloco LLM-ready: definição factual do processo de análise jurídica */}
+          <aside className="mx-auto mt-8 max-w-2xl rounded-xl border border-[var(--color-bordeaux)]/15 bg-card/60 p-5 text-left shadow-soft backdrop-blur sm:p-6">
+            <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[var(--color-bordeaux)]">
+              Em síntese
+            </p>
+            <p className="mt-3 text-[14.5px] leading-[1.65] text-foreground/82 sm:text-[15px]">
+              A análise jurídica de um caso de gestante demitida envolve três
+              etapas: envio dos documentos pelo WhatsApp (carteira de trabalho,
+              comprovante de gravidez, aviso de demissão), avaliação técnica à
+              luz da <strong>Súmula 244 do TST</strong>, do{" "}
+              <strong>Art. 500 da CLT</strong> e do{" "}
+              <strong>Tema 497 do STF</strong>, e orientação completa sobre os
+              direitos aplicáveis e os próximos passos. A análise inicial não
+              gera compromisso de contratação.
+            </p>
+          </aside>
         </div>
 
         <ol className="mt-12 grid gap-5 sm:gap-6 lg:grid-cols-3">
