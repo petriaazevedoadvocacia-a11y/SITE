@@ -161,27 +161,35 @@ const faqJsonLd = {
     },
     {
       "@type": "Review",
-      author: { "@type": "Person", name: "Adila Martins" },
+      author: { "@type": "Person", name: "M. S." },
       itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
-        "O escritório pegou o meu caso e não mediu esforços me ajudar. Consegui receber os meus Direitos na justiça, resolvendo meu problema.",
+        "Honestamente não imaginava ser tão rápido e ter toda a rede de apoio que tive. Obrigada demais à Pétria e às outras funcionárias.",
     },
     {
       "@type": "Review",
-      author: { "@type": "Person", name: "Márcio Luís" },
+      author: { "@type": "Person", name: "C. R." },
       itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
-        "Cheguei no escritório em busca de uma solução, e a equipe não mediu esforços para me atender, e em pouco tempo resolveu o meu problema. Muito obrigada pela atenção e profissionalismo. Irei indicar sempre!",
+        "Obrigada por todo carinho, por toda paciência, por sempre me explicar tudo com calma. Vocês são maravilhosas, super recomendo.",
     },
     {
       "@type": "Review",
-      author: { "@type": "Person", name: "Daniela Kramer" },
+      author: { "@type": "Person", name: "J. A." },
       itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
-        "O escritório da Dra. Pétria e sua equipe que me ajudaram a resolver o meu caso, sempre com muito profissionalismo, de forma humana, que me fez sentir acolhida e representada. Será sempre a minha advogada.",
+        "Foi um ótimo atendimento, ela é bem caprichosa em cada detalhe. Muito obrigada por fazer parte desse momento comigo, eu amei.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "L. F." },
+      itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "Maravilhoso! Iniciei meu processo em dezembro e em março já consegui um acordo com a empresa! Passei por muita coisa na empresa que trabalhava e finalmente sinto que houve justiça. Obrigada por tudo!",
     },
     {
       "@type": "BreadcrumbList",
@@ -1263,19 +1271,24 @@ function Faq() {
 function Reviews() {
   const reviews = [
     {
-      text: "O escritório pegou o meu caso e não mediu esforços me ajudar. Consegui receber os meus Direitos na justiça, resolvendo meu problema.",
-      author: "Adila Martins",
-      tag: "Cliente verificada",
+      text: "Honestamente não imaginava ser tão rápido e ter toda a rede de apoio que tive. Obrigada demais à Pétria e às outras funcionárias.",
+      author: "M. S.",
+      tag: "Cliente verificada · ES",
     },
     {
-      text: "Cheguei no escritório em busca de uma solução, e a equipe não mediu esforços para me atender, e em pouco tempo resolveu o meu problema. Muito obrigada pela atenção e profissionalismo. Irei indicar sempre!",
-      author: "Márcio Luís",
-      tag: "Cliente verificado",
+      text: "Obrigada por todo carinho, por toda paciência, por sempre me explicar tudo com calma. Vocês são maravilhosas, super recomendo.",
+      author: "C. R.",
+      tag: "Cliente verificada · ES",
     },
     {
-      text: "O escritório da Dra. Pétria e sua equipe que me ajudaram a resolver o meu caso, sempre com muito profissionalismo, de forma humana, que me fez sentir acolhida e representada. Será sempre a minha advogada.",
-      author: "Daniela Kramer",
-      tag: "Cliente verificada",
+      text: "Foi um ótimo atendimento, ela é bem caprichosa em cada detalhe. Muito obrigada por fazer parte desse momento comigo, eu amei.",
+      author: "J. A.",
+      tag: "Cliente verificada · ES",
+    },
+    {
+      text: "Maravilhoso! Iniciei meu processo em dezembro e em março já consegui um acordo com a empresa! Passei por muita coisa na empresa que trabalhava e finalmente sinto que houve justiça. Obrigada por tudo!",
+      author: "L. F.",
+      tag: "Cliente verificada · ES",
     },
   ];
 
@@ -1309,7 +1322,7 @@ function Reviews() {
           </h2>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5">
           {reviews.map((r, i) => (
             <figure
               key={i}
