@@ -11,6 +11,7 @@ import { WhatsappButton, StickyMobileCTA } from "@/components/whatsapp-button";
 import { clickWhatsapp } from "@/lib/whatsapp";
 import heroImg from "@/assets/hero-gestante.jpg";
 import storyImg from "@/assets/story-gestante.jpg";
+import petriaPortrait from "@/assets/petria-portrait.jpg";
 import logoSymbol from "@/assets/azevedo-symbol.png";
 import logoFull from "@/assets/azevedo-logo.png";
 
@@ -945,65 +946,91 @@ function Authority() {
       <Botanical className="pointer-events-none absolute -right-6 top-2 h-64 w-44 text-[var(--color-champagne)] opacity-[0.07] sm:h-80 sm:w-56" />
       <Botanical className="pointer-events-none absolute -left-8 bottom-0 h-56 w-40 -scale-x-100 rotate-180 text-[var(--color-champagne)] opacity-[0.06] sm:h-72 sm:w-48" />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="flex items-center justify-center gap-3">
+            <span className="h-px w-10 bg-[var(--color-champagne)]" />
+            <span className="text-[10.5px] font-semibold uppercase tracking-[0.24em] text-[var(--color-champagne)]">
+              A advogada
+            </span>
+            <span className="h-px w-10 bg-[var(--color-champagne)]" />
+          </div>
+          <h2 className="mt-5 text-balance text-[2rem] leading-[1.05] sm:text-4xl lg:text-[2.6rem]">
+            Conheça{" "}
+            <span className="font-serif-italic text-[var(--color-champagne)]">
+              Dra. Pétria Azevedo
+            </span>
+          </h2>
+        </div>
+
+        {/* Foto + conteúdo */}
+        <div className="mt-12 grid gap-10 lg:mt-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-14">
+          {/* Foto */}
+          <div className="relative">
+            <span aria-hidden className="pointer-events-none absolute -left-3 -top-3 hidden h-14 w-14 border-l border-t border-[var(--color-champagne)]/60 lg:block" />
+            <span aria-hidden className="pointer-events-none absolute -bottom-3 -right-3 hidden h-14 w-14 border-b border-r border-[var(--color-champagne)]/60 lg:block" />
+            <figure className="relative overflow-hidden rounded-[6px] shadow-warm aspect-[4/5]">
+              <img
+                src={petriaPortrait}
+                alt="Dra. Pétria Azevedo"
+                width={800}
+                height={1000}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+                style={{ filter: "saturate(0.92) contrast(1.03)" }}
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--color-bordeaux-deep)]/22 via-transparent to-transparent mix-blend-multiply" />
+            </figure>
+            <p className="mt-4 text-center text-[10.5px] uppercase tracking-[0.22em] text-[var(--color-champagne)]/80 lg:text-left">
+              Dra. Pétria Azevedo · OAB/ES 23.648
+            </p>
+          </div>
+
+          {/* Conteúdo */}
           <div>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-10 bg-[var(--color-champagne)]" />
-              <span className="text-[10.5px] font-semibold uppercase tracking-[0.24em] text-[var(--color-champagne)]">
-                A advogada
-              </span>
-            </div>
-            <h2 className="mt-5 text-balance text-[2rem] leading-[1.05] sm:text-4xl lg:text-[2.6rem]">
-              Conheça{" "}
-              <span className="font-serif-italic text-[var(--color-champagne)]">
-                Dra. Pétria Azevedo
-              </span>
-            </h2>
-            <p className="mt-5 text-[15.5px] leading-[1.72] text-[var(--color-cream)]/78 sm:text-base sm:leading-[1.75]">
+            <p className="text-[15.5px] leading-[1.75] text-[var(--color-cream)]/82 sm:text-[1.05rem]">
               Meu trabalho é voltado à defesa de mulheres que enfrentam
               situações relacionadas à gestação no ambiente de trabalho.
               Atuo em casos de demissão durante a gravidez, descoberta da
               gestação após o desligamento, ausência de registro em carteira
               e outras situações que envolvem a proteção dos direitos da
-              trabalhadora. Sei que esses momentos geram insegurança e
-              dúvidas, por isso ofereço uma orientação jurídica clara,
-              acessível e direcionada a cada caso.
+              trabalhadora.
+            </p>
+            <p className="mt-4 text-[15.5px] leading-[1.75] text-[var(--color-cream)]/82 sm:text-[1.05rem]">
+              <span className="font-serif-italic text-[var(--color-champagne)]">Sei que esses momentos geram insegurança e dúvidas.</span>{" "}
+              Por isso ofereço uma orientação jurídica clara, acessível e direcionada a cada caso.
             </p>
 
-            {/* Advogada */}
-            <div className="mt-8 border-l border-[var(--color-champagne)]/40 pl-5">
-              <p className="font-display text-[17px] font-semibold leading-tight text-[var(--color-cream)] sm:text-lg">
-                Dra. Pétria Azevedo
-              </p>
-              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[var(--color-champagne)]/85">
-                OAB/ES 23.648
-              </p>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4">
+              {bullets.map((b, i) => (
+                <li
+                  key={b}
+                  className="flex items-start gap-3 rounded-xl border border-[var(--color-cream)]/10 bg-[var(--color-cream)]/[0.04] p-4 backdrop-blur"
+                >
+                  <span className="font-serif-italic text-xl leading-none text-[var(--color-champagne)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[14px] leading-[1.55] text-[var(--color-cream)]/92 sm:text-[14.5px]">{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-9">
+              <WhatsappButton origin="authority" label="Falar com a Dra. Pétria agora" />
             </div>
           </div>
-
-          <ul className="grid gap-4 self-center">
-            {bullets.map((b, i) => (
-              <li key={b} className="flex items-start gap-4 border-t border-[var(--color-cream)]/12 pt-4 first:border-t-0 first:pt-0">
-                <span className="font-serif-italic text-2xl leading-none text-[var(--color-champagne)]/80">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="text-[15px] leading-[1.55] text-[var(--color-cream)]/90 sm:text-base sm:leading-[1.6]">{b}</span>
-              </li>
-            ))}
-          </ul>
         </div>
 
-        <div className="mt-12 flex flex-col items-start gap-10 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-          <WhatsappButton origin="authority" label="Falar com a Dra. Pétria agora" />
-
-          {/* Wordmark da marca */}
+        {/* Wordmark final */}
+        <div className="mt-14 flex justify-center sm:mt-16">
           <img
             src={logoFull}
             alt="Azevedo Advocacia"
-            width={180}
-            height={180}
+            width={200}
+            height={200}
             loading="lazy"
-            className="size-32 shrink-0 opacity-90 sm:size-40"
+            className="size-32 opacity-90 sm:size-40"
           />
         </div>
       </div>
