@@ -161,35 +161,27 @@ const faqJsonLd = {
     },
     {
       "@type": "Review",
-      author: { "@type": "Person", name: "M. S." },
+      author: { "@type": "Person", name: "Adila Martins" },
       itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
-        "Honestamente não imaginava ser tão rápido e ter toda a rede de apoio que tive. Obrigada demais à Pétria e às outras funcionárias.",
+        "O escritório pegou o meu caso e não mediu esforços me ajudar. Consegui receber os meus Direitos na justiça, resolvendo meu problema.",
     },
     {
       "@type": "Review",
-      author: { "@type": "Person", name: "C. R." },
+      author: { "@type": "Person", name: "Márcio Luís" },
       itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
-        "Obrigada por todo carinho, por toda paciência, por sempre me explicar tudo com calma. Vocês são maravilhosas, super recomendo.",
+        "Cheguei no escritório em busca de uma solução, e a equipe não mediu esforços para me atender, e em pouco tempo resolveu o meu problema. Muito obrigada pela atenção e profissionalismo. Irei indicar sempre!",
     },
     {
       "@type": "Review",
-      author: { "@type": "Person", name: "J. A." },
+      author: { "@type": "Person", name: "Daniela Kramer" },
       itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
-        "Foi um ótimo atendimento, ela é bem caprichosa em cada detalhe. Muito obrigada por fazer parte desse momento comigo.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "L. F." },
-      itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Maravilhoso! Iniciei meu processo em dezembro e em março já consegui um acordo. Passei por muita coisa e finalmente sinto que houve justiça.",
+        "O escritório da Dra. Pétria e sua equipe que me ajudaram a resolver o meu caso, sempre com muito profissionalismo, de forma humana, que me fez sentir acolhida e representada. Será sempre a minha advogada.",
     },
     {
       "@type": "BreadcrumbList",
@@ -1271,20 +1263,19 @@ function Faq() {
 function Reviews() {
   const reviews = [
     {
-      text: "Honestamente não imaginava ser tão rápido e ter toda a rede de apoio que tive. Obrigada demais à Pétria e às outras funcionárias.",
-      author: "M. S. · Cliente verificada · ES",
+      text: "O escritório pegou o meu caso e não mediu esforços me ajudar. Consegui receber os meus Direitos na justiça, resolvendo meu problema.",
+      author: "Adila Martins",
+      tag: "Cliente verificada",
     },
     {
-      text: "Obrigada por todo carinho, por toda paciência, por sempre me explicar tudo com calma. Vocês são maravilhosas, super recomendo.",
-      author: "C. R. · Cliente verificada · ES",
+      text: "Cheguei no escritório em busca de uma solução, e a equipe não mediu esforços para me atender, e em pouco tempo resolveu o meu problema. Muito obrigada pela atenção e profissionalismo. Irei indicar sempre!",
+      author: "Márcio Luís",
+      tag: "Cliente verificado",
     },
     {
-      text: "Foi um ótimo atendimento, ela é bem caprichosa em cada detalhe. Muito obrigada por fazer parte desse momento comigo, eu amei.",
-      author: "J. A. · Cliente verificada · ES",
-    },
-    {
-      text: "Maravilhoso! Iniciei meu processo em dezembro e em março já consegui um acordo com a empresa! Passei por muita coisa na empresa que trabalhava e finalmente sinto que houve justiça. Obrigada por tudo!",
-      author: "L. F. · Cliente verificada · ES",
+      text: "O escritório da Dra. Pétria e sua equipe que me ajudaram a resolver o meu caso, sempre com muito profissionalismo, de forma humana, que me fez sentir acolhida e representada. Será sempre a minha advogada.",
+      author: "Daniela Kramer",
+      tag: "Cliente verificada",
     },
   ];
 
@@ -1318,11 +1309,11 @@ function Reviews() {
           </h2>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5">
+        <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {reviews.map((r, i) => (
             <figure
               key={i}
-              className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-soft transition-shadow hover:shadow-warm sm:p-7"
+              className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-soft transition-shadow hover:shadow-warm sm:p-7"
             >
               <span
                 aria-hidden
@@ -1335,12 +1326,26 @@ function Reviews() {
                   <Star key={k} className="size-4 fill-current" aria-hidden="true" />
                 ))}
               </div>
-              <blockquote className="relative mt-4 text-[15px] leading-[1.55] text-foreground/88 sm:text-[1.05rem]">
-                "{r.text}"
+              <blockquote className="relative mt-4 flex-1 text-[15px] leading-[1.55] text-foreground/88 sm:text-[1.05rem]">
+                &ldquo;{r.text}&rdquo;
               </blockquote>
-              <figcaption className="relative mt-5 flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-foreground/55">
-                <span className="h-px w-7 bg-[var(--color-champagne)]" />
-                {r.author}
+              <figcaption className="relative mt-5 flex items-center gap-3 border-t border-[var(--color-bordeaux)]/10 pt-4">
+                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-[var(--color-bordeaux)]/8 font-display text-[13px] font-semibold text-[var(--color-bordeaux-deep)]">
+                  {r.author
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .slice(0, 2)
+                    .toUpperCase()}
+                </span>
+                <div className="leading-tight">
+                  <p className="font-display text-[14px] font-semibold text-foreground sm:text-[14.5px]">
+                    {r.author}
+                  </p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground/55">
+                    {r.tag}
+                  </p>
+                </div>
               </figcaption>
             </figure>
           ))}
