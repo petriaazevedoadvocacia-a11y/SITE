@@ -77,7 +77,7 @@ Conta
   - `A lei protege você mesmo se descobriu a gravidez depois da demissão. Fale com a Dra. Pétria Azevedo no WhatsApp.`
   - `Especialista em Direito Trabalhista da Mulher. OAB/ES 23.648. Análise individual e sigilosa.`
 
-**URL Final:** `https://petriaazevedoadvocacia.com.br/?utm_source=google&utm_medium=cpc&utm_campaign=alta-intencao&utm_content=demissao-gestante`
+**URL Final:** `https://petriaazevedo.com.br/?utm_source=google&utm_medium=cpc&utm_campaign=alta-intencao&utm_content=demissao-gestante`
 
 ### AG · Descoberta gravidez pós-demissão
 **Theme:** "descobri gravidez depois da demissão"

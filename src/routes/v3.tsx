@@ -77,11 +77,11 @@ const faqJsonLd = {
   "@graph": [
     {
       "@type": "LegalService",
-      "@id": "https://www.petriaazevedoadvocacia.com.br/gestante-demitida#service",
+      "@id": "https://www.petriaazevedo.com.br/gestante-demitida#service",
       name: "Dra. Pétria Azevedo, Direitos da Gestante Demitida",
       description:
         "Atuação especializada em demissão de gestante, estabilidade provisória, pedido de demissão nulo, contrato de experiência e dispensa discriminatória.",
-      url: "https://www.petriaazevedoadvocacia.com.br/gestante-demitida",
+      url: "https://www.petriaazevedo.com.br/gestante-demitida",
       telephone: "+55-27-3208-2264",
       areaServed: "BR",
       provider: { "@type": "LegalService", name: "Dra. Pétria Azevedo" },
@@ -136,7 +136,7 @@ export const Route = createFileRoute("/v3")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.petriaazevedoadvocacia.com.br/gestante-demitida" },
+      { rel: "canonical", href: "https://www.petriaazevedo.com.br/gestante-demitida" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

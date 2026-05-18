@@ -13,7 +13,7 @@ import azevedoSymbol from "../assets/azevedo-symbol.png";
 import azevedoLogo from "../assets/azevedo-logo.png";
 
 /** URL canônica do site — usada pra OG image absoluta. Atualize se mudar de domínio. */
-const SITE_URL = "https://petriaazevedoadvocacia.com.br";
+const SITE_URL = "https://petriaazevedo.com.br";
 
 function NotFoundComponent() {
   return (

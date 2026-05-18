@@ -7,4 +7,4 @@ Disallow: /v2
 Disallow: /v3
 
 # Sitemap
-Sitemap: https://petriaazevedoadvocacia.com.br/sitemap.xml
+Sitemap: https://petriaazevedo.com.br/sitemap.xml

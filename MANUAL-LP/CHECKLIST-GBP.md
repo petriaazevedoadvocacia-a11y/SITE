@@ -19,7 +19,7 @@
 - [ ] **Endereço:** apenas se atende presencialmente. Se 100% online, **deixar oculto** mas declarar **área de atendimento = Brasil**
 - [ ] **Telefone:** `(27) 3208-2264` (mesmo do site, sem variações de formato)
 - [ ] **WhatsApp como canal de mensagem:** ativar
-- [ ] **Site:** `https://petriaazevedoadvocacia.com.br` (URL canônica)
+- [ ] **Site:** `https://petriaazevedo.com.br` (URL canônica)
 - [ ] **Horário de funcionamento:** declarar com precisão (ver ponto 5 sobre impacto)
 
 ---
