@@ -10,7 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import azevedoSymbol from "../assets/azevedo-symbol.png";
-import azevedoLogo from "../assets/azevedo-logo.png";
+import ogImage from "../assets/og-image.jpg";
 
 /** URL canônica do site — usada pra OG image absoluta. Atualize se mudar de domínio. */
 const SITE_URL = "https://petriaazevedo.com.br";
@@ -94,11 +94,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:site_name", content: "Azevedo Advocacia" },
-      { property: "og:image", content: `${SITE_URL}${azevedoLogo}` },
-      { property: "og:image:width", content: "1640" },
-      { property: "og:image:height", content: "1640" },
+      { property: "og:image", content: `${SITE_URL}${ogImage}` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/jpeg" },
       { property: "og:url", content: SITE_URL },
-      { property: "og:image:alt", content: "Azevedo Advocacia · Logo" },
+      {
+        property: "og:image:alt",
+        content:
+          "Balança de bronze sobre tecido de seda creme e veludo bordô — Azevedo Advocacia, advocacia trabalhista para gestantes",
+      },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Dra. Pétria Azevedo · Advocacia Trabalhista da Mulher" },
       {
@@ -106,7 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Defesa de gestantes e mulheres trabalhadoras em todo o Brasil. 5,0 no Google com 1.389 avaliações.",
       },
-      { name: "twitter:image", content: `${SITE_URL}${azevedoLogo}` },
+      { name: "twitter:image", content: `${SITE_URL}${ogImage}` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
