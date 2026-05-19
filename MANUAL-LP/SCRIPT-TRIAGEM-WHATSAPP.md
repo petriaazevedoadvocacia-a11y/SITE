@@ -17,7 +17,7 @@ resposta deve fazer **três coisas em ordem**:
 3. **Agendar ou descartar** sem ambiguidade
 
 > 🎯 **Meta:** 80% dos leads classificados (viável / inviável / inconclusivo)
-> em até 24h úteis · 0 lead em ghost.
+> no mesmo dia útil sempre que possível · 0 lead em ghost.
 
 ---
 
@@ -49,13 +49,13 @@ Pra eu já adiantar a análise do seu caso, me ajuda respondendo
    (dias, meses ou ano aproximado)
 
 Assim que me responder, a Dra. Pétria mesma vai conversar com você
-em até 24h úteis. Tudo aqui é sigiloso.
+no mesmo dia útil sempre que possível. Tudo aqui é sigiloso.
 ```
 
 **Por que essa estrutura:**
 - Frase inicial reduz o pânico ("equipe", "vi que veio", "que bom")
 - 3 perguntas curtas (não cansa) com numeração (cliente em pânico não escreve, escolhe)
-- Promessa de retorno em **24h úteis** (matcha o selo da LP, cria expectativa clara)
+- Promessa de retorno em **no mesmo dia útil** (matcha o selo da LP, cria expectativa clara)
 - Reforço de **sigilo** desativa objeção principal
 
 ---
@@ -64,7 +64,7 @@ em até 24h úteis. Tudo aqui é sigiloso.
 
 Com base nas respostas, classifique o lead em **3 baldes**:
 
-### 🟢 Verde · Viável imediato (responde em 24h úteis)
+### 🟢 Verde · Viável imediato (responde em no mesmo dia útil)
 
 **Critérios (atende pelo menos 3):**
 - Situação 1, 2, 4 ou 5 (cenários cobertos pela LP)
@@ -211,7 +211,7 @@ uma estimativa mais realista pro seu caso específico.
 | Métrica | Meta |
 |---|---|
 | Leads / mês | a definir (depende do orçamento Ads) |
-| Taxa de resposta em < 24h | 100% |
+| Taxa de resposta no mesmo dia útil | 100% |
 | Taxa de classificação (verde + amarelo + vermelho) | 100% em 48h |
 | Taxa de conversão Verde → Contrato fechado | > 30% |
 | Taxa de leads Vermelhos (inviáveis) | < 25% (acima disso, revisar palavras-chave do Ads) |
@@ -224,7 +224,7 @@ uma estimativa mais realista pro seu caso específico.
 1. **Nunca prometer resultado** em mensagem alguma (compliance OAB)
 2. **Nunca falar valor específico de indenização** pelo WhatsApp
 3. **Resposta inaugural automática máximo 1 min** após o lead iniciar conversa
-4. **Resposta humana máximo 24h úteis** (matcha promessa da LP)
+4. **Resposta humana máximo no mesmo dia útil** (matcha promessa da LP)
 5. **Lead vermelho recebe encaminhamento gentil**, nunca silêncio
 6. **Dados sigilosos** — não compartilhar prints, números, nomes em grupos
 7. **Pós-fechamento de contrato**: enviar mensagem pedindo avaliação

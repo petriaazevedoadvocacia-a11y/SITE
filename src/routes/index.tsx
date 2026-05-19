@@ -251,7 +251,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "A lei protege a gestante demitida. Análise jurídica do seu caso pelo WhatsApp.",
+          "A gestante demitida pode ter direitos garantidos por lei. Análise inicial do seu caso pelo WhatsApp.",
       },
       {
         property: "og:url",
@@ -428,10 +428,10 @@ function MobileHero() {
           <h1 className="mt-5 text-balance text-[2.15rem] leading-[1.05]">
             Você foi demitida grávida?
             <span className="mt-1 block font-serif-italic text-[var(--color-champagne)]">
-              A lei está
+              Você pode ter direitos
             </span>
             <span className="relative inline-block">
-              do seu lado.
+              garantidos por lei.
               <svg aria-hidden viewBox="0 0 200 12" className="absolute -bottom-1.5 left-0 h-2.5 w-full text-[var(--color-champagne)]" preserveAspectRatio="none">
                 <path d="M2 8 C 60 2, 140 12, 198 5" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
               </svg>
@@ -439,7 +439,7 @@ function MobileHero() {
           </h1>
 
           <p className="mt-6 text-pretty text-[15px] leading-relaxed text-[var(--color-cream)]/85">
-            A lei protege você <strong className="text-[var(--color-cream)]">mesmo se descobriu a gravidez depois da demissão</strong>, estava em contrato de experiência, trabalhava sem registro, ou pediu demissão sem o sindicato.
+            A gestante pode ter <strong className="text-[var(--color-cream)]">proteção legal mesmo quando descobre a gravidez após a demissão</strong>, estava em contrato de experiência, trabalhava sem registro ou pediu demissão sem orientação adequada.
           </p>
 
           {/* CTA */}
@@ -451,7 +451,7 @@ function MobileHero() {
                   <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-champagne)]/70" />
                   <span className="relative inline-flex size-1.5 rounded-full bg-[var(--color-champagne)]" />
                 </span>
-                <span className="font-semibold uppercase tracking-[0.16em] text-[var(--color-champagne)]">Resposta em até 24h</span>
+                <span className="font-semibold uppercase tracking-[0.16em] text-[var(--color-champagne)]">Atendimento direto</span>
               </span>
               <span className="text-[var(--color-cream)]/40">·</span>
               <span className="inline-flex items-center gap-1.5">
@@ -494,8 +494,8 @@ function MobileHero() {
             <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-bordeaux-deep)]/70 leading-tight">Direito<br/>da Mulher</p>
           </li>
           <li className="rounded-xl border border-[var(--color-bordeaux)]/10 bg-white p-3 shadow-soft">
-            <p className="font-serif-italic text-2xl text-[var(--color-bordeaux)]">24h</p>
-            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-bordeaux-deep)]/70 leading-tight">Resposta<br/>WhatsApp</p>
+            <p className="font-serif-italic text-2xl text-[var(--color-bordeaux)]">5,0★</p>
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-bordeaux-deep)]/70 leading-tight">No Google<br/>·1.389 reviews</p>
           </li>
         </ul>
 
@@ -546,10 +546,10 @@ function DesktopHero() {
           <h1 className="mt-7 text-balance text-[3.4rem] leading-[1.02] lg:text-[4rem]">
             Você foi demitida grávida?{" "}
             <span className="block font-serif-italic text-[var(--color-bordeaux)]">
-              A lei está
+              Você pode ter direitos
             </span>
             <span className="relative inline-block">
-              do seu lado.
+              garantidos por lei.
               <svg aria-hidden viewBox="0 0 300 14" className="absolute -bottom-2 left-0 h-3 w-full text-[var(--color-champagne)]" preserveAspectRatio="none">
                 <path d="M2 9 C 80 2, 180 14, 298 6" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
               </svg>
@@ -557,7 +557,7 @@ function DesktopHero() {
           </h1>
 
           <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-[var(--color-bordeaux-deep)]/75">
-            A lei protege você <strong className="text-[var(--color-bordeaux-deep)]">mesmo se descobriu a gravidez depois da demissão</strong>, estava em contrato de experiência, trabalhava sem registro, ou pediu demissão sem o sindicato. Receba uma análise jurídica do seu caso pelo WhatsApp.
+            A gestante pode ter <strong className="text-[var(--color-bordeaux-deep)]">proteção legal mesmo quando descobre a gravidez após a demissão</strong>, estava em contrato de experiência, trabalhava sem registro ou pediu demissão sem orientação adequada. Receba uma análise inicial do seu caso pelo WhatsApp.
           </p>
 
           <div className="mt-9 flex flex-row items-center gap-5">
@@ -588,7 +588,7 @@ function DesktopHero() {
                 <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-bordeaux)]/55" />
                 <span className="relative inline-flex size-2 rounded-full bg-[var(--color-bordeaux)]" />
               </span>
-              <span className="font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]">Resposta em até 24h</span>
+              <span className="font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]">Atendimento direto com a Dra. Pétria</span>
             </span>
             <span className="inline-flex items-center gap-2">
               <Lock className="size-3.5" aria-hidden="true" />
@@ -606,8 +606,8 @@ function DesktopHero() {
               <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">Foco no Direito da Mulher</p>
             </li>
             <li>
-              <p className="font-serif-italic text-4xl text-[var(--color-bordeaux)]">24h</p>
-              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">Resposta no WhatsApp</p>
+              <p className="font-serif-italic text-4xl text-[var(--color-bordeaux)]">5,0★</p>
+              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">No Google · 1.389 avaliações</p>
             </li>
           </ul>
         </div>
@@ -685,13 +685,13 @@ function Bridge() {
         <div className="mb-6 flex items-center justify-center gap-3 sm:mb-8">
           <span className="h-px w-8 bg-[var(--color-champagne)] sm:w-12" />
           <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-bordeaux)] sm:text-[10.5px]">
-            A lei está do seu lado
+            Fundamentos jurídicos
           </span>
           <span className="h-px w-8 bg-[var(--color-champagne)] sm:w-12" />
         </div>
         <p className="text-pretty text-center text-[15.5px] leading-[1.72] text-foreground/82 sm:text-lg sm:leading-[1.75]">
           Quando uma gestante é demitida sem justa causa, mesmo que a gravidez
-          tenha sido descoberta depois, a lei brasileira protege. A{" "}
+          tenha sido descoberta depois, pode existir proteção legal aplicável. A{" "}
           <strong className="text-foreground">Dra. Pétria Azevedo</strong> atua
           há mais de 11 anos em <strong>Direito Trabalhista da Gestante</strong>,
           com base na <strong>Súmula 244 do TST</strong>, no{" "}

@@ -255,7 +255,7 @@ export function WhatsappLeadProvider({ children }: { children: ReactNode }) {
             {/* Microcopy */}
             <p className="mt-4 flex items-center justify-center gap-2 text-[11.5px] text-foreground/60">
               <Lock className="size-3.5" aria-hidden />
-              Sigilo profissional · Resposta em até 24h úteis
+              Sigilo profissional · Atendimento direto com a Dra. Pétria
             </p>
           </form>
         </DialogContent>

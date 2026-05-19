@@ -70,7 +70,7 @@ Conta
   - `Advogada Especialista · Gestante Demitida`
 - H2:
   - `Atendimento Direto Pelo WhatsApp`
-  - `Análise Jurídica em Até 24h`
+  - `Análise Jurídica Direta com a Dra.`
   - `+2.000 Mães Amparadas em 11 Anos`
   - `100% Online em Todo o Brasil`
 - Descrições:
@@ -276,7 +276,7 @@ licença maternidade calculo (educacional)
 - `Avaliações Google 5,0` → `https://www.google.com/search?q=Petria+Azevedo+Advocacia`
 
 ### Frase de destaque (callouts)
-- `Resposta em até 24h`
+- `Atendimento direto com a Dra. Pétria`
 - `Sigilo profissional`
 - `100% online em todo Brasil`
 - `OAB/ES 23.648`
