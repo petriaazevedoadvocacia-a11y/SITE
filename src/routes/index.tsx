@@ -484,10 +484,14 @@ function MobileHero() {
 
       {/* BOTTOM: pilares de autoridade em creme */}
       <div className="bg-[var(--color-cream)] px-5 py-7">
-        <ul className="grid grid-cols-3 gap-3 text-center">
+        <ul className="grid grid-cols-2 gap-3 text-center">
+          <li className="rounded-xl border border-[var(--color-bordeaux)]/15 bg-[var(--color-bordeaux)] p-3 shadow-soft text-[var(--color-cream)]">
+            <p className="font-serif-italic text-2xl text-[var(--color-champagne)]">+2.000</p>
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-cream)]/85 leading-tight">Mães<br/>amparadas</p>
+          </li>
           <li className="rounded-xl border border-[var(--color-bordeaux)]/10 bg-white p-3 shadow-soft">
             <p className="font-serif-italic text-2xl text-[var(--color-bordeaux)]">11</p>
-            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-bordeaux-deep)]/70 leading-tight">Anos<br/>de causa</p>
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-bordeaux-deep)]/70 leading-tight">Anos em<br/>Direito Trab.</p>
           </li>
           <li className="rounded-xl border border-[var(--color-bordeaux)]/10 bg-white p-3 shadow-soft">
             <p className="font-serif-italic text-2xl text-[var(--color-bordeaux)]">100%</p>
@@ -495,7 +499,7 @@ function MobileHero() {
           </li>
           <li className="rounded-xl border border-[var(--color-bordeaux)]/10 bg-white p-3 shadow-soft">
             <p className="font-serif-italic text-2xl text-[var(--color-bordeaux)]">5,0★</p>
-            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-bordeaux-deep)]/70 leading-tight">No Google<br/>·1.389 reviews</p>
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-bordeaux-deep)]/70 leading-tight">No Google<br/>1.389 reviews</p>
           </li>
         </ul>
 
@@ -596,7 +600,12 @@ function DesktopHero() {
             </span>
           </div>
 
-          <ul className="mt-10 grid grid-cols-3 gap-6 border-t border-[var(--color-bordeaux)]/15 pt-7">
+          <ul className="mt-10 grid grid-cols-2 gap-6 border-t border-[var(--color-bordeaux)]/15 pt-7 lg:grid-cols-4">
+            <li className="relative">
+              <p className="font-serif-italic text-4xl text-[var(--color-bordeaux)]">+2.000</p>
+              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">Mães amparadas</p>
+              <span aria-hidden className="absolute -left-2 -top-2 hidden h-1 w-1 rounded-full bg-[var(--color-champagne)] lg:block" />
+            </li>
             <li>
               <p className="font-serif-italic text-4xl text-[var(--color-bordeaux)]">11</p>
               <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">Anos em Direito Trabalhista</p>
