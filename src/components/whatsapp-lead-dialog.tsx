@@ -137,10 +137,14 @@ export function WhatsappLeadProvider({ children }: { children: ReactNode }) {
             max-h-[92vh] gap-0 overflow-y-auto border-0 p-0
             inset-x-0 bottom-0 top-auto translate-x-0 translate-y-0
             w-full max-w-none rounded-t-3xl rounded-b-none
-            bg-[var(--color-cream)]
+            bg-[var(--color-cream)] shadow-2xl
+            !duration-500 ease-out
             data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom
+            data-[state=closed]:zoom-out-100 data-[state=open]:zoom-in-100
             sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2
             sm:max-w-md sm:rounded-2xl
+            sm:data-[state=open]:slide-in-from-bottom-4
+            sm:data-[state=open]:zoom-in-98
           "
         >
           {/* Header */}
