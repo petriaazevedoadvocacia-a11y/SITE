@@ -124,7 +124,7 @@ export function StickyMobileCTA() {
         className="flex w-full items-center justify-center gap-3 rounded-full bg-[var(--color-whatsapp)] px-6 py-4 text-base font-semibold text-white shadow-warm active:scale-[0.98] transition-transform"
       >
         <WhatsappIcon className="size-6" />
-        Falar com a Dra. Pétria agora
+        Fale com advogado agora mesmo
       </button>
     </div>
   );

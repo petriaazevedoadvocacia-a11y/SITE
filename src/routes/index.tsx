@@ -68,7 +68,7 @@ import {
 const FAQ_ITEMS: { q: string; a: string }[] = [
   {
     q: "Tenho direito mesmo se descobri a gravidez DEPOIS da demissão?",
-    a: "Sim. A Súmula 244 do TST e o Tema 497 do STF afirmam que a estabilidade da gestante começa na concepção, e independe do conhecimento prévio da empresa ou da própria trabalhadora. Se a concepção ocorreu durante o vínculo, a proteção existe. Para entender o seu caso específico, fale com uma advogada pelo WhatsApp.",
+    a: "Sim, pode existir direito mesmo quando a gravidez é descoberta após a demissão. O ponto principal é verificar se a gestação já havia começado durante o contrato de trabalho.\n\nA proteção da gestante pode ser reconhecida mesmo que a empresa não soubesse da gravidez no momento do desligamento. Para entender sua situação específica, é importante analisar datas, documentos e demais informações do caso.",
   },
   {
     q: "Posso anular o meu pedido de demissão se foi feito sem o sindicato?",
@@ -88,7 +88,7 @@ const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "Estava em contrato de experiência. Tenho proteção?",
-    a: "Sim. A Súmula 244, item III, do TST garante a estabilidade da gestante mesmo nos contratos por prazo determinado, incluindo os de experiência. O encerramento nessas condições pode ser considerado dispensa obstativa. Para verificar o seu caso, fale com uma advogada pelo WhatsApp.",
+    a: "Sim. A Súmula 244, item III, do TST garante a estabilidade da gestante mesmo nos contratos por prazo determinado, incluindo os de experiência. O encerramento nessas condições pode ser discutido na justiça. Para verificar o seu caso, fale com uma advogada pelo WhatsApp.",
   },
   {
     q: "Trabalhava sem carteira assinada. Tem como reconhecer meus direitos?",
@@ -167,7 +167,7 @@ const faqJsonLd = {
     },
     {
       "@type": "Review",
-      author: { "@type": "Person", name: "M. S." },
+      author: { "@type": "Person", name: "Suellen Rodrigues" },
       itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
@@ -175,7 +175,7 @@ const faqJsonLd = {
     },
     {
       "@type": "Review",
-      author: { "@type": "Person", name: "C. R." },
+      author: { "@type": "Person", name: "Regyna Sousa" },
       itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
@@ -183,7 +183,7 @@ const faqJsonLd = {
     },
     {
       "@type": "Review",
-      author: { "@type": "Person", name: "J. A." },
+      author: { "@type": "Person", name: "Ana Cristina" },
       itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
@@ -191,7 +191,7 @@ const faqJsonLd = {
     },
     {
       "@type": "Review",
-      author: { "@type": "Person", name: "L. F." },
+      author: { "@type": "Person", name: "Thais Santucci" },
       itemReviewed: { "@id": "https://petriaazevedo.com.br/#service" },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
@@ -444,7 +444,7 @@ function MobileHero() {
 
           {/* CTA */}
           <div className="mt-7">
-            <LeadButton origin="hero-mobile" size="lg" fullWidth label="Falar com a Dra. Pétria agora" />
+            <LeadButton origin="hero-mobile" size="lg" fullWidth label="Fale com advogado agora mesmo" />
             <div className="mt-3.5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11.5px] text-[var(--color-cream)]/70">
               <span className="inline-flex items-center gap-1.5">
                 <span className="relative flex size-1.5">
@@ -565,7 +565,7 @@ function DesktopHero() {
           </p>
 
           <div className="mt-9 flex flex-row items-center gap-5">
-            <LeadButton origin="hero" size="xl" label="Falar com a Dra. Pétria agora" />
+            <LeadButton origin="hero" size="xl" label="Fale com advogado agora mesmo" />
             <div className="flex items-center gap-3 rounded-2xl border border-[var(--color-bordeaux)]/12 bg-white/60 px-4 py-2.5 shadow-soft backdrop-blur">
               <div className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--color-champagne)]/20 text-[var(--color-bordeaux)] ring-1 ring-[var(--color-champagne)]/50">
                 <HeartHandshake className="size-5" aria-hidden="true" />
@@ -770,37 +770,37 @@ function IdentifyCards() {
     {
       icon: Scale,
       title: "Fui demitida sem justa causa durante a gestação",
-      sub: "A estabilidade da gestante é prevista no Art. 10, II, b do ADCT. A demissão pode ser revertida.",
+      sub: "Se a demissão ocorreu durante a gravidez, pode existir direito à estabilidade, indenização do período ou reintegração conforme análise do caso.",
       origin: "card-sem-justa-causa",
     },
     {
       icon: HeartHandshake,
       title: "Descobri que estava grávida depois da demissão",
-      sub: "A jurisprudência do TST (Súmula 244) e o Tema 497 do STF garantem a proteção independente do conhecimento prévio. Você ainda tem direito.",
+      sub: "Mesmo que a gravidez tenha sido descoberta depois, o direito pode existir se a gestação já havia começado durante o contrato de trabalho, mesmo sem conhecimento da empresa. Você ainda tem direito.",
       origin: "card-descobriu-depois",
     },
     {
       icon: FileSignature,
       title: "Pedi demissão sem saber que estava grávida",
-      sub: "Sem assistência sindical, o pedido de demissão de gestante é nulo (Art. 500 CLT, Tema 55 TST). É possível reverter.",
+      sub: "Sem assistência sindical, o pedido de demissão de gestante é nulo. Mesmo que tenha escrito a cartinha de próprio punho é possível reverter na justiça.",
       origin: "card-pedi-demissao",
     },
     {
       icon: Briefcase,
       title: "Fui demitida no contrato de experiência durante a gravidez",
-      sub: "A Súmula 244, III, do TST garante estabilidade mesmo em contratos de experiência. O encerramento pode ser obstativo.",
+      sub: "A gestante tem direito a estabilidade em contrato de experiência. É importante verificar as datas e as circunstâncias da dispensa.",
       origin: "card-contrato-experiencia",
     },
     {
       icon: ClipboardList,
       title: "Trabalhava sem carteira assinada quando engravidei",
-      sub: "Mesmo sem registro formal, é possível reconhecer o vínculo de emprego e garantir os direitos da gestante.",
+      sub: "Mesmo sem registro formal, é possível reconhecer o vínculo de emprego e garantir a estabilidade provisória da gestante.",
       origin: "card-sem-registro",
     },
     {
       icon: Coins,
-      title: "Recebi salários sem o adicional da estabilidade",
-      sub: "A indenização da estabilidade inclui salários do período de proteção, FGTS, multa de 40%, férias e 13º.",
+      title: "Tenho dúvidas sobre valores e indenização",
+      sub: "Em alguns casos, podem ser discutidos salários do período de estabilidade, FGTS, férias, 13º e outras verbas trabalhistas.",
       origin: "card-indenizacao",
     },
   ];
@@ -821,8 +821,9 @@ function IdentifyCards() {
             </span>
           </h2>
           <p className="mt-4 text-[15px] leading-relaxed text-foreground/70 sm:text-base">
-            Cada cenário abaixo tem amparo jurídico específico. Toque no que
-            mais se aproxima da sua situação para conversar com uma advogada.
+            Cada situação pode envolver direitos específicos. Toque na opção
+            que mais se aproxima do seu caso para receber orientação inicial
+            pelo WhatsApp.
           </p>
 
           {/* Bloco LLM-ready: definição factual para extração por motores generativos (GEO) */}
@@ -831,14 +832,17 @@ function IdentifyCards() {
               Em síntese
             </p>
             <p className="mt-3 text-[14.5px] leading-[1.65] text-foreground/82 sm:text-[15px]">
-              A demissão de gestante sem justa causa é considerada nula pela{" "}
-              <strong>Súmula 244 do TST</strong> e pelo{" "}
-              <strong>Tema 497 do STF</strong>. A estabilidade provisória vale
-              da concepção até cinco meses após o parto, independentemente do
-              conhecimento prévio da empresa ou da própria trabalhadora sobre
-              a gravidez. A proteção alcança contratos por prazo determinado,
+              A demissão da gestante sem justa causa tem proteção legal desde
+              a concepção/confirmação até 5 meses após o parto,
+              independentemente do conhecimento prévio da empresa ou da
+              própria trabalhadora sobre a gravidez. A proteção vale para
+              contratos por prazo determinado, indeterminado, temporário,
               contratos de experiência e pedidos de demissão feitos sem
               assistência sindical (<strong>Art. 500 da CLT</strong>).
+            </p>
+            <p className="mt-3 text-[14.5px] leading-[1.65] text-foreground/82 sm:text-[15px]">
+              Cada caso deve ser analisado individualmente, considerando
+              datas, documentos e a forma como ocorreu o desligamento.
             </p>
           </aside>
         </div>
@@ -889,12 +893,12 @@ function HowItWorks() {
     {
       n: "2",
       title: "Avaliação jurídica individual",
-      desc: "Faço a análise da sua situação à luz da Súmula 244 do TST, do Art. 500 da CLT e do Tema 497 do STF.",
+      desc: "Analisamos sua situação de acordo com as leis que defendem as gestantes.",
     },
     {
       n: "3",
       title: "Você recebe a orientação completa",
-      desc: "Explico o cenário do seu caso, os direitos aplicáveis e os próximos passos possíveis. Sem compromisso de prosseguir.",
+      desc: "Explicamos a análise do seu caso, quais são os seus direitos e como é possível buscá-los na justiça. A análise inicial não obriga a contratação.",
     },
   ];
 
@@ -923,14 +927,15 @@ function HowItWorks() {
               Em síntese
             </p>
             <p className="mt-3 text-[14.5px] leading-[1.65] text-foreground/82 sm:text-[15px]">
-              A análise jurídica de um caso de gestante demitida envolve três
-              etapas: envio dos documentos pelo WhatsApp (carteira de trabalho,
-              comprovante de gravidez, aviso de demissão), avaliação técnica à
-              luz da <strong>Súmula 244 do TST</strong>, do{" "}
-              <strong>Art. 500 da CLT</strong> e do{" "}
-              <strong>Tema 497 do STF</strong>, e orientação completa sobre os
-              direitos aplicáveis e os próximos passos. A análise inicial não
-              gera compromisso de contratação.
+              A análise inicial é feita pelo WhatsApp, de forma online e
+              sigilosa. Você envia as informações e documentos que tiver,
+              como comprovante de gravidez, carteira de trabalho, aviso de
+              demissão ou mensagens da empresa.
+            </p>
+            <p className="mt-3 text-[14.5px] leading-[1.65] text-foreground/82 sm:text-[15px]">
+              Analisamos o seu caso com base na legislação trabalhista e
+              orientamos sobre os possíveis direitos e próximos passos. A
+              análise inicial não gera compromisso de contratação.
             </p>
           </aside>
         </div>
@@ -991,12 +996,14 @@ function Storytelling() {
             </span>
           </h2>
           <p className="mt-6 text-pretty leading-[1.72] text-foreground/82">
-            Muitas gestantes deixam de buscar os seus direitos por medo,
-            vergonha ou desinformação. Acreditam que processar a empresa é
-            demorado, que precisam de muitas provas, ou que perderam o direito
-            porque pediram demissão ou porque descobriram a gravidez depois.
+            Muitas gestantes deixam de buscar orientação por medo, vergonha
+            ou falta de informação. Algumas acreditam que não têm direito
+            porque descobriram a gravidez depois da demissão, estavam em
+            contrato de experiência, trabalhavam sem registro ou pediram
+            demissão sem conhecer as consequências jurídicas.
             <span className="mt-4 block font-serif-italic text-[var(--color-bordeaux)]">
-              Mas a realidade é diferente do que parece.
+              Mas, em muitos casos, a realidade pode ser diferente do que
+              você imagina.
             </span>
           </p>
 
@@ -1064,7 +1071,7 @@ function Storytelling() {
                     "Aceitar a situação sem questionar.",
                     "Assinar pedido de demissão sob pressão sem assistência sindical.",
                     "Esperar muito tempo (existe prazo prescricional).",
-                    "Pagar advogado errado por desespero.",
+                    "Contratar advogado que não é especialista em gestantes por desespero.",
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-2 text-sm sm:text-base">
                       <span className="mt-2 inline-block size-1.5 shrink-0 rounded-full bg-[var(--color-bordeaux)]" />
@@ -1095,11 +1102,22 @@ function Storytelling() {
             </span>
           </p>
           <p className="mt-5 text-[15px] leading-[1.6] text-[var(--color-cream)]/82 sm:text-base">
-            é o <strong className="text-[var(--color-cream)]">tempo médio</strong> que a Justiça do Trabalho leva para julgar um processo trabalhista no Brasil em 2025.
+            é uma média informada em dados oficiais do CNJ para determinado
+            recorte da Justiça do Trabalho. O prazo de cada caso pode variar.
           </p>
           <p className="mt-3 text-[11px] uppercase tracking-[0.18em] text-[var(--color-cream)]/55">
             Fonte: Justiça em Números 2025 · CNJ
           </p>
+          <div className="mt-6 rounded-xl border border-[var(--color-champagne)]/25 bg-[var(--color-cream)]/[0.06] p-4 sm:p-5">
+            <p className="font-serif-italic text-[var(--color-champagne)] text-[1.05rem] sm:text-[1.15rem]">
+              Nem todo processo demora anos
+            </p>
+            <p className="mt-2 text-[14px] leading-[1.6] text-[var(--color-cream)]/82 sm:text-[14.5px]">
+              Muitos casos trabalhistas podem ser resolvidos por acordo ou
+              decisão em prazo menor do que a gestante imagina. Cada situação
+              depende das provas, da empresa e da fase do processo.
+            </p>
+          </div>
 
           <div className="mt-8 grid grid-cols-2 gap-4 border-t border-[var(--color-cream)]/15 pt-7">
             <div>
@@ -1129,10 +1147,10 @@ function Storytelling() {
 
 function Authority() {
   const bullets = [
-    "Atuação especializada em Direito Trabalhista e Direitos da Mulher",
-    "Atendimento exclusivamente online, com clientes em todo o Brasil",
-    "Foco em ações de gestante, mulher trabalhadora e dispensa discriminatória",
-    "Acompanhamento direto e pessoal, sem intermediários",
+    "Atuação focada em direitos da trabalhadora gestante",
+    "Atendimento 100% online em todo o Brasil",
+    "Foco em demissão de gestantes, estabilidade e salário-maternidade",
+    "Atendimento humanizado, com equipe especializada e orientação clara",
   ];
 
   return (
@@ -1185,12 +1203,16 @@ function Authority() {
           {/* Conteúdo */}
           <div>
             <p className="text-[15.5px] leading-[1.75] text-[var(--color-cream)]/82 sm:text-[1.05rem]">
-              Meu trabalho é voltado à defesa de mulheres que enfrentam
-              situações relacionadas à gestação no ambiente de trabalho.
-              Atuo em casos de demissão durante a gravidez, descoberta da
-              gestação após o desligamento, ausência de registro em carteira
-              e outras situações que envolvem a proteção dos direitos da
-              trabalhadora.
+              A Dra. Pétria Azevedo atua na defesa de mulheres que enfrentam
+              situações relacionadas à gestação e ao trabalho, especialmente
+              casos de demissão durante a gravidez, descoberta da gestação
+              após o desligamento, contrato de experiência e trabalho sem
+              registro.
+            </p>
+            <p className="mt-4 text-[15.5px] leading-[1.75] text-[var(--color-cream)]/82 sm:text-[1.05rem]">
+              Ao longo dos anos, seu escritório já atendeu mais de 2.000
+              mulheres em todo o Brasil, oferecendo orientação jurídica
+              clara, acolhedora e responsável.
             </p>
             <p className="mt-4 text-[15.5px] leading-[1.75] text-[var(--color-cream)]/82 sm:text-[1.05rem]">
               <span className="font-serif-italic text-[var(--color-champagne)]">Sei que esses momentos geram insegurança e dúvidas.</span>{" "}
@@ -1212,7 +1234,7 @@ function Authority() {
             </ul>
 
             <div className="mt-9">
-              <LeadButton origin="authority" label="Falar com a Dra. Pétria agora" />
+              <LeadButton origin="authority" label="Fale com advogado agora mesmo" />
             </div>
           </div>
         </div>
@@ -1220,12 +1242,12 @@ function Authority() {
         {/* Wordmark final */}
         <div className="mt-14 flex justify-center sm:mt-16">
           <img
-            src={logoFull}
+            src={logoSymbol}
             alt="Azevedo Advocacia"
             width={200}
             height={200}
             loading="lazy"
-            className="size-32 opacity-90 sm:size-40"
+            className="size-28 opacity-95 sm:size-32"
           />
         </div>
       </div>
@@ -1274,14 +1296,18 @@ function Faq() {
                 </span>
               </AccordionTrigger>
               <AccordionContent className="pb-5 pl-8 text-[14.5px] leading-[1.7] text-foreground/75 sm:pl-9 sm:text-base">
-                {item.a}
+                {item.a.split("\n\n").map((p, idx) => (
+                  <p key={idx} className={idx > 0 ? "mt-3" : ""}>
+                    {p}
+                  </p>
+                ))}
               </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
 
         <div className="mt-12 flex justify-center">
-          <LeadButton origin="faq" label="Falar com a Dra. Pétria agora" />
+          <LeadButton origin="faq" label="Fale com advogado agora mesmo" />
         </div>
       </div>
     </section>
@@ -1294,23 +1320,23 @@ function Reviews() {
   const reviews = [
     {
       text: "Honestamente não imaginava ser tão rápido e ter toda a rede de apoio que tive. Obrigada demais à Pétria e às outras funcionárias.",
-      author: "M. S.",
-      tag: "Cliente verificada · ES",
+      author: "Suellen Rodrigues",
+      tag: "Cliente verificada",
     },
     {
       text: "Obrigada por todo carinho, por toda paciência, por sempre me explicar tudo com calma. Vocês são maravilhosas, super recomendo.",
-      author: "C. R.",
-      tag: "Cliente verificada · ES",
+      author: "Regyna Sousa",
+      tag: "Cliente verificada",
     },
     {
       text: "Foi um ótimo atendimento, ela é bem caprichosa em cada detalhe. Muito obrigada por fazer parte desse momento comigo, eu amei.",
-      author: "J. A.",
-      tag: "Cliente verificada · ES",
+      author: "Ana Cristina",
+      tag: "Cliente verificada",
     },
     {
       text: "Maravilhoso! Iniciei meu processo em dezembro e em março já consegui um acordo com a empresa! Passei por muita coisa na empresa que trabalhava e finalmente sinto que houve justiça. Obrigada por tudo!",
-      author: "L. F.",
-      tag: "Cliente verificada · ES",
+      author: "Thais Santucci",
+      tag: "Cliente verificada",
     },
   ];
 
@@ -1505,7 +1531,7 @@ function Footer() {
               O escritório
             </h3>
             <p className="mt-4 max-w-sm text-[13.5px] leading-[1.7] text-[var(--color-cream)]/65">
-              Direito Trabalhista e Direitos da Mulher. Atendimento online em
+              Especialista no Direito da Gestante. Atendimento online em
               todo o Brasil, com base em jurisprudência consolidada do TST e
               do STF.
             </p>

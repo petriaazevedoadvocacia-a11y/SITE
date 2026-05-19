@@ -365,26 +365,51 @@ export function LeadStickyCTA() {
   }, []);
 
   return (
-    <div
-      data-sticky
-      className={cn(
-        "fixed inset-x-0 bottom-0 z-40 md:hidden px-4 pb-4 pt-3",
-        "bg-gradient-to-t from-background via-background/95 to-background/0",
-        "transition-all duration-300",
-        visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none",
-      )}
-    >
-      <button
-        type="button"
-        data-wa-cta
+    <>
+      {/* Mobile: barra inferior full-width */}
+      <div
         data-sticky
-        aria-label="Falar com a Dra. Pétria no WhatsApp"
-        onClick={() => open({ origin: "sticky-mobile" })}
-        className="flex w-full items-center justify-center gap-3 rounded-full bg-[var(--color-whatsapp)] px-6 py-4 text-base font-semibold text-white shadow-warm active:scale-[0.98] transition-transform"
+        className={cn(
+          "fixed inset-x-0 bottom-0 z-40 px-4 pb-4 pt-3 md:hidden",
+          "bg-gradient-to-t from-background via-background/95 to-background/0",
+          "transition-all duration-300",
+          visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none",
+        )}
       >
-        <WhatsappIcon className="size-6" />
-        Falar com a Dra. Pétria agora
-      </button>
-    </div>
+        <button
+          type="button"
+          data-wa-cta
+          data-sticky
+          aria-label="Falar com advogado pelo WhatsApp"
+          onClick={() => open({ origin: "sticky-mobile" })}
+          className="flex w-full items-center justify-center gap-3 rounded-full bg-[var(--color-whatsapp)] px-6 py-4 text-base font-semibold text-white shadow-warm active:scale-[0.98] transition-transform"
+        >
+          <WhatsappIcon className="size-6" />
+          Fale com advogado agora mesmo
+        </button>
+      </div>
+
+      {/* Desktop: pill flutuante bottom-right */}
+      <div
+        data-sticky
+        className={cn(
+          "fixed bottom-6 right-6 z-40 hidden md:block",
+          "transition-all duration-300",
+          visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none",
+        )}
+      >
+        <button
+          type="button"
+          data-wa-cta
+          data-sticky
+          aria-label="Falar com advogado pelo WhatsApp"
+          onClick={() => open({ origin: "sticky-desktop" })}
+          className="flex items-center gap-3 rounded-full bg-[var(--color-whatsapp)] px-6 py-3.5 text-[15px] font-semibold text-white shadow-warm hover:brightness-105 active:scale-[0.98] transition"
+        >
+          <WhatsappIcon className="size-5" />
+          Fale com advogado agora mesmo
+        </button>
+      </div>
+    </>
   );
 }
