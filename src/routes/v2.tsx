@@ -8,7 +8,7 @@ import {
 import { WhatsappButton, WhatsappIcon, StickyMobileCTA } from "@/components/whatsapp-button";
 import { clickWhatsapp } from "@/lib/whatsapp";
 import heroImg from "@/assets/hero-gestante.jpg";
-import storyImg from "@/assets/story-gestante.jpg";
+import storyImg from "@/assets/hero-gestante.jpg";
 import {
   ArrowRight,
   Check,

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { WhatsappButton, WhatsappIcon, StickyMobileCTA } from "@/components/whatsapp-button";
 import { clickWhatsapp } from "@/lib/whatsapp";
-import storyImg from "@/assets/story-gestante.jpg";
+import storyImg from "@/assets/hero-gestante.jpg";
 import {
   Lock,
   Clock,

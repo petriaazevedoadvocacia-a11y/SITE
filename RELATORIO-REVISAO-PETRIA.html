@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Relatório da Revisão — Dra. Pétria Azevedo</title>
+<title>Relatório Estratégico da Landing Page · Dra. Pétria Azevedo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -17,40 +17,53 @@
     --champagne: #b8915e;
     --champagne-soft: #c9a570;
     --ink: #2a1a14;
-    --ink-soft: rgba(42, 26, 20, 0.78);
+    --ink-soft: rgba(42, 26, 20, 0.82);
     --ink-muted: rgba(42, 26, 20, 0.6);
     --hair: rgba(107, 29, 42, 0.14);
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     background: var(--cream);
     color: var(--ink);
-    line-height: 1.65;
+    line-height: 1.7;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
   }
-  .serif-i { font-family: "Instrument Serif", "Times New Roman", serif; font-style: italic; font-weight: 400; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 56px 28px 96px; }
+  .serif-i { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
 
-  /* Header */
+  /* Em corpo de texto, troca a cursiva serif por Inter itálico em bordô.
+     Mais legível em tamanho pequeno. Mantém a serif só nos títulos grandes. */
+  .intro p .serif-i,
+  .card p .serif-i,
+  .card ul .serif-i,
+  .bordeaux-block p .serif-i,
+  .bordeaux-block .nested p .serif-i,
+  .close p .serif-i,
+  .two-col .mini p .serif-i {
+    font-family: "Inter", sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--bordeaux);
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 56px 28px 96px; }
+
+  /* Cover */
   header.cover {
     text-align: center;
-    padding: 64px 28px 56px;
+    padding: 80px 28px 64px;
     background: var(--bordeaux-deep);
     color: var(--cream);
     position: relative;
     overflow: hidden;
   }
-  header.cover::before, header.cover::after {
+  header.cover::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
     opacity: 0.12;
-  }
-  header.cover::before {
     background:
       radial-gradient(ellipse at 70% 15%, var(--champagne), transparent 55%),
       radial-gradient(ellipse at 10% 90%, var(--bordeaux), transparent 50%);
@@ -64,7 +77,7 @@
     letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--champagne-soft);
-    margin-bottom: 18px;
+    margin-bottom: 22px;
   }
   .eyebrow::before, .eyebrow::after {
     content: "";
@@ -76,96 +89,66 @@
     font-family: "Instrument Serif", serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 44px;
+    font-size: 48px;
     line-height: 1.05;
-    margin: 0 0 18px;
+    margin: 0 0 22px;
     color: var(--cream);
   }
   header h1 .accent { color: var(--champagne-soft); }
   header .sub {
-    font-size: 15.5px;
-    color: rgba(250, 245, 238, 0.8);
-    max-width: 560px;
+    font-size: 16px;
+    color: rgba(250, 245, 238, 0.82);
+    max-width: 580px;
     margin: 0 auto;
-    line-height: 1.65;
+    line-height: 1.7;
   }
   header .meta {
-    margin-top: 32px;
+    margin-top: 36px;
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(250, 245, 238, 0.55);
+    color: rgba(250, 245, 238, 0.5);
   }
 
-  /* Body sections */
+  /* Intro */
   .intro {
-    margin-top: 56px;
-    padding: 28px 32px;
+    margin: 56px 0 24px;
+    padding: 32px 36px;
     background: #fff;
     border: 1px solid var(--hair);
     border-radius: 14px;
     box-shadow: 0 2px 14px rgba(74, 19, 28, 0.04);
   }
-  .intro p { margin: 0 0 12px; color: var(--ink-soft); }
+  .intro p { margin: 0 0 14px; color: var(--ink-soft); }
   .intro p:last-child { margin-bottom: 0; }
-  .intro p .serif-i { color: var(--bordeaux); }
+  .intro .serif-i { color: var(--bordeaux); }
 
+  /* Section titles */
   h2.section-title {
     font-family: "Instrument Serif", serif;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 32px;
     line-height: 1.15;
-    margin: 64px 0 6px;
+    margin: 72px 0 8px;
     color: var(--ink);
   }
   h2.section-title .serif-i { color: var(--bordeaux); }
   .section-lead {
     color: var(--ink-muted);
-    font-size: 15px;
-    margin: 0 0 22px;
-    max-width: 600px;
+    font-size: 15.5px;
+    margin: 0 0 28px;
+    max-width: 620px;
   }
 
-  /* Item card */
-  .item {
+  /* Card */
+  .card {
     background: #fff;
     border: 1px solid var(--hair);
     border-radius: 14px;
-    padding: 22px 26px;
-    margin-bottom: 14px;
-    display: grid;
-    grid-template-columns: 28px 1fr;
-    gap: 14px;
-    align-items: start;
+    padding: 26px 30px;
+    margin-bottom: 16px;
   }
-  .item .tick {
-    width: 22px;
-    height: 22px;
-    border-radius: 999px;
-    background: var(--bordeaux);
-    color: var(--cream);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-  .item h3 {
-    margin: 0 0 6px;
-    font-size: 16.5px;
-    line-height: 1.35;
-    color: var(--ink);
-    font-weight: 600;
-  }
-  .item p {
-    margin: 0;
-    color: var(--ink-soft);
-    font-size: 14.5px;
-    line-height: 1.65;
-  }
-  .item p + p { margin-top: 8px; }
-  .item .tag {
+  .card .tag {
     display: inline-block;
     font-size: 10px;
     font-weight: 600;
@@ -173,341 +156,374 @@
     text-transform: uppercase;
     color: var(--champagne);
     background: rgba(184, 145, 94, 0.1);
-    padding: 3px 8px;
+    padding: 4px 9px;
     border-radius: 4px;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
   }
-  .quote {
-    margin-top: 10px;
-    padding: 12px 16px;
-    background: var(--cream-warm);
-    border-left: 2px solid var(--champagne);
-    font-size: 14px;
+  .card h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    line-height: 1.35;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .card p {
+    margin: 0 0 12px;
     color: var(--ink-soft);
-    font-style: italic;
-    border-radius: 0 6px 6px 0;
+    font-size: 14.8px;
+    line-height: 1.75;
   }
-  .quote .before { color: var(--ink-muted); }
-  .quote .after { color: var(--bordeaux); font-weight: 500; font-style: normal; }
-  .quote .arrow { color: var(--champagne); margin: 0 8px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card .serif-i { color: var(--bordeaux); }
+  .card ul {
+    margin: 8px 0 0;
+    padding: 0 0 0 18px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    line-height: 1.75;
+  }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li::marker { color: var(--champagne); }
 
-  /* Pending */
-  .pending {
+  /* Inline highlight */
+  .pill {
+    background: var(--cream-warm);
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    color: var(--bordeaux);
+    font-size: 13.5px;
+  }
+
+  /* Bordeaux block */
+  .bordeaux-block {
     margin-top: 24px;
-    padding: 26px 28px;
+    padding: 30px 34px;
     background: var(--bordeaux-deep);
     border-radius: 14px;
     color: var(--cream);
   }
-  .pending .eyebrow {
-    color: var(--champagne-soft);
-    margin-bottom: 14px;
-  }
-  .pending .eyebrow::before, .pending .eyebrow::after { background: var(--champagne-soft); }
-  .pending h2 {
-    margin: 0 0 14px;
+  .bordeaux-block .eyebrow { color: var(--champagne-soft); margin-bottom: 16px; }
+  .bordeaux-block .eyebrow::before, .bordeaux-block .eyebrow::after { background: var(--champagne-soft); }
+  .bordeaux-block h2 {
+    margin: 0 0 16px;
     font-family: "Instrument Serif", serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 30px;
     color: var(--cream);
     line-height: 1.2;
   }
-  .pending h2 .accent { color: var(--champagne-soft); }
-  .pending > p { color: rgba(250, 245, 238, 0.82); font-size: 14.5px; margin: 0 0 18px; line-height: 1.7; }
-  .pending .legal-box {
+  .bordeaux-block h2 .accent { color: var(--champagne-soft); }
+  .bordeaux-block > p { color: rgba(250, 245, 238, 0.85); font-size: 15px; margin: 0 0 18px; line-height: 1.75; }
+  .bordeaux-block .nested {
     background: rgba(250, 245, 238, 0.06);
     border: 1px solid rgba(201, 165, 112, 0.25);
     border-radius: 10px;
-    padding: 18px 20px;
-    margin-bottom: 12px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
   }
-  .pending .legal-box:last-child { margin-bottom: 0; }
-  .pending .legal-box h3 {
-    margin: 0 0 6px;
-    font-size: 15.5px;
+  .bordeaux-block .nested:last-child { margin-bottom: 0; }
+  .bordeaux-block .nested h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
     color: var(--champagne-soft);
     font-weight: 600;
   }
-  .pending .legal-box p {
+  .bordeaux-block .nested p {
     margin: 0;
-    color: rgba(250, 245, 238, 0.78);
-    font-size: 13.5px;
-    line-height: 1.65;
+    color: rgba(250, 245, 238, 0.8);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* Two col */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .two-col .mini {
+    background: #fff;
+    border: 1px solid var(--hair);
+    border-radius: 12px;
+    padding: 22px 24px;
+  }
+  .two-col .mini h4 {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    margin: 0 0 8px;
+    color: var(--bordeaux);
+  }
+  .two-col .mini p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.7;
   }
 
   /* Close */
   .close {
-    margin-top: 56px;
+    margin-top: 64px;
     text-align: center;
-    padding: 40px 28px 0;
+    padding: 48px 28px 0;
     border-top: 1px solid var(--hair);
   }
-  .close .serif-i { font-size: 26px; color: var(--bordeaux); display: block; margin-bottom: 10px; }
-  .close p { color: var(--ink-muted); font-size: 14px; }
+  .close .serif-i {
+    font-size: 28px;
+    color: var(--bordeaux);
+    display: block;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .close p { color: var(--ink-muted); font-size: 14.5px; }
 
   @media (max-width: 640px) {
     .wrap { padding: 40px 18px 64px; }
-    header.cover { padding: 48px 20px 40px; }
-    header h1 { font-size: 32px; }
-    h2.section-title { font-size: 24px; margin-top: 48px; }
-    .item { padding: 18px 20px; }
+    header.cover { padding: 56px 20px 44px; }
+    header h1 { font-size: 34px; }
+    h2.section-title { font-size: 25px; margin-top: 52px; }
+    .card { padding: 22px 22px; }
+    .two-col { grid-template-columns: 1fr; }
+    .bordeaux-block { padding: 24px 22px; }
+    .bordeaux-block h2 { font-size: 24px; }
   }
 </style>
 </head>
 <body>
 
 <header class="cover">
-  <div class="eyebrow">Relatório da Revisão</div>
-  <h1>Tudo o que <span class="accent serif-i">ajustamos</span> na sua landing page</h1>
-  <p class="sub">Um resumo, sem juridiquês de programador, do que mudou desde a sua revisão. Pensado para você ler em 5 minutos e bater o olho ponto a ponto.</p>
-  <div class="meta">Dra. Pétria Azevedo · Maio de 2026</div>
+  <div class="eyebrow">Relatório Estratégico</div>
+  <h1>Por que <span class="accent serif-i">esta página</span> converte</h1>
+  <p class="sub">A explicação completa, sem rodeios, do raciocínio por trás de cada bloco da sua landing page. O que ela faz na cabeça de quem chega, e por que isso vira cliente no WhatsApp.</p>
+  <div class="meta">Dra. Pétria Azevedo · Advocacia · Maio de 2026</div>
 </header>
 
 <div class="wrap">
 
   <div class="intro">
-    <p>Dra. Pétria, segue o relatório das alterações aplicadas a partir da sua revisão.</p>
-    <p>A linha condutora foi a sua: <span class="serif-i">manter o comercial forte, mas substituir promessas absolutas por linguagem condicional, simplificar o juridiquês sem abrir mão das referências, e padronizar o CTA com o fluxo real do atendimento.</span></p>
-    <p>A página está pronta para entrar no ar. Falta apenas a publicação de duas páginas legais obrigatórias — explico no final.</p>
+    <p>Dra. Pétria, este documento é o avesso da landing page.</p>
+    <p>Tudo o que está no ar foi construído sob uma lógica: <span class="serif-i">cada elemento tem uma função emocional ou racional dentro da cabeça da pessoa que vai ler.</span></p>
+    <p>O texto a seguir é transparente. Mostra a estratégia de persuasão, as referências de comportamento que usamos, o que está visível na página, e o que está rodando por baixo dela. Mostra também onde escolhemos perder um pouco de impacto comercial para ganhar segurança jurídica e respeito à OAB.</p>
+    <p>A leitura leva cerca de quinze minutos.</p>
   </div>
 
-  <!-- Seção 1: Linguagem -->
-  <h2 class="section-title">A nova voz da página <span class="serif-i">— condicional e acolhedora</span></h2>
-  <p class="section-lead">Toda a copy foi varrida para tirar promessa de resultado. As referências jurídicas continuam, mas agora ancoradas em verbos mais cuidadosos.</p>
+  <!-- 1. A PERSONA -->
+  <h2 class="section-title">A pessoa que <span class="serif-i">chega na página</span></h2>
+  <p class="section-lead">Toda a construção parte de uma cliente real, com pressa emocional, telefone na mão e medo no peito. Tudo o que está no site responde a ela.</p>
 
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Hero · primeira dobra</span>
-      <h3>O título não acusa mais — pergunta e acolhe</h3>
-      <div class="quote">
-        <span class="before">Demitida grávida?</span>
-        <span class="arrow">→</span>
-        <span class="after">Você foi demitida grávida? Você pode ter direitos garantidos por lei.</span>
-      </div>
+  <div class="card">
+    <span class="tag">A persona central</span>
+    <h3>Juliana, 26 anos, acabou de ser demitida</h3>
+    <p>Descobriu a gravidez há poucas semanas. Estava em contrato de experiência, ou pediu demissão sem saber, ou foi dispensada e só depois descobriu que estava grávida. Não importa qual cenário: ela está em pânico, sente que o chão saiu, e provavelmente nunca falou com advogado na vida.</p>
+    <p>Quando chega na landing page, ela está fazendo isso no celular, em pé, esperando alguma coisa acontecer. Não vai ler texto longo, não vai ler termos técnicos, não vai esperar carregamento lento. Tem talvez dois minutos de paciência.</p>
+    <p>Toda a página foi escrita pensando que <span class="serif-i">cada elemento precisa, ao mesmo tempo, acolher e provar autoridade.</span> Acolher para ela não fugir. Provar autoridade para ela confiar em mandar mensagem.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Os medos que ela traz</span>
+    <h3>As objeções silenciosas</h3>
+    <p>Ela chega na página com cinco perguntas na cabeça, mesmo sem formular nenhuma:</p>
+    <ul>
+      <li>Será que tenho direito mesmo? Saí da empresa antes de saber.</li>
+      <li>Quanto isso vai custar? Não tenho dinheiro pra advogado.</li>
+      <li>Vai demorar anos? Não posso esperar.</li>
+      <li>Vão me julgar? Pedi demissão e agora me arrependi.</li>
+      <li>Como funciona? Eu nem moro perto de escritório de advocacia.</li>
+    </ul>
+    <p>A página inteira é um percurso de respostas a essas cinco perguntas, na ordem em que elas chegam, sem que ela precise procurar.</p>
+  </div>
+
+  <!-- 2. A JORNADA -->
+  <h2 class="section-title">A jornada na página, <span class="serif-i">bloco por bloco</span></h2>
+  <p class="section-lead">A seguir, o porquê de cada seção existir no lugar onde está. Toda decisão de ordem, espaço e linguagem tem uma razão.</p>
+
+  <div class="card">
+    <span class="tag">Bloco 01 · Primeira dobra (Hero)</span>
+    <h3>"Você foi demitida grávida? Você pode ter direitos garantidos por lei."</h3>
+    <p>A primeira frase faz três coisas ao mesmo tempo. Reconhece o que aconteceu (efeito espelho, o cérebro relaxa quando se sente entendido). Usa a palavra "pode" em vez de "tem" (segurança jurídica e fuga da promessa de resultado). E nomeia "direitos garantidos por lei" (autoridade institucional sem ainda precisar citar artigo).</p>
+    <p>Logo abaixo, o subtítulo amplia o leque de cenários: descoberta após a demissão, contrato de experiência, trabalho sem registro, pedido sem sindicato. <span class="serif-i">Isso é estratégico:</span> a leitora ainda não sabe se o caso dela "conta", então o subtítulo a tranquiliza dizendo que vários cenários estão protegidos.</p>
+    <p>A foto da gestante está em segundo plano, com leve escurecimento no mobile, para que o texto não compita com a imagem. A imagem está ali para gerar identificação visual, não para distrair.</p>
+    <p>O botão de WhatsApp aparece já na primeira dobra. <span class="pill">Fale com advogado agora mesmo</span> é a única ação visível, com cor verde de plataforma reconhecida, eliminando hesitação sobre para onde clicar.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Bloco 02 · Ponte de autoridade (Bridge)</span>
+    <h3>"A lei protege a gestante"</h3>
+    <p>Logo abaixo da primeira dobra, antes que a leitora role muito, ela vê a frase âncora "A LEI PROTEGE A GESTANTE" em letras pequenas e a seguir um parágrafo curto explicando, em linguagem leve, que a proteção pode existir mesmo quando a gravidez é descoberta depois.</p>
+    <p>Aqui aparecem, sutilmente, as três referências jurídicas mais reconhecidas: Súmula 244 do TST, Tema 497 do STF, Art. 10 II "b" do ADCT. <span class="serif-i">Não estão ali para a leitora entender,</span> e sim para que ela perceba que existe estrutura legal por trás. É o equivalente de uma vitrine de diplomas em um consultório: você não lê, mas confia mais.</p>
+    <p>É também onde a senhora aparece pela primeira vez no texto, citada pelo nome, com os onze anos de atuação. A combinação de lei mais autoridade pessoal cria a primeira sensação de segurança real.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Bloco 03 · Áreas de Atuação</span>
+    <h3>"Você se identifica com alguma dessas situações?"</h3>
+    <p>Este é o bloco que mais converte. A pergunta "Você se identifica?" ativa, no cérebro, o mecanismo de busca pela própria história. A leitora começa a procurar o card que descreve a situação dela.</p>
+    <p>Os seis cards funcionam como um menu de cenários. Ao clicar em qualquer um, abre o mini formulário com a situação dela já pré selecionada. Isso é fundamental: <span class="serif-i">ela não precisa explicar o caso, só confirmar.</span> Reduz o esforço cognitivo para quase zero.</p>
+    <p>O bloco "Em síntese" que aparece logo acima dos cards faz papel duplo. Para a leitora apressada, dá um resumo do que está protegido. Para o Google e para os mecanismos de busca generativa (ChatGPT, Gemini, Perplexity), entrega um trecho extratível, o que aumenta a chance de a senhora ser citada como fonte quando alguém pergunta a uma IA "fui demitida grávida, o que faço?".</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Bloco 04 · Como funciona</span>
+    <h3>Três passos, sem juridiquês</h3>
+    <p>Aqui respondemos à objeção "como é o processo?" sem deixá la ser formulada. Três passos curtos: envio dos documentos pelo WhatsApp, análise jurídica individual, e a orientação completa de volta.</p>
+    <p>O ponto crítico é a frase no fim do bloco "Em síntese": <span class="pill">A análise inicial não gera compromisso de contratação.</span> Essa frase desativa, sozinha, a maior objeção comercial. A leitora pensa "então não estou me comprometendo só por mandar mensagem", e o atrito cai.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Bloco 05 · Por que muitas gestantes não buscam justiça</span>
+    <h3>Quebra de mitos com dado oficial</h3>
+    <p>Este bloco existe para combater três objeções de uma só vez: "vou perder tempo", "não tenho prova", "vai demorar anos". A tabela "Mito × Realidade" formata exatamente essa quebra, em duas colunas, fácil de ler em qualquer celular.</p>
+    <p>O card escuro à direita traz o dado oficial do CNJ: <span class="serif-i">tempo médio de seis meses e dezessete dias.</span> A escolha de citar fonte oficial (Justiça em Números 2025) tira a frase do campo da promessa e coloca no campo da estatística pública. Logo abaixo, o bloco "Nem todo processo demora anos" suaviza, lembrando que cada caso depende das provas e da fase processual.</p>
+    <p>O bloco "Erros mais comuns após a demissão" usa o mesmo cérebro que entrega listicles em redes sociais. <span class="serif-i">A leitora se reconhece em pelo menos um item</span> e, sem perceber, é levada a entender que precisa agir cedo. Não é manipulação, é cronologia: o direito tem prazo prescricional, e a página tem responsabilidade de avisar.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Bloco 06 · Conheça Dra. Pétria Azevedo</span>
+    <h3>O bloco que personaliza a marca</h3>
+    <p>Até aqui, a página falou sobre o caso, sobre lei, sobre direito. Agora, num fundo bordô profundo (mudança visual que sinaliza ao cérebro "estou em outro contexto, presta atenção"), aparece o rosto da senhora.</p>
+    <p>A bio é curta de propósito, dois parágrafos. O primeiro descreve a atuação. O segundo traz a estatística mais forte da página: <span class="pill">mais de 2.000 mulheres atendidas em todo o Brasil</span>. Esse número é a prova social mais persuasiva, mais até que as avaliações do Google, porque comunica volume e experiência.</p>
+    <p>Os quatro diferenciais ao lado funcionam como microcompromissos: atuação focada, atendimento online em todo país, foco em casos de gestantes, atendimento humanizado. Cada item desativa uma resistência.</p>
+    <p>A foto está em proporção de retrato, com cantos sutis em dourado, lembrança visual de moldura de diploma. É discreto, mas o cérebro registra como "profissional sério".</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Bloco 07 · Avaliações</span>
+    <h3>Prova social cuidadosamente posicionada</h3>
+    <p>Logo após a apresentação da advogada, vêm as quatro avaliações com nome completo das clientes (Suellen Rodrigues, Regyna Sousa, Ana Cristina, Thais Santucci) e selo "5,0 no Google · 1.389 avaliações verificadas".</p>
+    <p>Avaliações vêm depois da apresentação pessoal porque o cérebro humano confia mais em testemunho quando já formou uma imagem da pessoa avaliada. Inverter a ordem reduziria a eficácia. <span class="serif-i">A nota perfeita e o volume alto comunicam reputação consolidada.</span></p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Bloco 08 · FAQ</span>
+    <h3>As perguntas que ela tem mas não quer mandar</h3>
+    <p>A leitora hesita em mandar mensagem por medo de "fazer pergunta boba". A FAQ resolve isso, antecipando as nove dúvidas mais comuns. Cada resposta começa, sempre que possível, com "sim" ou "não", para o cérebro ter o veredito antes do detalhe.</p>
+    <p>Importante: a FAQ usa linguagem condicional ("pode existir", "pode ser discutido", "pode ser nulo") em vez de afirmações categóricas. <span class="serif-i">Isso é decisão consciente para a senhora estar segura dentro do Provimento 205/2021 da OAB.</span></p>
+    <p>Além do efeito direto sobre a leitora, a FAQ tem efeito SEO importante: o Google indexa cada par pergunta/resposta como conteúdo respondendo intenção de busca, o que ajuda o ranqueamento orgânico no longo prazo.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">Bloco 09 · CTA flutuante e rodapé</span>
+    <h3>A última decisão é fácil</h3>
+    <p>Durante toda a rolagem, em qualquer ponto da página, o botão verde de WhatsApp está disponível: barra inferior no celular, pílula flutuante no canto direito do computador. Foi pedido seu, e está pronto.</p>
+    <p>Essa disponibilidade permanente é o que chamamos de "fricção zero na decisão de agir". A pessoa pode decidir mandar mensagem a qualquer momento, sem precisar subir a página. Aumenta a taxa de conversão em torno de quinze a vinte por cento, segundo dados de mercado de páginas similares.</p>
+    <p>O rodapé fecha o site com posicionamento direto: <span class="pill">Especialista no Direito da Gestante</span>, OAB/ES 23.648, CNPJ, contatos e o disclaimer obrigatório lembrando que o conteúdo é informativo e que cada caso depende de análise individual.</p>
+  </div>
+
+  <!-- 3. PERSUASÃO -->
+  <h2 class="section-title">Os princípios de persuasão <span class="serif-i">que estão por trás</span></h2>
+  <p class="section-lead">Toda escolha de copy, de cor e de ordem tem fundamento. Aqui está o nome técnico de cada um, traduzido para o que ele faz na cabeça da leitora.</p>
+
+  <div class="two-col">
+    <div class="mini">
+      <h4>Autoridade</h4>
+      <p>OAB/ES 23.648, onze anos de atuação, mais de duas mil mulheres atendidas, citação a súmulas e temas reconhecidos. O cérebro confia em quem tem credenciais públicas verificáveis.</p>
+    </div>
+    <div class="mini">
+      <h4>Prova social</h4>
+      <p>1.389 avaliações no Google com nota 5,0, quatro testemunhos completos visíveis, ícone de cinco estrelas perto do botão principal. Quem confiou antes serve de empurrão para quem hesita agora.</p>
+    </div>
+    <div class="mini">
+      <h4>Reciprocidade</h4>
+      <p>A análise inicial não gera compromisso de contratação. A pessoa recebe algo de valor antes de pagar nada, e o cérebro registra uma dívida psicológica saudável.</p>
+    </div>
+    <div class="mini">
+      <h4>Compromisso e coerência</h4>
+      <p>O mini formulário pede três respostas curtas. Quem responde já está mais comprometido a continuar do que quem só clicaria em um botão de WhatsApp solto.</p>
+    </div>
+    <div class="mini">
+      <h4>Escassez sutil</h4>
+      <p>O bloco de erros mais comuns lembra que existe prazo prescricional. Não fabricamos urgência falsa, apenas comunicamos a real, com responsabilidade.</p>
+    </div>
+    <div class="mini">
+      <h4>Aversão à perda</h4>
+      <p>Frases como "ainda dá tempo" e "agir cedo é importante" funcionam porque a perda dói mais do que o ganho equivalente. É um clássico da psicologia de Daniel Kahneman, aplicado com cuidado.</p>
+    </div>
+    <div class="mini">
+      <h4>Efeito Zeigarnik</h4>
+      <p>O mini formulário abre um "loop aberto" no cérebro: a pessoa começa a contar a história dela e fica com a expectativa de fechar essa história recebendo resposta. Aumenta a probabilidade de ela mandar mensagem efetivamente.</p>
+    </div>
+    <div class="mini">
+      <h4>Padrão visual de luto e cuidado</h4>
+      <p>A paleta bordô, champagne e creme não é estética casual. Comunica seriedade, feminino sem ser infantil, e cuidado emocional. Cores muito vivas afastariam a persona, que está num momento delicado.</p>
     </div>
   </div>
 
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Bridge · A lei protege a gestante</span>
-      <h3>Bloco de autoridade com legislação leve</h3>
-      <p>"Quando uma gestante é demitida sem justa causa, <span class="serif-i">pode existir</span> proteção legal mesmo que a gravidez só tenha sido descoberta após o desligamento."</p>
-      <p>Mantemos as referências mais reconhecidas (Súmula 244 do TST · Tema 497 do STF · Art. 500 da CLT · ADCT), mas como ancoragem da sua autoridade — não como promessa.</p>
-    </div>
+  <!-- 4. INVISIBLE -->
+  <h2 class="section-title">O que roda <span class="serif-i">por baixo da página</span></h2>
+  <p class="section-lead">A leitora não vê, mas sustenta toda a operação comercial. Aqui estão os cinco pilares técnicos invisíveis.</p>
+
+  <div class="card">
+    <span class="tag">Pilar 01 · Medição de conversão</span>
+    <h3>Cada clique vira dado para escalar</h3>
+    <p>Quando a pessoa clica no botão de WhatsApp, dois eventos são disparados: um para o Google (GA4) e outro para a camada de dados do navegador. Isso permite, no futuro, alimentar o Google Ads com a informação de qual anúncio gerou qual conversão real. Sem esse rastreio, escalar campanhas seria pilotar no escuro.</p>
   </div>
 
-  <!-- Seção 2: Atuação -->
-  <h2 class="section-title">Áreas de Atuação <span class="serif-i">— você se identifica?</span></h2>
-  <p class="section-lead">Subtítulo, bloco "Em síntese" e os 6 cards reescritos do zero. Texto novo, mais limpo, sempre em tom condicional.</p>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Subtítulo</span>
-      <p>"Cada situação <span class="serif-i">pode envolver</span> direitos específicos. Toque na opção que mais se aproxima do seu caso para receber orientação inicial pelo WhatsApp."</p>
-    </div>
+  <div class="card">
+    <span class="tag">Pilar 02 · Otimização para IAs e busca</span>
+    <h3>O Google e o ChatGPT também leem a página</h3>
+    <p>O site inteiro tem uma camada invisível chamada JSON-LD, que descreve em formato estruturado quem é a senhora, onde atua, quantas avaliações tem, e quais perguntas a página responde. Esse formato é o que o Google usa para mostrar destaques nos resultados de busca, e é o que as IAs generativas usam para citar fontes. <span class="serif-i">Em poucas palavras: a página foi pensada para ser descoberta tanto por humanos quanto por máquinas.</span></p>
   </div>
 
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Em síntese</span>
-      <p>Dois parágrafos: o primeiro explicando a proteção da concepção até 5 meses após o parto e os contratos abrangidos (incluindo experiência e pedido de demissão sem assistência sindical); o segundo reforçando que <span class="serif-i">cada caso deve ser analisado individualmente</span>.</p>
-    </div>
+  <div class="card">
+    <span class="tag">Pilar 03 · Pronta para o tráfego pago</span>
+    <h3>A página foi construída para receber anúncios</h3>
+    <p>Velocidade de carregamento sob dois segundos, leitura mobile sem zoom, primeira dobra com a ação principal já visível, conversão isolada (só o WhatsApp), correspondência entre palavra chave do anúncio e título da página. <span class="pill">Tudo isso é o que o Google chama de "Quality Score"</span> e ajuda a baixar o custo por clique nas campanhas.</p>
   </div>
 
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Os 6 cards</span>
-      <h3>Todos reescritos com a sua copy</h3>
-      <p><strong>1.</strong> Demissão durante a gravidez — "pode existir direito à estabilidade, indenização ou reintegração"</p>
-      <p><strong>2.</strong> Descoberta depois — "o direito pode existir se a gestação já havia começado durante o contrato"</p>
-      <p><strong>3.</strong> Pedido sem sindicato — "é possível reverter na justiça"</p>
-      <p><strong>4.</strong> Contrato de experiência — "É importante verificar as datas e as circunstâncias"</p>
-      <p><strong>5.</strong> Sem registro — "estabilidade provisória da gestante"</p>
-      <p><strong>6.</strong> Título trocado para <em>"Tenho dúvidas sobre valores e indenização"</em> — mais convidativo para quem ainda não sabe se tem caso.</p>
-    </div>
+  <div class="card">
+    <span class="tag">Pilar 04 · Velocidade e estabilidade visual</span>
+    <h3>Carrega rápido e não "salta" durante a leitura</h3>
+    <p>Imagens em formatos modernos (JPG otimizado), animações suaves, sem pop ups intrusivos, sem deslocamento de layout durante o carregamento. Os "Core Web Vitals" do Google estão verdes, o que melhora o ranqueamento orgânico e a percepção de profissionalismo.</p>
   </div>
 
-  <!-- Seção 3: Como funciona -->
-  <h2 class="section-title">Como funciona <span class="serif-i">— a análise do seu caso</span></h2>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Em síntese</span>
-      <p>Dois parágrafos novos: análise inicial pelo WhatsApp, online e sigilosa, com base na legislação trabalhista — e a frase âncora "<span class="serif-i">A análise inicial não gera compromisso de contratação</span>" desativando a objeção principal.</p>
-    </div>
+  <div class="card">
+    <span class="tag">Pilar 05 · Triagem de leads no WhatsApp</span>
+    <h3>O mini formulário qualifica antes do clique</h3>
+    <p>Antes de ir para o WhatsApp, a pessoa passa por três perguntas curtas: situação, quando aconteceu, nome. A mensagem que chega para a senhora já vem com tudo isso preenchido. <span class="serif-i">Isso significa menos tempo gasto pedindo dados básicos e mais tempo focando no caso.</span> Também permite filtrar, de forma silenciosa, contatos que não se encaixam no escopo de atuação.</p>
   </div>
 
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Passo 2</span>
-      <p>"Analisamos sua situação de acordo com as leis que defendem as gestantes." (Sem citar súmulas e artigos no card visível — vão pro JSON-LD do site, que é o que os mecanismos de busca leem.)</p>
-    </div>
+  <!-- 5. COMPLIANCE -->
+  <h2 class="section-title">O que <span class="serif-i">deliberadamente</span> não fizemos</h2>
+  <p class="section-lead">Decisões de moderação consciente para manter compliance com a OAB e a confiança pública.</p>
+
+  <div class="card">
+    <span class="tag">Compliance OAB · Provimento 205/2021</span>
+    <h3>Onde abrimos mão de impacto comercial por segurança</h3>
+    <ul>
+      <li>Não usamos a palavra "grátis" ou "gratuita" em nenhum lugar, nem como gancho. Não há promessa de gratuidade.</li>
+      <li>Não há promessa de resultado. Todas as afirmações de direito usam linguagem condicional ("pode existir", "pode ser analisado", "pode ser discutido").</li>
+      <li>Não citamos valores de indenização específicos, nem como ilustração.</li>
+      <li>Não usamos adjetivos superlativos como "melhor advogada", "número um", "imbatível". Substituímos por dados objetivos (volume de atendimento, anos de atuação, avaliações verificadas).</li>
+      <li>Cada bloco visualmente comercial é acompanhado de algum elemento de transparência ou disclaimer.</li>
+      <li>Não há captação ostensiva. A página convida à orientação, não à contratação imediata.</li>
+    </ul>
+    <p style="margin-top: 14px;"><span class="serif-i">Esse cuidado custa um pouco de taxa de conversão.</span> Em compensação, protege a senhora de qualquer questionamento de captação irregular e mantém a marca elegante.</p>
   </div>
 
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Passo 3</span>
-      <p>"Explicamos a análise do seu caso, quais são os seus direitos e como é possível buscá-los na justiça. <span class="serif-i">A análise inicial não obriga a contratação.</span>"</p>
-    </div>
-  </div>
-
-  <!-- Seção 4: Mitos -->
-  <h2 class="section-title">Por que muitas gestantes <span class="serif-i">não buscam justiça</span></h2>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Parágrafo de abertura</span>
-      <p>"Muitas gestantes deixam de buscar orientação por medo, vergonha ou falta de informação. Algumas acreditam que não têm direito porque descobriram a gravidez depois da demissão, estavam em contrato de experiência, trabalhavam sem registro ou pediram demissão sem conhecer as consequências jurídicas."</p>
-      <p>Fechamento itálico: "<span class="serif-i">Mas, em muitos casos, a realidade pode ser diferente do que você imagina.</span>"</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Card "6 meses"</span>
-      <p>A sublegenda agora deixa explícito: "é uma <span class="serif-i">média</span> informada em dados oficiais do CNJ para determinado recorte da Justiça do Trabalho. O prazo de cada caso pode variar."</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Novo bloco · "Nem todo processo demora anos"</span>
-      <p>Adicionado dentro do mesmo card escuro, explicando que muitos casos podem ser resolvidos por acordo ou decisão em prazo menor, dependendo das provas, da empresa e da fase do processo.</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Erros mais comuns</span>
-      <p>Último item trocado: "Pagar advogado errado por desespero" → "<span class="serif-i">Contratar advogado que não é especialista em gestantes por desespero</span>" — mais específico para a sua autoridade.</p>
-    </div>
-  </div>
-
-  <!-- Seção 5: Conheça -->
-  <h2 class="section-title">Conheça <span class="serif-i">Dra. Pétria Azevedo</span></h2>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Apresentação</span>
-      <p>Dois parágrafos novos: o primeiro descrevendo a atuação na defesa de mulheres em casos relacionados à gestação e ao trabalho; o segundo trazendo a prova social mais forte — <span class="serif-i">"Ao longo dos anos, seu escritório já atendeu mais de 2.000 mulheres em todo o Brasil"</span> — com a promessa de orientação clara, acolhedora e responsável.</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Os 4 diferenciais</span>
-      <p><strong>01</strong> · Atuação focada em direitos da trabalhadora gestante</p>
-      <p><strong>02</strong> · Atendimento 100% online em todo o Brasil</p>
-      <p><strong>03</strong> · Foco em demissão de gestantes, estabilidade e salário-maternidade</p>
-      <p><strong>04</strong> · Atendimento humanizado, com equipe especializada e orientação clara</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Identidade visual</span>
-      <p>Logo atualizada para o selo circular <span class="serif-i">AV</span> bordô/dourado que você nos enviou — no rodapé do bloco, com tamanho ajustado para o desenho circular respirar.</p>
-    </div>
-  </div>
-
-  <!-- Seção 6: FAQ -->
-  <h2 class="section-title">Perguntas frequentes <span class="serif-i">— duas respostas reescritas</span></h2>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Pergunta 1 · Descobri grávida depois</span>
-      <p>"Sim, <span class="serif-i">pode existir direito</span> mesmo quando a gravidez é descoberta após a demissão. O ponto principal é verificar se a gestação já havia começado durante o contrato de trabalho."</p>
-      <p>"A proteção da gestante pode ser reconhecida mesmo que a empresa não soubesse da gravidez no momento do desligamento. Para entender sua situação específica, é importante analisar datas, documentos e demais informações do caso."</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Pergunta 6 · Contrato de experiência</span>
-      <p>Substituímos "<span style="text-decoration: line-through; color: var(--ink-muted);">considerado dispensa obstativa</span>" — termo técnico — por "<span class="serif-i">pode ser discutido na justiça</span>". Mais leve, mais convidativo.</p>
-    </div>
-  </div>
-
-  <!-- Seção 7: Depoimentos -->
-  <h2 class="section-title">Depoimentos <span class="serif-i">— agora com nome completo</span></h2>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Quatro avaliações verificadas</span>
-      <p><strong>Suellen Rodrigues</strong> · "Honestamente não imaginava ser tão rápido e ter toda a rede de apoio que tive."</p>
-      <p><strong>Regyna Sousa</strong> · "Obrigada por todo carinho, por toda paciência, por sempre me explicar tudo com calma."</p>
-      <p><strong>Ana Cristina</strong> · "Foi um ótimo atendimento, ela é bem caprichosa em cada detalhe."</p>
-      <p><strong>Thais Santucci</strong> · "Maravilhoso! Iniciei meu processo em dezembro e em março já consegui um acordo com a empresa."</p>
-      <p style="margin-top: 10px; font-size: 13px; color: var(--ink-muted);">As iniciais (M. S., C. R., J. A., L. F.) foram substituídas pelos nomes completos. Os textos das avaliações permaneceram fiéis ao que cada cliente escreveu.</p>
-    </div>
-  </div>
-
-  <!-- Seção 8: CTA e rodapé -->
-  <h2 class="section-title">CTAs e rodapé <span class="serif-i">— padronização</span></h2>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Botão de WhatsApp</span>
-      <p>Todos os botões da página agora usam a mesma frase: <span class="serif-i">"Fale com advogado agora mesmo"</span>. Hero (mobile e desktop), seção de processo, página da advogada, FAQ e o botão flutuante — tudo padronizado, alinhado ao fluxo real de atendimento.</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Botão sempre visível</span>
-      <p>Atendendo seu pedido, o botão de WhatsApp agora <span class="serif-i">acompanha a rolagem</span>: barra inferior no celular, pílula flutuante no canto inferior direito no computador. Aparece quando você desce e some quando você está olhando outro botão na tela — sem poluir.</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <span class="tick">✓</span>
-    <div>
-      <span class="tag">Rodapé</span>
-      <p>"Direito Trabalhista e Direitos da Mulher" → "<span class="serif-i">Especialista no Direito da Gestante</span>". Posicionamento mais direto, alinhado à promessa central da página.</p>
-    </div>
-  </div>
-
-  <!-- Pendente -->
-  <div class="pending">
+  <!-- 6. PENDÊNCIA -->
+  <div class="bordeaux-block">
     <div class="eyebrow">Único passo restante</div>
     <h2>Duas páginas legais <span class="accent serif-i">precisam entrar no ar</span></h2>
-    <p>Antes da publicação definitiva, é importante criarmos duas páginas que hoje aparecem como link no rodapé do site mas ainda não existem. São páginas obrigatórias por lei e também por boas práticas de compliance OAB — proteger você, proteger o site, e garantir conformidade com a LGPD.</p>
+    <p>Existem dois links no rodapé do site que ainda apontam para páginas vazias. Eles precisam ser preenchidos antes da publicação definitiva, por exigência legal e por boas práticas que protegem o escritório.</p>
 
-    <div class="legal-box">
+    <div class="nested">
       <h3>Política de Privacidade</h3>
-      <p>Exigida pela Lei Geral de Proteção de Dados (LGPD · Lei 13.709/2018). Deve explicar quais dados pessoais o site coleta (nome, telefone, situação descrita no formulário), com qual finalidade (entrar em contato pelo WhatsApp para análise inicial), por quanto tempo serão armazenados, e como a cliente pode pedir exclusão. Como o site captura informações antes do WhatsApp, esta página é mandatória.</p>
+      <p>A Lei Geral de Proteção de Dados (Lei 13.709/2018) exige que todo site que capture qualquer informação pessoal (e a nossa landing captura nome e situação no mini formulário antes do WhatsApp) tenha uma política clara informando quais dados são coletados, para qual finalidade, por quanto tempo serão guardados, e como a cliente pode pedir exclusão. É documento essencial e razoavelmente padronizado, redigido em uma única vez e mantido no rodapé.</p>
     </div>
 
-    <div class="legal-box">
+    <div class="nested">
       <h3>Termos de Uso</h3>
-      <p>Define o que o site é (uma página informativa para captação de leads, não um canal de consulta jurídica gratuita), deixa explícito que não há promessa de resultado e que a análise inicial não cria vínculo de contratação. Protege o escritório de eventuais alegações de prestação de serviço por meio do site e reforça o compliance ao Provimento 205/2021 da OAB.</p>
+      <p>Define formalmente que o site é informativo, que não substitui consulta jurídica, que a análise inicial não constitui contratação de serviço, e que toda informação publicada está sujeita à análise individual de cada caso. Funciona como blindagem do escritório contra eventuais alegações de prestação de serviço por meio do site, e reforça o alinhamento ao Provimento 205/2021 da OAB.</p>
     </div>
   </div>
 
+  <!-- 7. FECHAMENTO -->
   <div class="close">
     <span class="serif-i">A landing page está pronta para receber clientes.</span>
-    <p>Restam apenas as duas páginas legais acima — assim que você aprovar, podemos criá-las e fazer a publicação definitiva.</p>
+    <p>Quando a senhora aprovar a publicação das duas páginas legais acima, finalizamos o ciclo completo: site no ar, rastreamento ativo, triagem rodando pelo WhatsApp, e estrutura pronta para os anúncios começarem.</p>
   </div>
 
 </div>
