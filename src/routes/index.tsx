@@ -7,8 +7,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { WhatsappButton, StickyMobileCTA } from "@/components/whatsapp-button";
-import { clickWhatsapp } from "@/lib/whatsapp";
+import { WhatsappIcon } from "@/components/whatsapp-button";
+import {
+  WhatsappLeadProvider,
+  useWhatsappLead,
+  originToSituation,
+  LeadButton,
+  LeadStickyCTA,
+} from "@/components/whatsapp-lead-dialog";
 import heroImg from "@/assets/hero-gestante.jpg";
 import petriaPortrait from "@/assets/petria-portrait.jpg";
 import logoSymbol from "@/assets/azevedo-symbol.png";
@@ -289,21 +295,23 @@ export const Route = createFileRoute("/")({
 
 export function GestantePage() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <TopBar />
-      <Hero />
-      <Bridge />
-      <IdentifyCards />
-      <HowItWorks />
-      <Storytelling />
-      <Authority />
-      <Faq />
-      <Reviews />
-      <Prescricao />
-      <FinalCTA />
-      <Footer />
-      <StickyMobileCTA />
-    </main>
+    <WhatsappLeadProvider>
+      <main className="min-h-screen bg-background text-foreground">
+        <TopBar />
+        <Hero />
+        <Bridge />
+        <IdentifyCards />
+        <HowItWorks />
+        <Storytelling />
+        <Authority />
+        <Faq />
+        <Reviews />
+        <Prescricao />
+        <FinalCTA />
+        <Footer />
+        <LeadStickyCTA />
+      </main>
+    </WhatsappLeadProvider>
   );
 }
 
@@ -388,9 +396,9 @@ function MobileHero() {
           height={1200}
           decoding="async"
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover opacity-55"
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
         />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-[var(--color-bordeaux-deep)]/55 via-[var(--color-bordeaux-deep)]/75 to-[var(--color-bordeaux-deep)]" />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-[var(--color-bordeaux-deep)]/75 via-[var(--color-bordeaux-deep)]/88 to-[var(--color-bordeaux-deep)]" />
         <div aria-hidden className="texture-paper-layer is-dark pointer-events-none absolute inset-0" />
 
         <div className="relative px-5 pb-10 pt-8">
@@ -436,7 +444,7 @@ function MobileHero() {
 
           {/* CTA */}
           <div className="mt-7">
-            <WhatsappButton origin="hero-mobile" size="lg" fullWidth label="Falar com a Dra. Pétria agora" />
+            <LeadButton origin="hero-mobile" size="lg" fullWidth label="Falar com a Dra. Pétria agora" />
             <div className="mt-3.5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11.5px] text-[var(--color-cream)]/70">
               <span className="inline-flex items-center gap-1.5">
                 <span className="relative flex size-1.5">
@@ -553,7 +561,7 @@ function DesktopHero() {
           </p>
 
           <div className="mt-9 flex flex-row items-center gap-5">
-            <WhatsappButton origin="hero" size="xl" label="Falar com a Dra. Pétria agora" />
+            <LeadButton origin="hero" size="xl" label="Falar com a Dra. Pétria agora" />
             <div className="flex items-center gap-3 rounded-2xl border border-[var(--color-bordeaux)]/12 bg-white/60 px-4 py-2.5 shadow-soft backdrop-blur">
               <div className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--color-champagne)]/20 text-[var(--color-bordeaux)] ring-1 ring-[var(--color-champagne)]/50">
                 <HeartHandshake className="size-5" aria-hidden="true" />
@@ -744,6 +752,7 @@ function Bridge() {
 /* ----------------------------- IDENTIFY CARDS ----------------------------- */
 
 function IdentifyCards() {
+  const { open: openLead } = useWhatsappLead();
   const cards = [
     {
       icon: Scale,
@@ -827,8 +836,8 @@ function IdentifyCards() {
               key={origin}
               type="button"
               data-wa-cta
-              onClick={() => clickWhatsapp(origin)}
-              aria-label={`${title}. Conversar com advogada no WhatsApp.`}
+              onClick={() => openLead({ origin, prefillSituation: originToSituation(origin) })}
+              aria-label={`${title}. Falar com a Dra. Pétria no WhatsApp.`}
               className="group relative flex h-full flex-col rounded-2xl border border-[var(--color-bordeaux)]/10 bg-card p-6 text-left shadow-soft transition-all duration-200 hover:-translate-y-1 hover:border-[var(--color-bordeaux)]/35 hover:shadow-warm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-bordeaux)] active:scale-[0.99]"
             >
               <div className="flex items-center justify-between">
@@ -940,7 +949,7 @@ function HowItWorks() {
         </ol>
 
         <div className="mt-12 flex flex-col items-center gap-3">
-          <WhatsappButton origin="how-it-works" />
+          <LeadButton origin="how-it-works" />
           <p className="text-[11.5px] font-medium text-foreground/55">
             Resposta direta de uma advogada · Sem robôs
           </p>
@@ -1190,7 +1199,7 @@ function Authority() {
             </ul>
 
             <div className="mt-9">
-              <WhatsappButton origin="authority" label="Falar com a Dra. Pétria agora" />
+              <LeadButton origin="authority" label="Falar com a Dra. Pétria agora" />
             </div>
           </div>
         </div>
@@ -1259,7 +1268,7 @@ function Faq() {
         </Accordion>
 
         <div className="mt-12 flex justify-center">
-          <WhatsappButton origin="faq" label="Falar com a Dra. Pétria agora" />
+          <LeadButton origin="faq" label="Falar com a Dra. Pétria agora" />
         </div>
       </div>
     </section>
@@ -1431,7 +1440,7 @@ function FinalCTA() {
         </p>
 
         <div className="mt-9 flex justify-center sm:mt-10">
-          <WhatsappButton origin="final" size="xl" />
+          <LeadButton origin="final" size="xl" />
         </div>
 
         <ul className="mt-8 flex flex-col items-center gap-2.5 text-[13.5px] text-[var(--color-cream)]/72 sm:mt-9 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-7 sm:gap-y-2 sm:text-sm">
