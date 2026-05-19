@@ -694,18 +694,22 @@ function Bridge() {
         <div className="mb-6 flex items-center justify-center gap-3 sm:mb-8">
           <span className="h-px w-8 bg-[var(--color-champagne)] sm:w-12" />
           <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-bordeaux)] sm:text-[10.5px]">
-            Fundamentos jurídicos
+            A lei protege a gestante
           </span>
           <span className="h-px w-8 bg-[var(--color-champagne)] sm:w-12" />
         </div>
         <p className="text-pretty text-center text-[15.5px] leading-[1.72] text-foreground/82 sm:text-lg sm:leading-[1.75]">
-          Quando uma gestante é demitida sem justa causa, mesmo que a gravidez
-          tenha sido descoberta depois, pode existir proteção legal aplicável. A{" "}
-          <strong className="text-foreground">Dra. Pétria Azevedo</strong> atua
-          há mais de 11 anos em <strong>Direito Trabalhista da Gestante</strong>,
-          com base na <strong>Súmula 244 do TST</strong>, no{" "}
+          Quando uma gestante é demitida sem justa causa, pode existir
+          proteção legal mesmo que a gravidez só tenha sido descoberta após
+          o desligamento.
+        </p>
+        <p className="mt-5 text-pretty text-center text-[15px] leading-[1.7] text-foreground/72 sm:text-base sm:leading-[1.75]">
+          A <strong className="text-foreground">Dra. Pétria Azevedo</strong> atua
+          há mais de 11 anos em casos envolvendo gestantes trabalhadoras, com
+          análise baseada na legislação trabalhista, na{" "}
+          <strong>Súmula 244 do TST</strong>, no{" "}
           <strong>Tema 497 do STF</strong> e no{" "}
-          <strong>Art. 10, II, b do ADCT</strong>.
+          <strong>art. 10, II, “b”, do ADCT</strong>.
         </p>
 
         {/* Timeline: como a proteção funciona na prática */}
@@ -715,17 +719,17 @@ function Bridge() {
               {
                 step: "01",
                 title: "Concepção",
-                desc: "A estabilidade começa aqui, mesmo sem você ou a empresa saber ainda.",
+                desc: "A proteção pode existir quando a gestação teve início durante o contrato de trabalho, mesmo que ainda não fosse conhecida.",
               },
               {
                 step: "02",
                 title: "Demissão",
-                desc: "Mesmo que ocorra antes da descoberta da gravidez, ela continua nula.",
+                desc: "Mesmo que a gravidez seja descoberta após a demissão, pode existir direito à estabilidade.",
               },
               {
                 step: "03",
                 title: "Estabilidade",
-                desc: "Reintegração ou indenização do período: salários, FGTS, 13º, férias.",
+                desc: "A gestante pode ter direito à reintegração ou à indenização do período de estabilidade, conforme a análise do caso.",
               },
             ].map((s, i, arr) => (
               <div key={s.step} className="relative">
