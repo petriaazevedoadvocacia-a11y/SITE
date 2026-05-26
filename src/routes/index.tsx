@@ -612,7 +612,7 @@ function DesktopHero() {
             </li>
             <li>
               <p className="font-serif-italic text-4xl text-[var(--color-bordeaux)]">100%</p>
-              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">Foco no Direito da Mulher</p>
+              <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[var(--color-bordeaux-deep)]/70">Foco no Direito da Gestante</p>
             </li>
             <li>
               <p className="font-serif-italic text-4xl text-[var(--color-bordeaux)]">5,0★</p>
@@ -967,7 +967,7 @@ function HowItWorks() {
         </ol>
 
         <div className="mt-12 flex flex-col items-center gap-3">
-          <LeadButton origin="how-it-works" />
+          <LeadButton origin="how-it-works" label="Fale com advogado agora mesmo" />
           <p className="text-[11.5px] font-medium text-foreground/55">
             Resposta direta de uma advogada · Sem robôs
           </p>
@@ -1036,7 +1036,7 @@ function Storytelling() {
                   },
                   {
                     mito: "Processar empresa demora anos no Brasil",
-                    real: "Tempo médio é de 6 meses e 17 dias (Justiça em Números 2025, CNJ)",
+                    real: "Tempo médio é de 6 meses (Justiça em Números 2025, CNJ)",
                   },
                 ].map((row, i, arr) => (
                   <tr
@@ -1096,10 +1096,7 @@ function Storytelling() {
           </div>
 
           <p className="mt-7 font-serif-italic text-[3.2rem] leading-[0.95] text-[var(--color-champagne)] sm:text-[4rem] lg:text-[4.8rem]">
-            6 meses<br />
-            <span className="text-[2rem] not-italic sm:text-[2.5rem] lg:text-[2.8rem]">
-              e 17 dias
-            </span>
+            6 meses
           </p>
           <p className="mt-5 text-[15px] leading-[1.6] text-[var(--color-cream)]/82 sm:text-base">
             é uma média informada em dados oficiais do CNJ para determinado
