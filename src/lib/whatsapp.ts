@@ -1,7 +1,7 @@
 // Centralized WhatsApp click handler with GA4 + dataLayer tracking
 const WA_NUMBER = "552732082264";
 const WA_TEXT = encodeURIComponent(
-  "Olá Dra. Pétria, vim pelo site sobre direitos da gestante. Gostaria de entender melhor o meu caso."
+  "Olá, vim pelo site sobre direitos da gestante. Gostaria de entender melhor o meu caso."
 );
 export const WA_URL = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${WA_TEXT}`;
 

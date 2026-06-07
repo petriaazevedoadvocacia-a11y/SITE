@@ -90,7 +90,7 @@ export function WhatsappLeadProvider({ children }: { children: ReactNode }) {
       const sit = SITUATIONS.find((s) => s.id === situation)?.label ?? "Não informado";
       const t = TIMINGS.find((t) => t.id === timing)?.label ?? "Não informado";
       const cleanName = name.trim();
-      const greeting = cleanName ? `Olá Dra. Pétria, meu nome é ${cleanName}.` : "Olá Dra. Pétria.";
+      const greeting = cleanName ? `Olá, meu nome é ${cleanName}.` : "Olá.";
 
       const message = [
         greeting,
