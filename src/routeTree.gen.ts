@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as V3RouteImport } from './routes/v3'
 import { Route as V2RouteImport } from './routes/v2'
 import { Route as V1RouteImport } from './routes/v1'
+import { Route as TermosDeUsoRouteImport } from './routes/termos-de-uso'
+import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
 import { Route as IndexRouteImport } from './routes/index'
 
 const V3Route = V3RouteImport.update({
@@ -29,6 +31,16 @@ const V1Route = V1RouteImport.update({
   path: '/v1',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermosDeUsoRoute = TermosDeUsoRouteImport.update({
+  id: '/termos-de-uso',
+  path: '/termos-de-uso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaDePrivacidadeRoute = PoliticaDePrivacidadeRouteImport.update({
+  id: '/politica-de-privacidade',
+  path: '/politica-de-privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +49,16 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/termos-de-uso': typeof TermosDeUsoRoute
   '/v1': typeof V1Route
   '/v2': typeof V2Route
   '/v3': typeof V3Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/termos-de-uso': typeof TermosDeUsoRoute
   '/v1': typeof V1Route
   '/v2': typeof V2Route
   '/v3': typeof V3Route
@@ -50,20 +66,43 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/termos-de-uso': typeof TermosDeUsoRoute
   '/v1': typeof V1Route
   '/v2': typeof V2Route
   '/v3': typeof V3Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/v1' | '/v2' | '/v3'
+  fullPaths:
+    | '/'
+    | '/politica-de-privacidade'
+    | '/termos-de-uso'
+    | '/v1'
+    | '/v2'
+    | '/v3'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/v1' | '/v2' | '/v3'
-  id: '__root__' | '/' | '/v1' | '/v2' | '/v3'
+  to:
+    | '/'
+    | '/politica-de-privacidade'
+    | '/termos-de-uso'
+    | '/v1'
+    | '/v2'
+    | '/v3'
+  id:
+    | '__root__'
+    | '/'
+    | '/politica-de-privacidade'
+    | '/termos-de-uso'
+    | '/v1'
+    | '/v2'
+    | '/v3'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
+  TermosDeUsoRoute: typeof TermosDeUsoRoute
   V1Route: typeof V1Route
   V2Route: typeof V2Route
   V3Route: typeof V3Route
@@ -92,6 +131,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof V1RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/termos-de-uso': {
+      id: '/termos-de-uso'
+      path: '/termos-de-uso'
+      fullPath: '/termos-de-uso'
+      preLoaderRoute: typeof TermosDeUsoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-de-privacidade': {
+      id: '/politica-de-privacidade'
+      path: '/politica-de-privacidade'
+      fullPath: '/politica-de-privacidade'
+      preLoaderRoute: typeof PoliticaDePrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +157,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
+  TermosDeUsoRoute: TermosDeUsoRoute,
   V1Route: V1Route,
   V2Route: V2Route,
   V3Route: V3Route,

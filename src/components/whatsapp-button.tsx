@@ -62,6 +62,94 @@ export function WhatsappButton({
 
 export { WhatsappIcon };
 
+// Sticky CTA (mobile bar + desktop pill): abre o WhatsApp direto.
+// Aparece após scroll e some quando outro CTA está visível no viewport.
+export function StickyCTA() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+    const otherCtas = () =>
+      Array.from(document.querySelectorAll<HTMLElement>("[data-wa-cta]:not([data-sticky])"));
+    const update = () => {
+      ticking = false;
+      const scrolled = window.scrollY > 200;
+      if (!scrolled) {
+        setVisible(false);
+        return;
+      }
+      const vh = window.innerHeight;
+      const overlap = otherCtas().some((el) => {
+        const r = el.getBoundingClientRect();
+        return r.bottom > 60 && r.top < vh - 40;
+      });
+      setVisible(!overlap);
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  return (
+    <>
+      {/* Mobile: barra inferior full-width */}
+      <div
+        data-sticky
+        className={cn(
+          "fixed inset-x-0 bottom-0 z-40 px-4 pb-4 pt-3 md:hidden",
+          "bg-gradient-to-t from-background via-background/95 to-background/0",
+          "transition-all duration-300",
+          visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none",
+        )}
+      >
+        <button
+          type="button"
+          data-wa-cta
+          data-sticky
+          aria-label="Falar com advogado pelo WhatsApp"
+          onClick={() => clickWhatsapp("sticky-mobile")}
+          className="flex w-full items-center justify-center gap-3 rounded-full bg-[var(--color-whatsapp)] px-6 py-4 text-base font-semibold text-white shadow-warm active:scale-[0.98] transition-transform"
+        >
+          <WhatsappIcon className="size-6" />
+          Fale com advogado agora mesmo
+        </button>
+      </div>
+
+      {/* Desktop: pill flutuante bottom-right */}
+      <div
+        data-sticky
+        className={cn(
+          "fixed bottom-6 right-6 z-40 hidden md:block",
+          "transition-all duration-300",
+          visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none",
+        )}
+      >
+        <button
+          type="button"
+          data-wa-cta
+          data-sticky
+          aria-label="Falar com advogado pelo WhatsApp"
+          onClick={() => clickWhatsapp("sticky-desktop")}
+          className="flex items-center gap-3 rounded-full bg-[var(--color-whatsapp)] px-6 py-3.5 text-[15px] font-semibold text-white shadow-warm hover:brightness-105 active:scale-[0.98] transition"
+        >
+          <WhatsappIcon className="size-5" />
+          Fale com advogado agora mesmo
+        </button>
+      </div>
+    </>
+  );
+}
+
 // Sticky mobile CTA: shows after 650px scroll, hides if any other WA CTA is in viewport
 export function StickyMobileCTA() {
   const [visible, setVisible] = useState(false);
